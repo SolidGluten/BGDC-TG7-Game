@@ -3,12 +3,22 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public enum Rooms{Cashier, Frying, Garden}
+public enum Rooms{Cashier = 2, Frying, Garden}
 
 public class SceneController : MonoBehaviour
 {
-    public static void ChangeSceneAdditive(int roomIndx)
+    public int currentRoomIndex;
+
+    public void Start()
     {
+        SceneManager.LoadScene((int)Rooms.Cashier, LoadSceneMode.Additive);
+        currentRoomIndex = (int)Rooms.Cashier;
+    }
+
+    public void ChangeSceneAdditive(int roomIndx)
+    {
+        SceneManager.UnloadSceneAsync(currentRoomIndex);
         SceneManager.LoadScene(roomIndx, LoadSceneMode.Additive);
+        currentRoomIndex = roomIndx;
     }
 }
