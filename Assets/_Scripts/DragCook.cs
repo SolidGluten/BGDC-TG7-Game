@@ -2,15 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DragAndDrop : MonoBehaviour
+public class DragCook : MonoBehaviour
 {
     bool canMove;
     bool Drag;
-    Collider2D collider;
+    new Collider2D collider;
+    [SerializeField] private GameObject Cook;
+    Vector2 OriPos;
     // Start is called before the first frame update
     void Start()
     {
         collider = GetComponent<Collider2D>();
+        OriPos = transform.position;
         canMove = true;
         Drag = true;
     }
@@ -48,6 +51,7 @@ public class DragAndDrop : MonoBehaviour
         {
             canMove = false;
             Drag = false;
+            this.transform.position = OriPos;
         }
     }
 }

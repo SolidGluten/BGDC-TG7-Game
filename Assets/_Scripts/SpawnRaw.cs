@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class SpawnIngridient : MonoBehaviour
 {
-    [SerializeField] private GameObject Ingridient;
+    [SerializeField] private GameObject Raw;
 
     // Update is called once per frame
-    public void OnMouseOver()
+    private void OnMouseOver()
     {
         if (Input.GetMouseButtonDown(0))
         {
-            Instantiate(Ingridient, transform.position, Quaternion.identity);
+            Instantiate(Raw, transform.position, Quaternion.identity);
         }
     }
 }
