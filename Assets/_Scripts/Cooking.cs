@@ -13,21 +13,27 @@ public class Cooking : MonoBehaviour
     private float cookTime = 5;
     private float burnTime = 5;
     [SerializeField] private GameObject Cooked;
-    Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+    Camera mainCam;
+    Vector2 mousePos;
+
     void Start()
     {
+        mainCam = Camera.main;
+        mousePos = mainCam.ScreenToWorldPoint(Input.mousePosition);
         collider = GetComponent<Collider2D>();
         isEmpty = true;
-        spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
-    //void OnCollisionStay2D(Collision other)
-    //{
-    //    if (other.gameObject.CompareTag("Raw") && Input.GetMouseButtonUp(0))
-    //    {
-    //        isEmpty = false;
-    //        Debug.Log("Inside");
-    //    }
-    //}
+
+    private void OnTriggerStay2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("Raw") && Input.GetMouseButtonUp(0))
+        {
+            isEmpty = false;
+            Debug.Log("Inside");
+        }
+    }
+
     void Update()
     {
         //Idk how to check if the raw meat is inside the pan collider, used OnCollisionStay2D but it didnt work (might just be me using it wrong)
@@ -44,6 +50,7 @@ public class Cooking : MonoBehaviour
         {
             CookSprite();
             cookTime -= Time.deltaTime;
+            Debug.Log(cookTime);
         }
         else
         {

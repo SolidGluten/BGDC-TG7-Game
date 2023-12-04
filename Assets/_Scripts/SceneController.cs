@@ -20,5 +20,6 @@ public class SceneController : MonoBehaviour
         SceneManager.UnloadSceneAsync(currentRoomIndex);
         SceneManager.LoadScene(roomIndx, LoadSceneMode.Additive);
         currentRoomIndex = roomIndx;
+        SceneManager.SetActiveScene(SceneManager.GetSceneByBuildIndex(currentRoomIndex));
     }
 }

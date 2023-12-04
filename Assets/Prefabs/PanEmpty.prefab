@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5832439764764418297}
   - component: {fileID: 1093804940458182982}
   - component: {fileID: -8554189350707723993}
+  - component: {fileID: 6078752239695758531}
   m_Layer: 0
   m_Name: PanEmpty
   m_TagString: Untagged
@@ -115,7 +116,7 @@ CircleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.009504283, y: 0}
@@ -137,3 +138,31 @@ MonoBehaviour:
   readySprite: {fileID: 21300000, guid: 32caaad6daf2d7f46ab9cba6d8196ccc, type: 3}
   cookSprite: {fileID: 21300000, guid: 83e07393e9c5fa74d9e17087683d383c, type: 3}
   oldSprite: {fileID: 21300000, guid: e62ddb8a3c6c48247bc4e81c26b9e379, type: 3}
+  Cooked: {fileID: 0}
+--- !u!50 &6078752239695758531
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1062067704553421541}
+  m_BodyType: 2
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
