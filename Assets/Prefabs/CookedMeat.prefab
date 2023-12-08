@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3725817451419159255}
   - component: {fileID: 2921518453237733966}
   - component: {fileID: 8954125081006833916}
-  - component: {fileID: 7337891407975809917}
+  - component: {fileID: 4959493928818846780}
   m_Layer: 0
   m_Name: CookedMeat
   m_TagString: Cooked
@@ -131,7 +131,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &7337891407975809917
+--- !u!114 &4959493928818846780
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -140,7 +140,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4933333589808531325}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a4cc8ffcf4c87f7438015f1e15138af7, type: 3}
+  m_Script: {fileID: 11500000, guid: 9a5b7c3cd13832b448e991f60496b616, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Raw: {fileID: 4933333589808531325}
+  Cook: {fileID: 4933333589808531325}

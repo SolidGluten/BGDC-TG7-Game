@@ -134,10 +134,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8969b7deb57b3f64199e4baecb73f552, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spriteRenderer: {fileID: 0}
   readySprite: {fileID: 21300000, guid: 32caaad6daf2d7f46ab9cba6d8196ccc, type: 3}
   cookSprite: {fileID: 21300000, guid: 83e07393e9c5fa74d9e17087683d383c, type: 3}
   oldSprite: {fileID: 21300000, guid: e62ddb8a3c6c48247bc4e81c26b9e379, type: 3}
+  CookTime: 5
+  BurnTime: 5
   Cooked: {fileID: 0}
 --- !u!50 &6078752239695758531
 Rigidbody2D:

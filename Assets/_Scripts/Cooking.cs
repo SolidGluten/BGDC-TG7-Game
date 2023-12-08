@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Cooking : MonoBehaviour
 {
-    private bool isEmpty;
+    private bool isEmpty, isCooked;
     new Collider2D collider;
     private SpriteRenderer spriteRenderer;
     [SerializeField] private Sprite readySprite;
@@ -20,22 +20,27 @@ public class Cooking : MonoBehaviour
 
     void Start()
     {
+        Reset();
         mainCam = Camera.main;
         collider = GetComponent<Collider2D>();
         isEmpty = true;
+        isCooked = false;
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     void Update()
     {
         //Do u need this? If so then put it into the update so it can always keep track of the mouse po
-        mousePos = mainCam.ScreenToWorldPoint(Input.mousePosition);
+        //mousePos = mainCam.ScreenToWorldPoint(Input.mousePosition);
 
         //Idk how to check if the raw meat is inside the pan collider, used OnCollisionStay2D but it didnt work (might just be me using it wrong)
         //It's good lmao
         if (isEmpty == false)
         {
             Cook();
+        }
+        if (isCooked == true)
+        {
             Reset();
         }
     }
@@ -45,7 +50,16 @@ public class Cooking : MonoBehaviour
         if (other.gameObject.CompareTag("Raw") && Input.GetMouseButtonUp(0))
         {
             isEmpty = false;
-            Debug.Log("Inside");
+        }
+    }
+    private void OnMouseOver()
+    {
+        if (Input.GetMouseButtonDown(0) && currentCookTime <= 0)
+        {
+            Instantiate(Cooked, transform.position, Quaternion.identity);
+            isEmpty = true;
+            isCooked = true;
+            ChangeSprite(oldSprite);
         }
     }
 
@@ -63,16 +77,6 @@ public class Cooking : MonoBehaviour
             {
                 ChangeSprite(readySprite);
                 currentBurnTime -= Time.deltaTime;
-
-                if (Input.GetMouseButtonDown(0))
-                {
-                    if (collider == Physics2D.OverlapPoint(mousePos))
-                    {
-                        Instantiate(Cooked, transform.position, Quaternion.identity);
-                        isEmpty = true;
-                        ChangeSprite(oldSprite);
-                    } 
-                }
             }
             else
             {
