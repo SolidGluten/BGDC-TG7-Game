@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -11,15 +13,29 @@ public class SceneController : MonoBehaviour
 
     public void Start()
     {
+        //Load default scene
         SceneManager.LoadScene((int)Rooms.Cashier, LoadSceneMode.Additive);
         currentRoomIndex = (int)Rooms.Cashier;
     }
 
-    public void ChangeSceneAdditive(int roomIndx)
+    public IEnumerator ChangeScene(int roomIndx)
     {
+        //Dont change scene if we're changing into the same scene
+        if(roomIndx == currentRoomIndex)
+        {
+            yield break;
+        }
+
         SceneManager.UnloadSceneAsync(currentRoomIndex);
-        SceneManager.LoadScene(roomIndx, LoadSceneMode.Additive);
+        AsyncOperation sceneLoaded = SceneManager.LoadSceneAsync(roomIndx, LoadSceneMode.Additive);
+        //Wait for the scene to finish loading
+        while (!sceneLoaded.isDone)
+        {
+            //Debug.Log(sceneLoaded.progress);
+            yield return null;
+        }
         currentRoomIndex = roomIndx;
+        //Change active scene as the current room index
         SceneManager.SetActiveScene(SceneManager.GetSceneByBuildIndex(currentRoomIndex));
     }
 }

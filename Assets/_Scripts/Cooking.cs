@@ -6,23 +6,38 @@ public class Cooking : MonoBehaviour
 {
     private bool isEmpty;
     new Collider2D collider;
-    [SerializeField] private SpriteRenderer spriteRenderer;
+    private SpriteRenderer spriteRenderer;
     [SerializeField] private Sprite readySprite;
     [SerializeField] private Sprite cookSprite;
     [SerializeField] private Sprite oldSprite;
-    private float cookTime = 5;
-    private float burnTime = 5;
+    public float CookTime, BurnTime;
+
+    private float currentCookTime, currentBurnTime;
     [SerializeField] private GameObject Cooked;
+
     Camera mainCam;
     Vector2 mousePos;
 
     void Start()
     {
         mainCam = Camera.main;
-        mousePos = mainCam.ScreenToWorldPoint(Input.mousePosition);
         collider = GetComponent<Collider2D>();
         isEmpty = true;
         spriteRenderer = GetComponent<SpriteRenderer>();
+    }
+
+    void Update()
+    {
+        //Do u need this? If so then put it into the update so it can always keep track of the mouse po
+        mousePos = mainCam.ScreenToWorldPoint(Input.mousePosition);
+
+        //Idk how to check if the raw meat is inside the pan collider, used OnCollisionStay2D but it didnt work (might just be me using it wrong)
+        //It's good lmao
+        if (isEmpty == false)
+        {
+            Cook();
+            Reset();
+        }
     }
 
     private void OnTriggerStay2D(Collider2D other)
@@ -34,30 +49,20 @@ public class Cooking : MonoBehaviour
         }
     }
 
-    void Update()
-    {
-        //Idk how to check if the raw meat is inside the pan collider, used OnCollisionStay2D but it didnt work (might just be me using it wrong)
-        if (isEmpty == false)
-        {
-            Cook();
-            Reset();
-        }
-    }
-
     void Cook()
     {
-        if (cookTime > 0)
+        if (currentCookTime > 0)
         {
-            CookSprite();
-            cookTime -= Time.deltaTime;
-            Debug.Log(cookTime);
+            ChangeSprite(cookSprite);
+            currentCookTime -= Time.deltaTime;
+            Debug.Log(currentCookTime);
         }
         else
         {
-            if (burnTime > 0)
+            if (currentBurnTime > 0)
             {
-                ReadySprite();
-                burnTime -= Time.deltaTime;
+                ChangeSprite(readySprite);
+                currentBurnTime -= Time.deltaTime;
 
                 if (Input.GetMouseButtonDown(0))
                 {
@@ -65,7 +70,7 @@ public class Cooking : MonoBehaviour
                     {
                         Instantiate(Cooked, transform.position, Quaternion.identity);
                         isEmpty = true;
-                        EmptySprite();
+                        ChangeSprite(oldSprite);
                     } 
                 }
             }
@@ -76,22 +81,16 @@ public class Cooking : MonoBehaviour
         }
     }
 
-    void CookSprite()
+    //Combined the 3 CookSprite, ReadySprite, & EmptySprite into 1 function
+    void ChangeSprite(Sprite sprite)
     {
-        spriteRenderer.sprite = cookSprite;
+        spriteRenderer.sprite = sprite;
     }
-    void ReadySprite()
-    {
-        spriteRenderer.sprite = readySprite;
-    }
-    void EmptySprite()
-    {
-        spriteRenderer.sprite = oldSprite;
-    }
+
     private void Reset()
     {
-        burnTime = 5;
-        cookTime = 5;
+        currentCookTime = CookTime;
+        currentBurnTime = BurnTime;
     }
 
 }
