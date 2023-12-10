@@ -14,7 +14,7 @@ public class Button : MonoBehaviour
     {
         if(Input.GetMouseButtonDown(0))
         {
-           StartCoroutine(SceneController.ChangeScene((int)RoomTo));
+           
         }
     }
 
