@@ -9,7 +9,8 @@ public class DragCook : MonoBehaviour
     new Collider2D collider;
     [SerializeField] private GameObject Cook;
     Vector2 OriPos;
-    // Start is called before the first frame update
+
+
     void Start()
     {
         collider = GetComponent<Collider2D>();

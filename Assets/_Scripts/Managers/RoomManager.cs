@@ -18,7 +18,7 @@ public class RoomManager : MonoBehaviour
 
     private void Start()
     {
-        
+        currentActiveRoom.SetRoomActive(true);  
     }
 
     private void Update()
