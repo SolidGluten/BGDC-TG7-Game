@@ -15,18 +15,16 @@ public class RoomManager : MonoBehaviour
 {
     public Room currentActiveRoom;
     public List<Room> roomList = new List<Room>();
+    [SerializeField] bool isSending = false;
+    public Room roomDestination;
 
     private void Start()
     {
         currentActiveRoom.SetRoomActive(true);  
     }
 
-    private void Update()
-    {
-        
-    }
-
-    public void ChangeRoom(int nextRoomCode){ 
+    public void ChangeRoom(int nextRoomCode){
+        if (isSending) return;
         //iterate every rooms in the list
         foreach (Room room in roomList)
         {
@@ -45,6 +43,43 @@ public class RoomManager : MonoBehaviour
 
         Debug.Log("Room not found!");
         return;
+    }
+
+    public void SendMode()
+    {
+        isSending = !isSending;
+        roomDestination = null;
+    }
+
+    public void SetRoomDestination(int code)
+    {
+        if (!isSending) return;
+
+        roomDestination = roomList.Find(i => i.roomCode == (RoomCode)code);
+        if(roomDestination == null)
+        {
+            Debug.Log("Room not found!");
+        }
+    }
+
+    public void SendFood()
+    {
+        if (!isSending) return;
+
+        if (roomDestination == null)
+        {
+            Debug.Log("Room not found!");
+            return;
+        }
+
+        Debug.Log("Sent Succesfully!");
+        roomDestination.roomElevator.foodObj = currentActiveRoom.roomElevator.foodObj;
+
+        GameObject Food = currentActiveRoom.roomElevator.foodObj;
+        Food.transform.parent = roomDestination.gameObject.transform;
+
+        currentActiveRoom.roomElevator.foodObj = null;
+        isSending = false;
     }
 }
 

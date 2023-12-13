@@ -139,7 +139,7 @@ MonoBehaviour:
   oldSprite: {fileID: 21300000, guid: e62ddb8a3c6c48247bc4e81c26b9e379, type: 3}
   CookTime: 5
   BurnTime: 5
-  Cooked: {fileID: 0}
+  Cooked: {fileID: 4933333589808531325, guid: 7cba75461d4173f4e83b1a60acc5534a, type: 3}
 --- !u!50 &6078752239695758531
 Rigidbody2D:
   serializedVersion: 4

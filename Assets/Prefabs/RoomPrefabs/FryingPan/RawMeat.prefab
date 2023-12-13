@@ -11,8 +11,9 @@ GameObject:
   - component: {fileID: 6456722794881080813}
   - component: {fileID: 1935834613622707524}
   - component: {fileID: 7876708285011923554}
-  - component: {fileID: 7023721737020628430}
   - component: {fileID: 2316713208788155263}
+  - component: {fileID: -8481689236518980601}
+  - component: {fileID: 4306440910476162448}
   m_Layer: 0
   m_Name: RawMeat
   m_TagString: Raw
@@ -132,19 +133,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &7023721737020628430
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5376538891091498257}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a4cc8ffcf4c87f7438015f1e15138af7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Raw: {fileID: 5376538891091498257}
 --- !u!50 &2316713208788155263
 Rigidbody2D:
   serializedVersion: 4
@@ -172,3 +160,29 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &-8481689236518980601
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5376538891091498257}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3031b4a893212b8439f22ec47e9fc24c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dragAndDrop: {fileID: 0}
+  isDrag: 0
+--- !u!114 &4306440910476162448
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5376538891091498257}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d39f7a0e7e8e4dc4a98b62b39739c74d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

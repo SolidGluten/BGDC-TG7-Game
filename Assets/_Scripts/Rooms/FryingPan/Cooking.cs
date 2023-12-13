@@ -5,7 +5,6 @@ using UnityEngine;
 public class Cooking : MonoBehaviour
 {
     private bool isEmpty, isCooked;
-    new Collider2D collider;
     private SpriteRenderer spriteRenderer;
     [SerializeField] private Sprite readySprite;
     [SerializeField] private Sprite cookSprite;
@@ -22,7 +21,6 @@ public class Cooking : MonoBehaviour
     {
         Reset();
         mainCam = Camera.main;
-        collider = GetComponent<Collider2D>();
         isEmpty = true;
         isCooked = false;
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -30,9 +28,6 @@ public class Cooking : MonoBehaviour
 
     void Update()
     {
-        //Do u need this? If so then put it into the update so it can always keep track of the mouse po
-        //mousePos = mainCam.ScreenToWorldPoint(Input.mousePosition);
-
         //Idk how to check if the raw meat is inside the pan collider, used OnCollisionStay2D but it didnt work (might just be me using it wrong)
         //It's good lmao
         if (isEmpty == false)
@@ -47,23 +42,24 @@ public class Cooking : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("Raw") && Input.GetMouseButtonUp(0))
+        if (other.gameObject.CompareTag("Raw") && isEmpty)
         {
+            Destroy(other.gameObject);
             isEmpty = false;
         }
     }
-    private void OnMouseOver()
+
+    private void OnMouseDown()
     {
-        if (Input.GetMouseButtonDown(0) && currentCookTime <= 0)
+        if (currentCookTime <= 0)
         {
-            Instantiate(Cooked, transform.position, Quaternion.identity);
-            isEmpty = true;
-            isCooked = true;
+            Instantiate(Cooked, transform.position, Quaternion.identity, transform.parent);
+            isEmpty = true; isCooked = true;
             ChangeSprite(oldSprite);
         }
     }
 
-    void Cook()
+    private void Cook()
     {
         if (currentCookTime > 0)
         {

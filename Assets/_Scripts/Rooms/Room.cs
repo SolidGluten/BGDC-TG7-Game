@@ -8,6 +8,7 @@ public class Room : MonoBehaviour
     public GameObject currentFoodHolder;
     //The roomcode of this particular room
     public RoomCode roomCode;
+    public Elevator roomElevator;
 
     //A function just to activate this gameObject
     public void SetRoomActive(bool active)
