@@ -104,7 +104,7 @@ public class RoomManager : MonoBehaviour
         Food.transform.parent = roomDestination.gameObject.transform;
 
         currentActiveRoom.roomElevator.foodObj = null;
-        Debug.Log("Sent Succesfully!");
+        Debug.Log("Sent Succesfully! ");
     }
 }
 
