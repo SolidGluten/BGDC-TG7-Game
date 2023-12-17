@@ -15,7 +15,6 @@ public class RoomManager : MonoBehaviour
 {
     public Room currentActiveRoom;
     public List<Room> roomList = new List<Room>();
-    [SerializeField] bool isSending = false;
     public Room roomDestination;
 
     private void Start()
@@ -23,8 +22,46 @@ public class RoomManager : MonoBehaviour
         currentActiveRoom.SetRoomActive(true);  
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            ChangeRoom(1);
+        } else if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            ChangeRoom(2);
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            ChangeRoom(3);
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha4))
+        {
+            ChangeRoom(4);
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha5))
+        {
+            ChangeRoom(5);
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha6))
+        {
+            ChangeRoom(6);
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha7))
+        {
+            ChangeRoom(7);
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha8))
+        {
+            ChangeRoom(8);
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha9))
+        {
+            ChangeRoom(9);
+        }
+    }
+
     public void ChangeRoom(int nextRoomCode){
-        if (isSending) return;
         //iterate every rooms in the list
         foreach (Room room in roomList)
         {
@@ -45,27 +82,17 @@ public class RoomManager : MonoBehaviour
         return;
     }
 
-    public void SendMode()
-    {
-        isSending = !isSending;
-        roomDestination = null;
-    }
 
-    public void SetRoomDestination(int code)
+    public void SendFood(int code)
     {
-        if (!isSending) return;
+        if(currentActiveRoom.roomElevator.foodObj == null)
+        {
+            Debug.Log("Fud not found in the elevator");
+            return;
+        }
+
 
         roomDestination = roomList.Find(i => i.roomCode == (RoomCode)code);
-        if(roomDestination == null)
-        {
-            Debug.Log("Room not found!");
-        }
-    }
-
-    public void SendFood()
-    {
-        if (!isSending) return;
-
         if (roomDestination == null)
         {
             Debug.Log("Room not found!");
@@ -79,7 +106,6 @@ public class RoomManager : MonoBehaviour
         Food.transform.parent = roomDestination.gameObject.transform;
 
         currentActiveRoom.roomElevator.foodObj = null;
-        isSending = false;
     }
 }
 

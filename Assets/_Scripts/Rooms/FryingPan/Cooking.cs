@@ -1,43 +1,26 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using UnityEngine;
 
 public class Cooking : MonoBehaviour
 {
-    private bool isEmpty, isCooked;
+    public bool isEmpty, isCooked, isBurnt = false;
     private SpriteRenderer spriteRenderer;
     [SerializeField] private Sprite readySprite;
     [SerializeField] private Sprite cookSprite;
-    [SerializeField] private Sprite oldSprite;
+    [SerializeField] private Sprite emptySprite;
     public float CookTime, BurnTime;
-
     private float currentCookTime, currentBurnTime;
-    [SerializeField] private GameObject Cooked;
 
-    Camera mainCam;
-    Vector2 mousePos;
+    [SerializeField] private GameObject CookedMeatPrefab;
 
     void Start()
     {
-        Reset();
-        mainCam = Camera.main;
         isEmpty = true;
         isCooked = false;
+        ResetTimer();
         spriteRenderer = GetComponent<SpriteRenderer>();
-    }
-
-    void Update()
-    {
-        //Idk how to check if the raw meat is inside the pan collider, used OnCollisionStay2D but it didnt work (might just be me using it wrong)
-        //It's good lmao
-        if (isEmpty == false)
-        {
-            Cook();
-        }
-        if (isCooked == true)
-        {
-            Reset();
-        }
     }
 
     private void OnTriggerStay2D(Collider2D other)
@@ -46,39 +29,41 @@ public class Cooking : MonoBehaviour
         {
             Destroy(other.gameObject);
             isEmpty = false;
+            isCooked = true;
+            ChangeSprite(cookSprite);
+            Cook();
         }
     }
 
     private void OnMouseDown()
     {
-        if (currentCookTime <= 0)
-        {
-            Instantiate(Cooked, transform.position, Quaternion.identity, transform.parent);
-            isEmpty = true; isCooked = true;
-            ChangeSprite(oldSprite);
-        }
+        if (!isCooked) return;
+        GameObject cooked = Instantiate(CookedMeatPrefab, transform.position, Quaternion.identity, transform.parent);
+        ChangeSprite(emptySprite);
+        isEmpty = true;
+        isCooked = false;
+        ResetTimer();
     }
 
-    private void Cook()
+    private async void Cook()
     {
-        if (currentCookTime > 0)
+        while(currentCookTime > 0)
         {
-            ChangeSprite(cookSprite);
             currentCookTime -= Time.deltaTime;
             Debug.Log(currentCookTime);
+            await Task.Yield();
         }
-        else
+
+        ChangeSprite(readySprite);
+
+        while(currentBurnTime > 0)
         {
-            if (currentBurnTime > 0)
-            {
-                ChangeSprite(readySprite);
-                currentBurnTime -= Time.deltaTime;
-            }
-            else
-            {
-                //Lose(); Do this later
-            }
+            currentBurnTime -= Time.deltaTime;
+            Debug.Log(currentBurnTime);
+            await Task.Yield();
         }
+
+        GameManager.Death((DeathCondition)1);
     }
 
     //Combined the 3 CookSprite, ReadySprite, & EmptySprite into 1 function
@@ -87,7 +72,7 @@ public class Cooking : MonoBehaviour
         spriteRenderer.sprite = sprite;
     }
 
-    private void Reset()
+    private void ResetTimer()
     {
         currentCookTime = CookTime;
         currentBurnTime = BurnTime;
