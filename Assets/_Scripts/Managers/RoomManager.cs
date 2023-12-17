@@ -91,21 +91,20 @@ public class RoomManager : MonoBehaviour
             return;
         }
 
-
         roomDestination = roomList.Find(i => i.roomCode == (RoomCode)code);
         if (roomDestination == null)
         {
             Debug.Log("Room not found!");
             return;
         }
-
-        Debug.Log("Sent Succesfully!");
+        
         roomDestination.roomElevator.foodObj = currentActiveRoom.roomElevator.foodObj;
 
         GameObject Food = currentActiveRoom.roomElevator.foodObj;
         Food.transform.parent = roomDestination.gameObject.transform;
 
         currentActiveRoom.roomElevator.foodObj = null;
+        Debug.Log("Sent Succesfully!");
     }
 }
 
