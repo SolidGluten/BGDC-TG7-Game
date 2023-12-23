@@ -9,7 +9,7 @@ using UnityEngine;
 //FryingPan = 2
 //...
 
-[Serializable] public enum RoomCode{Default, Cashier, FryingPan, DeepFryer, CuttingBoard, Oven, Soup, Garden, FishingSpot, Freezer}
+[Serializable] public enum RoomCode{Cashier = 1, FryingPan, DeepFryer, CuttingBoard, Fishing, Storage, Garden, Fermentation, Extras}
 
 public class RoomManager : MonoBehaviour
 {
@@ -85,7 +85,12 @@ public class RoomManager : MonoBehaviour
 
     public void SendFood(int code)
     {
-        if(currentActiveRoom.roomElevator.foodObj == null)
+        if(currentActiveRoom.roomElevator == null)
+        {
+            return;
+        }
+
+        if(!currentActiveRoom.roomElevator.foodObj)
         {
             Debug.Log("Fud not found in the elevator");
             return;

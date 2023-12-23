@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Cooking : MonoBehaviour
 {
-    public bool isEmpty, isCooked, isBurnt = false;
+    public bool isEmpty, isCooked, isBurning = false;
     private SpriteRenderer spriteRenderer;
     [SerializeField] private Sprite readySprite;
     [SerializeField] private Sprite cookSprite;
@@ -42,6 +42,7 @@ public class Cooking : MonoBehaviour
         ChangeSprite(emptySprite);
         isEmpty = true;
         isCooked = false;
+        isBurning = false;
         ResetTimer();
     }
 
@@ -55,8 +56,9 @@ public class Cooking : MonoBehaviour
         }
 
         ChangeSprite(readySprite);
+        isBurning = true;
 
-        while(currentBurnTime > 0)
+        while(currentBurnTime > 0 && isBurning)
         {
             currentBurnTime -= Time.deltaTime;
             Debug.Log(currentBurnTime);
