@@ -4,9 +4,10 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Cooked
-  - Raw
   - Ingredient
+  - Dish
+  - Knife
+  - SemiProcessed
   layers:
   - Default
   - TransparentFX
@@ -15,7 +16,7 @@ TagManager:
   - Water
   - UI
   - Food
-  - 
+  - Tools
   - 
   - 
   - 

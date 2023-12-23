@@ -15,6 +15,6 @@ MonoBehaviour:
   dishName: CookedPorkchop
   dishSprite: {fileID: 21300000, guid: ea208ff406d2a1144b9d8984eb2fb5da, type: 3}
   dishType: 2
+  processType: 1
   ingredients:
   - {fileID: 11400000, guid: efe9d96ba0acab5468417ffaf55e90c3, type: 2}
-  dishes: []

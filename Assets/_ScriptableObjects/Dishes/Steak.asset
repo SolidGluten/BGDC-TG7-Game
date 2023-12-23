@@ -15,6 +15,6 @@ MonoBehaviour:
   dishName: Steak
   dishSprite: {fileID: 21300000, guid: a23752bada00f3b4485531192c0dc294, type: 3}
   dishType: 0
+  processType: 1
   ingredients:
   - {fileID: 11400000, guid: 6c02ff102a38357498c68603dff33490, type: 2}
-  dishes: []

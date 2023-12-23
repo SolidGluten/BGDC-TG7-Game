@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: SunnySideUp
   m_EditorClassIdentifier: 
   dishName: SunnySideUp
-  dishSprite: {fileID: 21300000, guid: a23752bada00f3b4485531192c0dc294, type: 3}
-  dishType: 0
+  dishSprite: {fileID: 21300000, guid: dcc7cd97a9a473146a7d588a4239f791, type: 3}
+  dishType: 3
+  processType: 1
   ingredients:
-  - {fileID: 11400000, guid: 6c02ff102a38357498c68603dff33490, type: 2}
-  dishes: []
+  - {fileID: 11400000, guid: 407090f2e43652643b25863df716817d, type: 2}

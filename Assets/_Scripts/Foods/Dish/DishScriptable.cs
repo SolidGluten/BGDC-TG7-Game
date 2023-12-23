@@ -9,5 +9,6 @@ public class DishScriptable : ScriptableObject
     public string dishName;
     public Sprite dishSprite;
     public DishType dishType;
+    public ProcessType processType;
     public List<IngredientsScriptable> ingredients = new List<IngredientsScriptable>();
 }

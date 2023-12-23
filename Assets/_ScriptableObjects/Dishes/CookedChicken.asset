@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38373a1a030501342940199f8c2af622, type: 3}
   m_Name: CookedChicken
   m_EditorClassIdentifier: 
-  dishName: Steak
-  dishSprite: {fileID: 21300000, guid: a23752bada00f3b4485531192c0dc294, type: 3}
-  dishType: 0
+  dishName: CookedChicken
+  dishSprite: {fileID: 21300000, guid: f5b552a6d4a5a5d448a28a444638f9f4, type: 3}
+  dishType: 1
+  processType: 1
   ingredients:
-  - {fileID: 11400000, guid: 6c02ff102a38357498c68603dff33490, type: 2}
-  dishes: []
+  - {fileID: 11400000, guid: 5ab2cd89a85fa504199112a800be345e, type: 2}

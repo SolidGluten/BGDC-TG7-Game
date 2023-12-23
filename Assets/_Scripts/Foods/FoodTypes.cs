@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -39,14 +40,15 @@ namespace Types
         FishMChips, //Fries + GrilledSalmon
     }
 
+    [Flags]
     public enum ProcessType
     {
-        Fry,
-        Cut,
-        DeepFry,
-        Oven,
-        DryAged,
-        Soup
+        Fry = 1,
+        Cut = 2,
+        DeepFry = 4,
+        Oven = 8,
+        DryAged = 16,
+        Soup = 32
     }
 
     public enum SideDishType
