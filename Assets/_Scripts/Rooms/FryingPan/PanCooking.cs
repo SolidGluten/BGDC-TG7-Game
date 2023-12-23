@@ -3,42 +3,58 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using UnityEngine;
 
-public class Cooking : MonoBehaviour
+public class PanCooking : MonoBehaviour
 {
-    public bool isEmpty, isCooked, isBurning = false;
+    //References
+    public FryingPan fryingPan; 
     private SpriteRenderer spriteRenderer;
-    [SerializeField] private Sprite readySprite;
-    [SerializeField] private Sprite cookSprite;
-    [SerializeField] private Sprite emptySprite;
+
+    //Booleans
+    public bool isEmpty = true, isCooked = false, isBurning = false;
+   
+    [SerializeField] private Sprite readySprite, cookSprite, emptySprite;
     public float CookTime, BurnTime;
     private float currentCookTime, currentBurnTime;
 
-    [SerializeField] private GameObject CookedMeatPrefab;
+    public IngredientsScriptable currentIngredient;
+
+    public DishScriptable DishOutput;
 
     void Start()
     {
-        isEmpty = true;
-        isCooked = false;
         ResetTimer();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        fryingPan = GetComponentInParent<FryingPan>();
     }
 
     private void OnTriggerStay2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("Raw") && isEmpty)
+        if (!isEmpty) return;
+
+        if (other.gameObject.CompareTag("Ingredient"))
         {
-            Destroy(other.gameObject);
-            isEmpty = false;
-            isCooked = true;
-            ChangeSprite(cookSprite);
-            Cook();
+            currentIngredient = other.GetComponent<Ingredient>().ingredientsScriptable;
         }
+        else return;
+
+        DishOutput = fryingPan.FindOutputDish(currentIngredient);
+
+        if(DishOutput == null)
+        {
+            return;
+        }
+
+        Destroy(other.gameObject);
+        isEmpty = false; isCooked = true;
+        ChangeSprite(cookSprite);
+        Cook();
     }
 
     private void OnMouseDown()
     {
         if (!isCooked) return;
-        GameObject cooked = Instantiate(CookedMeatPrefab, transform.position, Quaternion.identity, transform.parent);
+
+        fryingPan.ProcessFood(transform.position, DishOutput);
         ChangeSprite(emptySprite);
         isEmpty = true;
         isCooked = false;
@@ -48,7 +64,7 @@ public class Cooking : MonoBehaviour
 
     private async void Cook()
     {
-        while(currentCookTime > 0)
+        while (currentCookTime > 0)
         {
             currentCookTime -= Time.deltaTime;
             Debug.Log(currentCookTime);
@@ -58,7 +74,7 @@ public class Cooking : MonoBehaviour
         ChangeSprite(readySprite);
         isBurning = true;
 
-        while(currentBurnTime > 0 && isBurning)
+        while (currentBurnTime > 0 && isBurning)
         {
             currentBurnTime -= Time.deltaTime;
             Debug.Log(currentBurnTime);
@@ -79,5 +95,4 @@ public class Cooking : MonoBehaviour
         currentCookTime = CookTime;
         currentBurnTime = BurnTime;
     }
-
 }

@@ -3,20 +3,13 @@ using System.Collections.Generic;
 using Types;
 using UnityEngine;
 
-[RequireComponent(typeof(Generator))]
-public class Storage : MonoBehaviour
+public class Storage : Generator
 {
-    public Generator StorageGenerator;
     public Transform spawnPos;
     public BaseIngredient ingredientToSpawn;
 
-    private void Start()
-    {
-        StorageGenerator = GetComponent<Generator>();
-    }
-
     public void SpawnIngredient()
     {
-        StorageGenerator.GenerateIngredient(spawnPos.transform.position, ingredientToSpawn);
+        GenerateIngredient(spawnPos.transform.position, ingredientToSpawn);
     }
 }

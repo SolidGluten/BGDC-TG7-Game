@@ -329,7 +329,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e4664a70b11b044eb9c072f40e8a123, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentActiveRoom: {fileID: 1375902262}
+  currentActiveRoom: {fileID: 530489640}
   roomList:
   - {fileID: 530489640}
   - {fileID: 1994578936}
@@ -515,6 +515,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: e62ddb8a3c6c48247bc4e81c26b9e379, type: 3}
+    - target: {fileID: 5832439764764418297, guid: 8cfc4b87a8ccab74e9918b818b8be1d8, type: 3}
+      propertyPath: m_SortingOrder
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1392,6 +1396,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: e62ddb8a3c6c48247bc4e81c26b9e379, type: 3}
+    - target: {fileID: 5832439764764418297, guid: 8cfc4b87a8ccab74e9918b818b8be1d8, type: 3}
+      propertyPath: m_SortingOrder
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3080,7 +3088,7 @@ Transform:
   m_GameObject: {fileID: 1413029654}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.58, z: 0}
+  m_LocalPosition: {x: -2.86, y: 1.56, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3352,7 +3360,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 963710813796213682, guid: 04c13bca2ee27e7459d8f00e3cfa9c28, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2137367443188252296, guid: 04c13bca2ee27e7459d8f00e3cfa9c28, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3440,7 +3448,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 963710813796213682, guid: 04c13bca2ee27e7459d8f00e3cfa9c28, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2137367443188252296, guid: 04c13bca2ee27e7459d8f00e3cfa9c28, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3897,7 +3905,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7fe956bb2fc30d4c99a38175e64fdae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnableIngredients: []
+  spawnableIngredients:
+  - {fileID: 11400000, guid: eaa83e5d4f71531409c6066d61c55774, type: 2}
+  - {fileID: 11400000, guid: 68ee1281d68a6bd4d9b01f63dcd964c4, type: 2}
+  - {fileID: 11400000, guid: 1d3c8cb8bd386784a80e0a18fb4f6049, type: 2}
+  - {fileID: 11400000, guid: 1c80e46ab2bf43e4580764db74eb2ad1, type: 2}
   ingredientPrefab: {fileID: 4056885927246291882, guid: 6421fbcf06dbb254a97cacfabc2a2fe2, type: 3}
 --- !u!1 &2135813427
 GameObject:

@@ -17,6 +17,8 @@ public class Elevator : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (foodObj != null) return;
+
         if (collision.CompareTag("Ingredient") || collision.CompareTag("Dish"))
         {
             foodObj = collision.gameObject;
