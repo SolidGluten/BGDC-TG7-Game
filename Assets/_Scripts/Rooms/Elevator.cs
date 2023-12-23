@@ -17,7 +17,7 @@ public class Elevator : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Cooked"))
+        if (collision.CompareTag("Ingredient") || collision.CompareTag("Dish"))
         {
             foodObj = collision.gameObject;
             foodObj.GetComponent<Dragable>().SetLastPosition(transform.position);

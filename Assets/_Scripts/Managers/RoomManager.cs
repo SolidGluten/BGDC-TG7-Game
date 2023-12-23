@@ -102,6 +102,12 @@ public class RoomManager : MonoBehaviour
             Debug.Log("Room not found!");
             return;
         }
+
+        if (roomDestination.roomElevator.foodObj != null)
+        {
+            Debug.Log("Elevator is already loaded!");
+            return;
+        }
         
         roomDestination.roomElevator.foodObj = currentActiveRoom.roomElevator.foodObj;
 

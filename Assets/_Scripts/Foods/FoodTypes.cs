@@ -8,7 +8,7 @@ namespace Types
     {
         Beef,
         Drumstick,
-        Porkhop,
+        Porkchop,
         Egg,
         Salmon,
         Shrimp,

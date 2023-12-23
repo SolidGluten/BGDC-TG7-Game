@@ -1,18 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
+using Types;
 using UnityEngine;
 
+[RequireComponent(typeof(Generator))]
 public class Storage : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public Generator StorageGenerator;
+    public Transform spawnPos;
+    public BaseIngredient ingredientToSpawn;
+
+    private void Start()
     {
-        
+        StorageGenerator = GetComponent<Generator>();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void SpawnIngredient()
     {
-        
+        StorageGenerator.GenerateIngredient(spawnPos.transform.position, ingredientToSpawn);
     }
 }

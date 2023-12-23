@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Cooked
   - Raw
+  - Ingredient
   layers:
   - Default
   - TransparentFX
