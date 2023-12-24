@@ -8,6 +8,7 @@ TagManager:
   - Dish
   - Knife
   - SemiProcessed
+  - ComboDish
   layers:
   - Default
   - TransparentFX

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class SemiProcessor : MonoBehaviour
@@ -9,16 +10,16 @@ public class SemiProcessor : MonoBehaviour
 
     public SemiProcessedScriptable FindProcessedOutput(IngredientsScriptable currIngredient)
     {
-        foreach (SemiProcessedScriptable obj in semiProcessedList)
+        SemiProcessedScriptable semiObj = semiProcessedList.FirstOrDefault(obj => obj.ingredient == currIngredient);
+        
+        if(semiObj != null)
         {
-            if (obj.ingredient == currIngredient)
-            {
-                return obj;
-            }
+            return semiObj;
+        } else
+        {
+            Debug.Log("No processed found!");
+            return null;
         }
-
-        Debug.Log("No processed found!");
-        return null;
     }
 
     //Spawn Processed Food
