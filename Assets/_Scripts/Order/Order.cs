@@ -13,6 +13,7 @@ public class Order : MonoBehaviour
     public TextMeshProUGUI orderNameTMP;
     public DishScriptable dishOrder;
     public Slider patienceBar;
+    private OrderList orderList;
 
     public float currentPatience;
     public float maxPatience;
@@ -21,6 +22,7 @@ public class Order : MonoBehaviour
 
     private async void Start()
     {
+        orderList = GetComponentInParent<OrderList>();
         maxPatience = GameManager.MaxPatience;
         currentPatience = maxPatience;
         patienceBar.maxValue = maxPatience;
@@ -55,7 +57,7 @@ public class Order : MonoBehaviour
             }
         }
 
-        Destroy(gameObject);
+        orderList.RemoveOrder(dishOrder);
         Debug.Log("DEATH!");
     }
 
