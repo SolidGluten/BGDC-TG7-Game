@@ -14,9 +14,9 @@ public class OrderList : MonoBehaviour
         activeOrders.Add(orderObj);
     }
 
-    public void RemoveOrder(GameObject orderPrefab)
+    public void RemoveOrder(DishScriptable dish)
     {
-        GameObject orderObj = activeOrders.FirstOrDefault(obj => obj == orderPrefab);
+        GameObject orderObj = activeOrders.FirstOrDefault(obj => obj.GetComponent<Order>().dishOrder == dish);
 
         if(orderObj == null)
         {

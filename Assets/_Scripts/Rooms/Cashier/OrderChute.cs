@@ -6,12 +6,13 @@ using UnityEngine;
 [RequireComponent (typeof(Rigidbody2D))]
 public class OrderChute : MonoBehaviour
 {
-    public GameObject orderHolder;
+    public OrderList orderList;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Dish") || collision.CompareTag("ComboDish"))
         {
+            orderList.RemoveOrder(collision.gameObject.GetComponent<Dish>().dishScriptable);
             Destroy(collision.gameObject);
         }
         else

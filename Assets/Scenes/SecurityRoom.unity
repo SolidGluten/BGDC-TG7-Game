@@ -4745,7 +4745,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac2ed794fa33f7549af725ae95cafeea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  orderHolder: {fileID: 0}
+  orderList: {fileID: 1650110762}
 --- !u!212 &1898023497
 SpriteRenderer:
   m_ObjectHideFlags: 0

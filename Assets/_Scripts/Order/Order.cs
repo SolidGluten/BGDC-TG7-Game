@@ -1,5 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
+using System.Threading.Tasks;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -14,28 +17,50 @@ public class Order : MonoBehaviour
     public float currentPatience;
     public float maxPatience;
 
-    private void Start()
+    CancellationTokenSource tokenSource;
+
+    private async void Start()
     {
         maxPatience = GameManager.MaxPatience;
         currentPatience = maxPatience;
         patienceBar.maxValue = maxPatience;
+        tokenSource = new CancellationTokenSource();
 
         gameObject.name = "Order_" + dishOrder.dishName;
         orderNameTMP.text = dishOrder.dishName;
         orderImage.sprite = dishOrder.dishSprite;
+
+        try
+        {
+            await StartExplodeTimer(tokenSource.Token);
+        }
+        catch (OperationCanceledException)
+        {
+            Debug.Log("Destroy token was cancelled");
+        }
     }
 
-    private void Update()
+
+    private async Task StartExplodeTimer(CancellationToken token)
     {
-        if(currentPatience > 0)
+        while (currentPatience > 0)
         {
             currentPatience -= Time.deltaTime;
             patienceBar.value = currentPatience;
-            
-        } else
-        {
-            Destroy(gameObject);
-            //INSERT DEATH CONDITION HERE!
+            await Task.Yield();
+            if (tokenSource.IsCancellationRequested)
+            {
+                Debug.Log("TASK STOPPED!!");
+                return;
+            }
         }
+
+        Destroy(gameObject);
+        Debug.Log("DEATH!");
+    }
+
+    private void OnDestroy()
+    {
+        tokenSource.Cancel();
     }
 }

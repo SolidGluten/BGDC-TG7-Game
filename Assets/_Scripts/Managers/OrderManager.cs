@@ -15,8 +15,6 @@ public class OrderManager : MonoBehaviour
     public MediocreOrders mediocre;
     public AdvancedOrders advance;
 
-    
-
     private void Start()
     {
         SendNewOrder(dishScriptable);
