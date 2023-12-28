@@ -13,7 +13,7 @@ public class OrderList : MonoBehaviour
 
     private void Update()
     {
-        //hides the UI if the cashier room is not active
+        //hides the UI by scaling it to zero if the cashier room is not active
         if (cashierRoom.activeInHierarchy)
         {
             GetComponent<RectTransform>().localScale = Vector2.one;
@@ -34,7 +34,10 @@ public class OrderList : MonoBehaviour
 
     public void RemoveOrder(DishScriptable dish)
     {
-        GameObject orderToRemove = orderObjects.FirstOrDefault(order => order.GetComponent<Order>().orderDish = dish);
+        GameObject orderToRemove = orderObjects.FirstOrDefault(order => order.GetComponent<Order>().orderDish == dish);
+
+        if (orderToRemove == null) return;
+
         orderObjects.Remove(orderToRemove);
         Destroy(orderToRemove);
     }

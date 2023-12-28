@@ -6,8 +6,6 @@ using UnityEngine;
 public class OrderManager : MonoBehaviour
 {
     public OrderList orderList;
-    public GameObject orderPrefab;
-    public DishScriptable dishScriptable;
 
     public float arrivalTimer;
 
@@ -17,7 +15,7 @@ public class OrderManager : MonoBehaviour
 
     private void Start()
     {
-        SendNewOrder(dishScriptable);
+        SendNewOrder();
         arrivalTimer = GetRandomArrival();
     }
 
@@ -29,7 +27,7 @@ public class OrderManager : MonoBehaviour
         } else
         {
             arrivalTimer = GetRandomArrival();
-            SendNewOrder(GetRandomDish());
+            SendNewOrder();
         }
     }
 
@@ -58,9 +56,9 @@ public class OrderManager : MonoBehaviour
         }
     }
 
-    private void SendNewOrder(DishScriptable newDish)
+    private void SendNewOrder()
     {
-        orderList.AddOrder(newDish);
+        orderList.AddOrder(GetRandomDish());
     }
 }
 
