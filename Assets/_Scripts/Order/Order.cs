@@ -1,68 +1,43 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Threading;
-using System.Threading.Tasks;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class Order : MonoBehaviour
 {
+    public OrderList orderList;
+    public DishScriptable orderDish;
     public Image orderImage;
+    public Slider orderSlider;
     public TextMeshProUGUI orderNameTMP;
-    public DishScriptable dishOrder;
-    public Slider patienceBar;
-    private OrderList orderList;
+    public float currentPatience = GameManager.MaxPatience;
 
-    public float currentPatience;
-    public float maxPatience;
-
-    CancellationTokenSource tokenSource;
-
-    private async void Start()
+    private void Start()
     {
-        orderList = GetComponentInParent<OrderList>();
-        maxPatience = GameManager.MaxPatience;
-        currentPatience = maxPatience;
-        patienceBar.maxValue = maxPatience;
-        tokenSource = new CancellationTokenSource();
+        gameObject.name = "Order_" + orderDish.dishName;
+        orderImage.sprite = orderDish.dishSprite;
+        orderNameTMP.text = orderDish.dishName;
+        orderSlider.maxValue = currentPatience;
 
-        gameObject.name = "Order_" + dishOrder.dishName;
-        orderNameTMP.text = dishOrder.dishName;
-        orderImage.sprite = dishOrder.dishSprite;
-
-        try
-        {
-            await StartExplodeTimer(tokenSource.Token);
-        }
-        catch (OperationCanceledException)
-        {
-            Debug.Log("Destroy token was cancelled");
-        }
+        StartCoroutine(PatienceCountdown());
     }
 
-
-    private async Task StartExplodeTimer(CancellationToken token)
+    public IEnumerator PatienceCountdown()
     {
-        while (currentPatience > 0)
+        while(currentPatience > 0)
         {
             currentPatience -= Time.deltaTime;
-            patienceBar.value = currentPatience;
-            await Task.Yield();
-            if (tokenSource.IsCancellationRequested)
-            {
-                Debug.Log("TASK STOPPED!!");
-                return;
-            }
+            orderSlider.value = currentPatience; 
+            yield return null;
         }
 
-        orderList.RemoveOrder(dishOrder);
-        Debug.Log("DEATH!");
+        //DEATH CONDITION
+        Destroy(gameObject);
     }
 
     private void OnDestroy()
     {
-        tokenSource.Cancel();
+        orderList.RemoveOrder(orderDish);
     }
 }

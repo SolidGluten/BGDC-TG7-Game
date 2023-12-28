@@ -5,26 +5,38 @@ using UnityEngine;
 
 public class OrderList : MonoBehaviour
 {
-    public List<GameObject> activeOrders = new List<GameObject>();
+    public GameObject cashierRoom;
+    public GameObject orderObjPrefab;
+    public Transform orderContainer;
+    public List<GameObject> orderObjects = new List<GameObject>();
 
-    public void AddOrder(GameObject orderPrefab)
+
+    private void Update()
     {
-        GameObject orderObj = Instantiate(orderPrefab, transform.position, Quaternion.identity);
-        orderObj.transform.SetParent(transform);
-        activeOrders.Add(orderObj);
+        //hides the UI if the cashier room is not active
+        if (cashierRoom.activeInHierarchy)
+        {
+            GetComponent<RectTransform>().localScale = Vector2.one;
+        } else
+        {
+            GetComponent<RectTransform>().localScale = Vector2.zero;
+        }
+    }
+
+    public void AddOrder(DishScriptable dish)
+    {
+        GameObject newOrder = Instantiate(orderObjPrefab, transform.position, Quaternion.identity, orderContainer);
+        Order order = newOrder.GetComponent<Order>();
+        order.orderDish = dish;
+        order.orderList = this;
+        orderObjects.Add(newOrder);
     }
 
     public void RemoveOrder(DishScriptable dish)
     {
-        GameObject orderObj = activeOrders.FirstOrDefault(obj => obj.GetComponent<Order>().dishOrder == dish);
-
-        if(orderObj == null)
-        {
-            Debug.Log("Order not found");
-            return;
-        }
-
-        activeOrders.Remove(orderObj);
-        Destroy(orderObj);
+        GameObject orderToRemove = orderObjects.FirstOrDefault(order => order.GetComponent<Order>().orderDish = dish);
+        orderObjects.Remove(orderToRemove);
+        Destroy(orderToRemove);
     }
 }
+

@@ -493,7 +493,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 947767731517754391}
-  - component: {fileID: 7200827876504023560}
+  - component: {fileID: 492808873960910277}
   m_Layer: 5
   m_Name: OrderObj
   m_TagString: Untagged
@@ -524,7 +524,7 @@ RectTransform:
   m_AnchoredPosition: {x: 225, y: -90}
   m_SizeDelta: {x: 450, y: 180}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &7200827876504023560
+--- !u!114 &492808873960910277
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -536,12 +536,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7fbd3590616d40c4cb58401c8b3d064e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  orderList: {fileID: 0}
+  orderDish: {fileID: 0}
   orderImage: {fileID: 2881105917165450750}
+  orderSlider: {fileID: 139795184205025970}
   orderNameTMP: {fileID: 8409484124379541091}
-  dishOrder: {fileID: 0}
-  patienceBar: {fileID: 139795184205025970}
-  currentPatience: 0
-  maxPatience: 0
+  currentPatience: 18.75
 --- !u!1 &7493505166391750371
 GameObject:
   m_ObjectHideFlags: 0

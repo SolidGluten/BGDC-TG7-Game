@@ -4,14 +4,14 @@ using Types;
 using UnityEngine;
 
 [RequireComponent(typeof(BoxCollider2D))]
-public class GenerateButton : MonoBehaviour
+public class FishButton : MonoBehaviour
 {
     public BaseIngredient ingredient;
-    public Generator generator;
+    public Fishing fishing;
 
     private void OnMouseDown()
     {
-        generator.ingredientToSpawn = ingredient;
-        generator.GenerateIngredient();
+        fishing.ingredientToSpawn = ingredient;
+        StartCoroutine(fishing.Fish());
     }
 }

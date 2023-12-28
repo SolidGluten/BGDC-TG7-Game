@@ -2819,7 +2819,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 963710813796213682, guid: 04c13bca2ee27e7459d8f00e3cfa9c28, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2137367443188252296, guid: 04c13bca2ee27e7459d8f00e3cfa9c28, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4241,7 +4241,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 963710813796213682, guid: 04c13bca2ee27e7459d8f00e3cfa9c28, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2137367443188252296, guid: 04c13bca2ee27e7459d8f00e3cfa9c28, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5187,6 +5187,10 @@ MonoBehaviour:
   - {fileID: 11400000, guid: a5e61ac2601a5d44ba3bcc7684630e42, type: 2}
   - {fileID: 11400000, guid: a20ec4f2079364b48aa4cd9fb6eaf864, type: 2}
   - {fileID: 11400000, guid: 53d01814e383cc349b2d88552cc56785, type: 2}
+  - {fileID: 11400000, guid: e581c5af4df83e345961b3f764207a58, type: 2}
+  - {fileID: 11400000, guid: 07f841c986284aa43b0cf73b21f7874e, type: 2}
+  - {fileID: 11400000, guid: 0ff7887e56b19e043825b3bb025826bb, type: 2}
+  - {fileID: 11400000, guid: 4997cd2de1df9764d9709980b215ecaa, type: 2}
   DishObj: {fileID: 5162812297027023981, guid: 43945336b204b774686efcf56d859d56, type: 3}
 --- !u!1 &2017795358
 GameObject:

@@ -60,9 +60,7 @@ public class OrderManager : MonoBehaviour
 
     private void SendNewOrder(DishScriptable newDish)
     {
-        GameObject newOrder = orderPrefab;
-        orderPrefab.GetComponent<Order>().dishOrder = newDish;
-        orderList.AddOrder(newOrder);
+        orderList.AddOrder(newDish);
     }
 }
 
