@@ -3,39 +3,36 @@ using System.Collections.Generic;
 using UnityEngine;
 using Types;
 using System.Threading.Tasks;
+using System.Linq;
 
 public class Generator : MonoBehaviour
 {
     public List<IngredientsScriptable> spawnableIngredients;
     public GameObject ingredientPrefab;
-    public BaseIngredient ingredientToSpawn;
     public IngredientHolder ingredientHolder;
 
-    public virtual void GenerateIngredient()
+    public IngredientsScriptable FindIngredients(BaseIngredient baseIngredient)
     {
-        foreach (IngredientsScriptable ingredients in spawnableIngredients)
+        return spawnableIngredients.FirstOrDefault(ingredient => ingredient.baseIngredient == baseIngredient);
+    }
+
+    public void GenerateIngredient(IngredientsScriptable ingredients)
+    {
+        GameObject ingredientObj = Instantiate(ingredientPrefab, ingredientHolder.transform.position, Quaternion.identity);
+        ingredientObj.GetComponent<Ingredient>().ingredientsScriptable = ingredients;
+        ingredientObj.transform.parent = transform;
+
+        if (ingredientHolder.ingredient == ingredientObj)
         {
-            if(ingredientToSpawn == ingredients.baseIngredient)
-            {
-                GameObject ingredientObj = Instantiate(ingredientPrefab, ingredientHolder.transform.position, Quaternion.identity);
-                ingredientObj.GetComponent<Ingredient>().ingredientsScriptable = ingredients;
-                ingredientObj.transform.parent = transform;
-
-                if(ingredientHolder.ingredient == ingredientObj)
-                {
-                    return;
-                }
-
-                if(ingredientHolder.ingredient != null)
-                {
-                    Destroy(ingredientHolder.ingredient);
-                }
-
-                ingredientHolder.ingredient = ingredientObj;
-                return;
-            }
+            return;
         }
 
-        Debug.Log("Ingredients Not Found!");
+        if (ingredientHolder.ingredient != null)
+        {
+            Destroy(ingredientHolder.ingredient);
+        }
+
+        ingredientHolder.ingredient = ingredientObj;
+        return;
     }
 }

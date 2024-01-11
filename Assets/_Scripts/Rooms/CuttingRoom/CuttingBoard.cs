@@ -12,6 +12,14 @@ public class CuttingBoard : MonoBehaviour
         cuttingRoom = GetComponentInParent<CuttingRoom>();
     }
 
+    private void Update()
+    {
+        if(cuttingRoom.room.roomElevator.foodObj == cuttingObj)
+        {
+            cuttingObj = null;
+        }
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Ingredient"))
@@ -34,7 +42,7 @@ public class CuttingBoard : MonoBehaviour
 
             collision.GetComponent<Dragable>().isDrag = false;
             Destroy(cuttingObj);
-            cuttingRoom.SpawnProcessFood(transform.position, processedObj);
+            cuttingObj = cuttingRoom.SpawnProcessFood(transform.position, processedObj);
         }
     }
 }
