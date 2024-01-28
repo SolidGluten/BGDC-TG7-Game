@@ -15,11 +15,12 @@ MonoBehaviour:
   _foodName: Steak
   _foodSprite: {fileID: 21300000, guid: a23752bada00f3b4485531192c0dc294, type: 3}
   _foodType: 2
+  _drinks: 0
   _sideDish: 0
   _baseIngredient: 0
   _semiProcessed: 0
   _dishType: 1
-  _addPotato: {fileID: 0}
+  _addPotato: {fileID: 21300000, guid: c930b58871cb1e54bad5a023e2ecdeac, type: 3}
   _addCarrot: {fileID: 0}
   _addCorn: {fileID: 0}
   _addMushroom: {fileID: 0}

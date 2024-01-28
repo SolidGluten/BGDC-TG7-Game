@@ -9,6 +9,7 @@ public class FoodScriptable : ScriptableObject
     [SerializeField] public string _foodName;
     [SerializeField] public Sprite _foodSprite;
     [SerializeField] public FoodType _foodType;
+    [SerializeField] public DrinkType _drinks;
     [SerializeField] public SideDish _sideDish;
     [SerializeField] public BaseIngredient _baseIngredient;
     [SerializeField] public SemiProcessed _semiProcessed;

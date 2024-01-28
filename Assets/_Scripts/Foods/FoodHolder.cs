@@ -12,6 +12,7 @@ public class FoodHolder : MonoBehaviour
     [SerializeField] public string foodName;
     [SerializeField] public Sprite sprite;
     [SerializeField] public FoodType type;
+    [SerializeField] public DrinkType drinks;
     [SerializeField] private SideDish sides;
     public SideDish sideDish
     {
@@ -19,33 +20,40 @@ public class FoodHolder : MonoBehaviour
         set
         {
             sides = value;
-            switch (value)
+            if(type == FoodType.Dish)
             {
-                case SideDish.None:
-                    {
-                        break;
-                    }
-                case SideDish.CutCarrot:
-                    {
-                        sprite = addCarrot;
-                        break;
-                    }
-                case SideDish.CutPotato:
-                    {
-                        sprite = addPotato;
-                        break;
-                    }
-                case SideDish.CutMushroom:
-                    {
-                        sprite = addMushroom;
-                        break;
-                    }
-                case SideDish.CutCorn:
-                    {
-                        sprite = addCorn;
-                        break;
-                    }
-                default: { break; }
+                switch (value)
+                {
+                    case SideDish.None:
+                        {
+                            break;
+                        }
+                    case SideDish.CutCarrot:
+                        {
+                            sprite = addCarrot;
+                            UpdateSprite();
+                            break;
+                        }
+                    case SideDish.CutPotato:
+                        {
+                            sprite = addPotato;
+                            UpdateSprite();
+                            break;
+                        }
+                    case SideDish.CutMushroom:
+                        {
+                            sprite = addMushroom;
+                            UpdateSprite();
+                            break;
+                        }
+                    case SideDish.CutCorn:
+                        {
+                            sprite = addCorn;
+                            UpdateSprite();
+                            break;
+                        }
+                    default: { break; }
+                }
             }
         }
     }
@@ -66,6 +74,7 @@ public class FoodHolder : MonoBehaviour
         foodName = food._foodName;
         sprite = food._foodSprite;
         type = food._foodType;
+        drinks = food._drinks;
         sideDish = food._sideDish;
         baseIngredient = food._baseIngredient;
         semiProcessed = food._semiProcessed;
@@ -76,6 +85,11 @@ public class FoodHolder : MonoBehaviour
         addMushroom = food._addMushroom;
 
         this.name = "F_" + foodName;
+        foodRenderer.sprite = sprite;
+    }
+
+    private void UpdateSprite()
+    {
         foodRenderer.sprite = sprite;
     }
 }

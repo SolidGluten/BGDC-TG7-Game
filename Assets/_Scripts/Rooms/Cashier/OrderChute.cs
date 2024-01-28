@@ -7,14 +7,30 @@ using UnityEngine;
 public class OrderChute : MonoBehaviour
 {
     public OrderList orderList;
+    public GameObject foodHolder;
+    public Room cashierRoom;
+
+    private void Start()
+    {
+        cashierRoom = GetComponentInParent<Room>();
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Food"))
         {
-            orderList.RemoveOrder(collision.GetComponent<FoodHolder>().food);
-            Destroy(collision.gameObject);
+            foodHolder = collision.gameObject;
+            cashierRoom.roomElevator.foodObj = null;
+            foodHolder.GetComponent<Dragable>()?.SetLastPosition(transform.position);
         }
     }
 
+    public void SendOrder()
+    {
+        if(foodHolder != null)
+        {
+            orderList.RemoveOrder(foodHolder.GetComponent<FoodHolder>().food);
+            Destroy(foodHolder);
+        }
+    }
 }
