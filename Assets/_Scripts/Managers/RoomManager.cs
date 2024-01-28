@@ -9,7 +9,7 @@ using UnityEngine;
 //FryingPan = 2
 //...
 
-[Serializable] public enum RoomCode{Cashier = 1, FryingPan, DeepFryer, CuttingBoard, Fishing, Storage, Garden, Fermentation, Extras}
+[Serializable] public enum RoomCode{Cashier = 1, FryingPan, DeepFryer, CuttingBoard, Fishing, Storage, Garden, Fermentation, Drinks}
 
 public class RoomManager : MonoBehaviour
 {

@@ -31,7 +31,7 @@ public class Elevator : MonoBehaviour
                 FoodScriptable addedTo = foodObj.GetComponent<FoodHolder>().food;
                 FoodScriptable adder = collision.GetComponent<FoodHolder>().food;
 
-                if(adder._foodType == FoodType.SideDish && adder._sideDish == SideDish.None)
+                if(adder._foodType == FoodType.SideDish && addedTo._sideDish == SideDish.None)
                 {
                     //If dish + sideDish combination
                     Mixer.instance.AddSideDish(foodObj.GetComponent<FoodHolder>(), adder._sideDish);

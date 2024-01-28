@@ -67,7 +67,7 @@ namespace Types
         None,
         Red,
         Blue,
-        Yellow
+        Yellow,
     }
 
     public enum SideDish
