@@ -8,7 +8,7 @@ public class OrderList : MonoBehaviour
     public GameObject cashierRoom;
     public GameObject orderObjPrefab;
     public Transform orderContainer;
-    public List<GameObject> orderObjects = new List<GameObject>();
+    public List<Order> activeOrders = new List<Order>();
 
 
     private void Update()
@@ -30,19 +30,22 @@ public class OrderList : MonoBehaviour
         Order order = newOrder.GetComponent<Order>();
         order.orderDish = dish;
         order.orderList = this;
-        orderObjects.Add(newOrder);
+        activeOrders.Add(order);
     }
 
-    public void RemoveOrder(GameObject orderToRemove)
+    public bool RemoveOrder(FoodScriptable dish)
     {
-        orderObjects.Remove(orderToRemove);
-        Destroy(orderToRemove);
-    }
+        Order orderToRemove = activeOrders.FirstOrDefault(order => order.orderDish == dish);
 
-    public GameObject FindOrder(FoodScriptable dish)
-    {
-        GameObject order = orderObjects.FirstOrDefault(order => order.GetComponent<Order>().orderDish == dish);
-        return order ? order : null;
+        if(orderToRemove == null)
+        {
+            Debug.Log("No Order Found!");
+            return false;
+        }
+
+        activeOrders.Remove(orderToRemove);
+        Destroy(orderToRemove.gameObject);
+        return true;
     }
 }
 

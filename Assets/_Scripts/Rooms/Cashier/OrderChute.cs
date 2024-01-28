@@ -12,14 +12,7 @@ public class OrderChute : MonoBehaviour
     {
         if (collision.CompareTag("Food"))
         {
-            GameObject order = orderList.FindOrder(collision.gameObject.GetComponent<FoodHolder>().food);
-            if(order == null)
-            {
-                //Death Condition;
-                Destroy(collision.gameObject);
-                return;
-            }
-            orderList.RemoveOrder(order);
+            orderList.RemoveOrder(collision.GetComponent<FoodHolder>().food);
             Destroy(collision.gameObject);
         }
     }

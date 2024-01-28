@@ -33,12 +33,6 @@ public class Order : MonoBehaviour
         }
 
         //DEATH CONDITION
-        Destroy(gameObject);
-    }
-
-    private void OnDestroy()
-    {
-        GameObject order = orderList.FindOrder(orderDish);
-        orderList.RemoveOrder(order);
+        orderList?.RemoveOrder(orderDish);
     }
 }

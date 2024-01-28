@@ -10,7 +10,7 @@ public class PanCooking : MonoBehaviour
     private SpriteRenderer spriteRenderer;
 
     //Booleans
-    public bool isEmpty = true, isCooked = false, isBurning = false;
+    public bool isEmpty = true, isCooking = false, isBurning = false;
 
     [SerializeField] private Sprite readySprite, cookSprite, emptySprite;
     public float CookTime, BurnTime;
@@ -43,19 +43,19 @@ public class PanCooking : MonoBehaviour
         }
 
         Destroy(other.gameObject);
-        isEmpty = false; isCooked = true;
+        isEmpty = false; isCooking = true;
         ChangeSprite(cookSprite);
         Cook();
     }
 
     private void OnMouseDown()
     {
-        if (!isCooked) return;
+        if (isCooking) return;
 
         fryingPan.ProcessFood(transform.position, currentOutput);
         ChangeSprite(emptySprite);
         isEmpty = true;
-        isCooked = false;
+        isCooking = false;
         isBurning = false;
         ResetTimer();
     }
@@ -70,6 +70,7 @@ public class PanCooking : MonoBehaviour
         }
 
         ChangeSprite(readySprite);
+        isCooking = false;
         isBurning = true;
 
         while (currentBurnTime > 0 && isBurning)
