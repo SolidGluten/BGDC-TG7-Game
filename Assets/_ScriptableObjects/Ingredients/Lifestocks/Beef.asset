@@ -15,6 +15,7 @@ MonoBehaviour:
   _foodName: Beef
   _foodSprite: {fileID: 21300000, guid: 83771a5438a9dae439a2c6e37f936424, type: 3}
   _foodType: 0
+  _drinks: 0
   _sideDish: 0
   _baseIngredient: 1
   _semiProcessed: 0

@@ -6,7 +6,9 @@ namespace Types
     {
         Ingredient,
         SemiProcessed,
-        Dish
+        Dish,
+        SideDish,
+        Beverage
     }
 
     public enum BaseIngredient
@@ -63,8 +65,8 @@ namespace Types
     public enum DrinkType
     {
         None,
+        Red,
         Blue,
-        Green,
         Yellow
     }
 
