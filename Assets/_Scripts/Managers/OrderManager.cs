@@ -9,9 +9,9 @@ public class OrderManager : MonoBehaviour
 
     public float arrivalTimer;
 
-    public SimpleOrders simple;
-    public MediocreOrders mediocre;
-    public AdvancedOrders advance;
+    public Orders simple;
+    public Orders mediocre;
+    public Orders advance;
 
     private void Start()
     {
@@ -21,10 +21,11 @@ public class OrderManager : MonoBehaviour
 
     private void Update()
     {
-        if(arrivalTimer > 0)
+        if (arrivalTimer > 0)
         {
             arrivalTimer -= Time.deltaTime;
-        } else
+        }
+        else
         {
             arrivalTimer = GetRandomArrival();
             SendNewOrder();
@@ -33,26 +34,28 @@ public class OrderManager : MonoBehaviour
 
     private float GetRandomArrival() => GameManager.MaxPatience + UnityEngine.Random.Range(-7, 3);
 
-    private DishScriptable GetRandomDish()
+    private FoodScriptable GetRandomDish()
     {
         //Pick random tier
-        int total = simple.SimpleRate + mediocre.MediocreRate + advance.AdvancedRate;
+        int total = simple._spawnChance + mediocre._spawnChance + advance._spawnChance;
         int rand = UnityEngine.Random.Range(0, total);
-        if(rand < simple.SimpleRate)
+        if (rand < simple._spawnChance)
         {
             var random = new System.Random();
-            var index = random.Next(simple.SimpleOrderList.Count);
-            return simple.SimpleOrderList[index];
-        } else if(rand < mediocre.MediocreRate)
+            var index = random.Next(simple._orderList.Count);
+            return simple._orderList[index];
+        }
+        else if (rand < mediocre._spawnChance)
         {
             var random = new System.Random();
-            var index = random.Next(mediocre.MediocreOrderList.Count);
-            return mediocre.MediocreOrderList[index];
-        } else
+            var index = random.Next(mediocre._orderList.Count);
+            return mediocre._orderList[index];
+        }
+        else
         {
             var random = new System.Random();
-            var index = random.Next(advance.AdvancedOrderList.Count);
-            return advance.AdvancedOrderList[index];
+            var index = random.Next(advance._orderList.Count);
+            return advance._orderList[index];
         }
     }
 
@@ -63,22 +66,8 @@ public class OrderManager : MonoBehaviour
 }
 
 [Serializable]
-public class SimpleOrders
+public class Orders
 {
-    public int SimpleRate;
-    public List<DishScriptable> SimpleOrderList = new List<DishScriptable>();
-}
-
-[Serializable]
-public class MediocreOrders
-{
-    public int MediocreRate;
-    public List<DishScriptable> MediocreOrderList = new List<DishScriptable>();
-}
-
-[Serializable]
-public class AdvancedOrders
-{
-    public int AdvancedRate;
-    public List<DishScriptable> AdvancedOrderList = new List<DishScriptable>();
+    public int _spawnChance;
+    public List<FoodScriptable> _orderList = new List<FoodScriptable>();
 }

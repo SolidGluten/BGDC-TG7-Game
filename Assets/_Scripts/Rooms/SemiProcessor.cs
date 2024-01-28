@@ -5,30 +5,30 @@ using UnityEngine;
 
 public class SemiProcessor : MonoBehaviour
 {
-    public List<SemiProcessedScriptable> semiProcessedList = new List<SemiProcessedScriptable>();
-    public GameObject SemiProcessedObj;
+    //public List<SemiProcessedScriptable> semiProcessedList = new List<SemiProcessedScriptable>();
+    //public GameObject SemiProcessedObj;
 
-    public SemiProcessedScriptable FindProcessedOutput(IngredientsScriptable currIngredient)
-    {
-        SemiProcessedScriptable semiObj = semiProcessedList.FirstOrDefault(obj => obj.ingredient == currIngredient);
+    //public SemiProcessedScriptable FindProcessedOutput(IngredientsScriptable currIngredient)
+    //{
+    //    SemiProcessedScriptable semiObj = semiProcessedList.FirstOrDefault(obj => obj.ingredient == currIngredient);
         
-        if(semiObj != null)
-        {
-            return semiObj;
-        } else
-        {
-            Debug.Log("No processed found!");
-            return null;
-        }
-    }
+    //    if(semiObj != null)
+    //    {
+    //        return semiObj;
+    //    } else
+    //    {
+    //        Debug.Log("No processed found!");
+    //        return null;
+    //    }
+    //}
 
-    //Spawn Processed Food
-    public GameObject SpawnProcessFood(Vector2 spawnPos, SemiProcessedScriptable semiProcessed)
-    {
-        GameObject semiProcessedObj = Instantiate(SemiProcessedObj, spawnPos, Quaternion.identity);
-        semiProcessedObj.GetComponent<SemiProcessed>().semiProcessedScriptable = semiProcessed;
-        semiProcessedObj.transform.parent = transform;
+    ////Spawn Processed Food
+    //public GameObject SpawnProcessFood(Vector2 spawnPos, SemiProcessedScriptable semiProcessed)
+    //{
+    //    GameObject semiProcessedObj = Instantiate(SemiProcessedObj, spawnPos, Quaternion.identity);
+    //    semiProcessedObj.GetComponent<SemiProcessed>().semiProcessedScriptable = semiProcessed;
+    //    semiProcessedObj.transform.parent = transform;
 
-        return semiProcessedObj;
-    }
+    //    return semiProcessedObj;
+    //}
 }

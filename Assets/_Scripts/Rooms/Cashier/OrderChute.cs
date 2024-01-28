@@ -3,22 +3,24 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(BoxCollider2D))]
-[RequireComponent (typeof(Rigidbody2D))]
+[RequireComponent(typeof(Rigidbody2D))]
 public class OrderChute : MonoBehaviour
 {
     public OrderList orderList;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Dish") || collision.CompareTag("ComboDish"))
+        if (collision.CompareTag("Food"))
         {
-            orderList.RemoveOrder(collision.gameObject.GetComponent<Dish>().dishScriptable);
+            GameObject order = orderList.FindOrder(collision.gameObject.GetComponent<FoodHolder>().food);
+            if(order == null)
+            {
+                //Death Condition;
+                Destroy(collision.gameObject);
+                return;
+            }
+            orderList.RemoveOrder(order);
             Destroy(collision.gameObject);
-        }
-        else
-        {
-            Destroy(collision.gameObject);
-            //Death Condition
         }
     }
 

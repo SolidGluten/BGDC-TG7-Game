@@ -7,19 +7,19 @@ using System.Linq;
 
 public class Generator : MonoBehaviour
 {
-    public List<IngredientsScriptable> spawnableIngredients;
+    public List<FoodScriptable> ingredientsList = new List<FoodScriptable>();
     public GameObject ingredientPrefab;
     public IngredientHolder ingredientHolder;
 
-    public IngredientsScriptable FindIngredients(BaseIngredient baseIngredient)
+    public FoodScriptable FindIngredients(BaseIngredient baseIngredient)
     {
-        return spawnableIngredients.FirstOrDefault(ingredient => ingredient.baseIngredient == baseIngredient);
+        return ingredientsList.FirstOrDefault(ingredient => ingredient._baseIngredient == baseIngredient);
     }
 
-    public void GenerateIngredient(IngredientsScriptable ingredients)
+    public void GenerateIngredient(FoodScriptable ingredients)
     {
         GameObject ingredientObj = Instantiate(ingredientPrefab, ingredientHolder.transform.position, Quaternion.identity);
-        ingredientObj.GetComponent<Ingredient>().ingredientsScriptable = ingredients;
+        ingredientObj.GetComponent<FoodHolder>().food = ingredients;
         ingredientObj.transform.parent = transform;
 
         if (ingredientHolder.ingredient == ingredientObj)

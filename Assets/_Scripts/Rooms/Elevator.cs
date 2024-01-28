@@ -19,7 +19,7 @@ public class Elevator : MonoBehaviour
     {
         if (foodObj != null) return;
 
-        if (collision.CompareTag("Ingredient") || collision.CompareTag("Dish") || collision.CompareTag("SemiProcessed"))
+        if (collision.CompareTag("Food"))
         {
             foodObj = collision.gameObject;
             foodObj.GetComponent<Dragable>().SetLastPosition(transform.position);

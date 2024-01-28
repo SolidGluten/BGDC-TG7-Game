@@ -18,6 +18,6 @@ public class Item : MonoBehaviour
 
     private void Update()
     {
-        textMeshPro.text = fishing.fishItems.FirstOrDefault(item => item.ingredient.baseIngredient == ingredient)?.ID;
+        textMeshPro.text = fishing.fishItems.FirstOrDefault(item => item._ingredient._baseIngredient == ingredient)?._ID;
     }
 }

@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class Order : MonoBehaviour
 {
     public OrderList orderList;
-    public DishScriptable orderDish;
+    public FoodScriptable orderDish;
     public Image orderImage;
     public Slider orderSlider;
     public TextMeshProUGUI orderNameTMP;
@@ -15,9 +15,9 @@ public class Order : MonoBehaviour
 
     private void Start()
     {
-        gameObject.name = "Order_" + orderDish.dishName;
-        orderImage.sprite = orderDish.dishSprite;
-        orderNameTMP.text = orderDish.dishName;
+        gameObject.name = "Order_" + orderDish._foodName;
+        orderImage.sprite = orderDish._foodSprite;
+        orderNameTMP.text = orderDish._foodName;
         orderSlider.maxValue = currentPatience;
 
         StartCoroutine(PatienceCountdown());
@@ -25,10 +25,10 @@ public class Order : MonoBehaviour
 
     public IEnumerator PatienceCountdown()
     {
-        while(currentPatience > 0)
+        while (currentPatience > 0)
         {
             currentPatience -= Time.deltaTime;
-            orderSlider.value = currentPatience; 
+            orderSlider.value = currentPatience;
             yield return null;
         }
 
@@ -38,6 +38,7 @@ public class Order : MonoBehaviour
 
     private void OnDestroy()
     {
-        orderList.RemoveOrder(orderDish);
+        GameObject order = orderList.FindOrder(orderDish);
+        orderList.RemoveOrder(order);
     }
 }

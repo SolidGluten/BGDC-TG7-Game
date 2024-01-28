@@ -4,11 +4,8 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Ingredient
-  - Dish
   - Knife
-  - SemiProcessed
-  - ComboDish
+  - Food
   layers:
   - Default
   - TransparentFX

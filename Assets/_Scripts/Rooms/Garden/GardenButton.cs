@@ -11,7 +11,7 @@ public class GardenButton : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if(garden.isGrowing == false)
+        if (garden.isGrowing == false)
             StartCoroutine(garden.Plant(ingredient));
     }
 }

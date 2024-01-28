@@ -7,11 +7,13 @@ using UnityEngine.SceneManagement;
 
 public class SceneController : MonoBehaviour
 {
-    
-
-    public void Start()
+    private void Awake()
     {
-        
+        DontDestroyOnLoad(gameObject);
     }
 
+    private void ChangeScene(int sceneIndex)
+    {
+        SceneManager.LoadScene(sceneIndex);
+    }
 }

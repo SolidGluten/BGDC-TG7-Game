@@ -14,10 +14,11 @@ public class Garden : Generator
     public IEnumerator Plant(BaseIngredient ingredient)
     {
         isGrowing = true;
-        IngredientsScriptable ingredientToSpawn = FindIngredients(ingredient);
-        if (ingredientToSpawn == null) {
+        FoodScriptable ingredientToSpawn = FindIngredients(ingredient);
+        if (ingredientToSpawn == null)
+        {
             Debug.Log("No ingredients found!");
-            isGrowing=false;
+            isGrowing = false;
             yield break;
         }
 

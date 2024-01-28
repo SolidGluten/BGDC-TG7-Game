@@ -17,13 +17,14 @@ public class OrderList : MonoBehaviour
         if (cashierRoom.activeInHierarchy)
         {
             GetComponent<RectTransform>().localScale = Vector2.one;
-        } else
+        }
+        else
         {
             GetComponent<RectTransform>().localScale = Vector2.zero;
         }
     }
 
-    public void AddOrder(DishScriptable dish)
+    public void AddOrder(FoodScriptable dish)
     {
         GameObject newOrder = Instantiate(orderObjPrefab, transform.position, Quaternion.identity, orderContainer);
         Order order = newOrder.GetComponent<Order>();
@@ -32,14 +33,16 @@ public class OrderList : MonoBehaviour
         orderObjects.Add(newOrder);
     }
 
-    public void RemoveOrder(DishScriptable dish)
+    public void RemoveOrder(GameObject orderToRemove)
     {
-        GameObject orderToRemove = orderObjects.FirstOrDefault(order => order.GetComponent<Order>().orderDish == dish);
-
-        if (orderToRemove == null) return;
-
         orderObjects.Remove(orderToRemove);
         Destroy(orderToRemove);
+    }
+
+    public GameObject FindOrder(FoodScriptable dish)
+    {
+        GameObject order = orderObjects.FirstOrDefault(order => order.GetComponent<Order>().orderDish == dish);
+        return order ? order : null;
     }
 }
 

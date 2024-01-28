@@ -14,7 +14,7 @@ public class CuttingBoard : MonoBehaviour
 
     private void Update()
     {
-        if(cuttingRoom.room.roomElevator.foodObj == cuttingObj)
+        if (cuttingRoom.room.roomElevator.foodObj == cuttingObj)
         {
             cuttingObj = null;
         }
@@ -22,27 +22,28 @@ public class CuttingBoard : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Ingredient"))
+        if (collision.CompareTag("Food"))
         {
             if (cuttingObj != null) return;
             cuttingObj = collision.gameObject;
             cuttingObj.GetComponent<Dragable>().SetLastPosition(transform.position);
             GetComponentInParent<Room>().roomElevator.foodObj = null;
 
-        } else if (collision.CompareTag("Knife"))
+        }
+        else if (collision.CompareTag("Knife"))
         {
             if (cuttingObj == null) return;
-            IngredientsScriptable ingredient = cuttingObj.GetComponent<Ingredient>().ingredientsScriptable;
-            SemiProcessedScriptable processedObj = cuttingRoom.FindProcessedOutput(ingredient);
+            FoodScriptable ingredient = cuttingObj.GetComponent<FoodHolder>().food;
+            FoodScriptable processedObj = cuttingRoom.FindOutputDish(ingredient);
 
-            if(processedObj == null)
+            if (processedObj == null)
             {
                 return;
             }
 
             collision.GetComponent<Dragable>().isDrag = false;
             Destroy(cuttingObj);
-            cuttingObj = cuttingRoom.SpawnProcessFood(transform.position, processedObj);
+            cuttingObj = cuttingRoom.ProcessFood(transform.position, processedObj);
         }
     }
 }

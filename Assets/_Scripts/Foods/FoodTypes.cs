@@ -1,12 +1,17 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 
 namespace Types
 {
+    public enum FoodType
+    {
+        Ingredient,
+        SemiProcessed,
+        Dish
+    }
+
     public enum BaseIngredient
     {
+        None,
         Beef,
         Drumstick,
         Porkchop,
@@ -18,11 +23,25 @@ namespace Types
         Potato,
         Carrot,
         Mushroom,
-        Corn, //<- still questiionable
+        Corn, 
+    }
+
+    public enum SemiProcessed
+    {
+        None,
+        MincedBeef,
+        MincedDrumstick,
+        MincedPork,
+        MincedEgg,
+        MincedSalmon,
+        MincedShrimp,
+        MincedClam,
+        MincedCrab,
     }
 
     public enum DishType
     {
+        None,
         Steak, //Cooked version of beef
         CookedChicken, //Cooked version of drumstick
         CookedPorkChop, //Cooked version of porkchop
@@ -37,22 +56,21 @@ namespace Types
         Omellete, //Cooked & Cut version of egg
         BaconNEggs, //Bacon + Egg
         SurfNTurf, //Steak + PanSearedShrimp
-        FishMChips, //Fries + GrilledSalmon
+        FishNChips, //Fries + GrilledSalmon
     }
 
-    [Flags]
-    public enum ProcessType
+    
+    public enum DrinkType
     {
-        Fry = 1,
-        Cut = 2,
-        DeepFry = 4,
-        Oven = 8,
-        DryAged = 16,
-        Soup = 32
+        None,
+        Blue,
+        Green,
+        Yellow
     }
 
-    public enum SideDishType
+    public enum SideDish
     {
+        None,
         CutCarrot,
         CutPotato,
         CutCorn,

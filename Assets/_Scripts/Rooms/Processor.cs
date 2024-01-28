@@ -1,33 +1,34 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class Processor : MonoBehaviour
 {
-    public List<DishScriptable> ProcessList = new List<DishScriptable>();
-    public GameObject DishObj;
+    public List<Recipe> recipeList = new List<Recipe>();
+    public GameObject FoodObj;
 
-    public DishScriptable FindOutputDish(IngredientsScriptable currIngredient)
+    public FoodScriptable FindOutputDish(FoodScriptable raw)
     {
-        foreach(DishScriptable dish in ProcessList)
-        {
-            if(dish.ingredients.Contains(currIngredient))
-            {
-                return dish;
-            }
-        }
+        FoodScriptable output = recipeList.FirstOrDefault(recipe => recipe._rawInput == raw)?._processedOutput;
 
-        Debug.Log("No dish found!");
-        return null;
+        return output ? output : null;
     }
 
     //Spawn Processed Food
-    public void ProcessFood(Vector2 spawnPos, DishScriptable dish)
+    public GameObject ProcessFood(Vector2 spawnPos, FoodScriptable processedFood)
     {
-        GameObject dishObj = Instantiate(DishObj, spawnPos, Quaternion.identity);
-        dishObj.GetComponent<Dish>().dishScriptable = dish;
-        dishObj.transform.parent = transform;
+        GameObject foodObj = Instantiate(FoodObj, spawnPos, Quaternion.identity, this.transform);
+        foodObj.GetComponent<FoodHolder>().food = processedFood;
+        return foodObj;
     }
+}
+
+[Serializable]
+public class Recipe
+{
+    public FoodScriptable _rawInput;
+    public FoodScriptable _processedOutput;
 }
 

@@ -19,8 +19,7 @@ public class InputText : MonoBehaviour
     {
         if (string.Compare(inputVal, "DEL") == 0)
         {
-            if(textMesh.text.Length > 0)
-                textMesh.text = textMesh.text.Remove(textMesh.text.Length - 1);
+            textMesh.text = "";
         }
         else if (string.Compare(inputVal, "ENTER") == 0)
         {
@@ -31,7 +30,8 @@ public class InputText : MonoBehaviour
         {
             return;
         }
-        else {
+        else
+        {
             textMesh.text = string.Concat(textMesh.text, inputVal);
         }
     }

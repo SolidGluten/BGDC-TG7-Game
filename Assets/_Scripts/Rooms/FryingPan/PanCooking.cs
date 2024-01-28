@@ -6,19 +6,18 @@ using UnityEngine;
 public class PanCooking : MonoBehaviour
 {
     //References
-    public FryingPan fryingPan; 
+    public FryingPan fryingPan;
     private SpriteRenderer spriteRenderer;
 
     //Booleans
     public bool isEmpty = true, isCooked = false, isBurning = false;
-   
+
     [SerializeField] private Sprite readySprite, cookSprite, emptySprite;
     public float CookTime, BurnTime;
     private float currentCookTime, currentBurnTime;
 
-    public IngredientsScriptable currentIngredient;
-
-    public DishScriptable DishOutput;
+    public FoodScriptable currentRaw;
+    public FoodScriptable currentOutput;
 
     void Start()
     {
@@ -31,16 +30,15 @@ public class PanCooking : MonoBehaviour
     {
         if (!isEmpty) return;
 
-        if (other.gameObject.CompareTag("Ingredient"))
+        if (other.gameObject.CompareTag("Food"))
         {
-            currentIngredient = other.GetComponent<Ingredient>().ingredientsScriptable;
+            currentRaw = other.gameObject.GetComponent<FoodHolder>().food;
+            currentOutput = fryingPan.FindOutputDish(currentRaw);   
         }
-        else return;
 
-        DishOutput = fryingPan.FindOutputDish(currentIngredient);
-
-        if(DishOutput == null)
+        if(currentOutput == null)
         {
+            Debug.Log("No dish found!");
             return;
         }
 
@@ -54,7 +52,7 @@ public class PanCooking : MonoBehaviour
     {
         if (!isCooked) return;
 
-        fryingPan.ProcessFood(transform.position, DishOutput);
+        fryingPan.ProcessFood(transform.position, currentOutput);
         ChangeSprite(emptySprite);
         isEmpty = true;
         isCooked = false;

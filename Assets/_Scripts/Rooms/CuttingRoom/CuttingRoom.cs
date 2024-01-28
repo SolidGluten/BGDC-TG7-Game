@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CuttingRoom : SemiProcessor
+public class CuttingRoom : Processor
 {
-    public Room room;
+    [HideInInspector] public Room room;
     private void Start()
     {
         room = GetComponent<Room>();
