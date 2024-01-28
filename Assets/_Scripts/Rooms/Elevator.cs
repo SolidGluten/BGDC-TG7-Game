@@ -36,8 +36,13 @@ public class Elevator : MonoBehaviour
                     //If dish + sideDish combination
                     Mixer.instance.AddSideDish(foodObj.GetComponent<FoodHolder>(), adder._sideDish);
                     Destroy(collision.gameObject);
-                } else
+                } else if (adder._foodType == FoodType.Beverage && addedTo._drink == DrinkType.None)
                 {
+                    //If dish + beverage combination
+                    Mixer.instance.AddDrink(foodObj.GetComponent<FoodHolder>(), adder._drink);
+                    Destroy(collision.gameObject);
+                }
+                else{
                     //If dish + dish combination
                     FoodScriptable output = Mixer.instance.FindRecipe(addedTo, adder);
                     if (output == null)

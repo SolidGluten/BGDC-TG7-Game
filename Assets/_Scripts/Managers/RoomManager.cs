@@ -19,6 +19,10 @@ public class RoomManager : MonoBehaviour
 
     private void Start()
     {
+        foreach (Room room in roomList)
+        {
+            room.SetRoomActive(false);
+        }
         currentActiveRoom.SetRoomActive(true);  
     }
 

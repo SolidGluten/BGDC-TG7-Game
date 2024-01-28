@@ -39,6 +39,11 @@ public class Mixer : MonoBehaviour
     {
         holder.sideDish = type;
     }
+
+    public void AddDrink(FoodHolder holder, DrinkType type)
+    {
+        holder.drinkType = type;
+    }
 }
 
 [Serializable]

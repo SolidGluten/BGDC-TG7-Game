@@ -16,6 +16,11 @@ public class Generator : MonoBehaviour
         return ingredientsList.FirstOrDefault(ingredient => ingredient._baseIngredient == baseIngredient);
     }
 
+    public FoodScriptable FindBeverage(DrinkType drinkType)
+    {
+        return ingredientsList.FirstOrDefault(ingredient => ingredient._drink == drinkType);
+    }
+
     public void GenerateIngredient(FoodScriptable ingredients)
     {
         GameObject ingredientObj = Instantiate(ingredientPrefab, ingredientHolder.transform.position, Quaternion.identity);
