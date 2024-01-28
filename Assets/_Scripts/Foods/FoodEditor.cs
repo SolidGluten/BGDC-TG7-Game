@@ -11,8 +11,10 @@ public class FoodEditor : Editor
     SerializedProperty food;
     SerializedProperty foodName;
     SerializedProperty sprite;
+    SerializedProperty sideRenderer;
+    SerializedProperty drinkRenderer;
     SerializedProperty type;
-    SerializedProperty drinks;
+    SerializedProperty drink;
     SerializedProperty sides;
     SerializedProperty baseIngredient;
     SerializedProperty semiProcessed;
@@ -24,8 +26,10 @@ public class FoodEditor : Editor
         food = serializedObject.FindProperty("food");
         foodName = serializedObject.FindProperty("foodName");
         sprite = serializedObject.FindProperty("sprite");
+        sideRenderer = serializedObject.FindProperty("sideRenderer");
+        drinkRenderer = serializedObject.FindProperty("drinkRenderer");
         type = serializedObject.FindProperty("type");
-        drinks = serializedObject.FindProperty("drinks");
+        drink = serializedObject.FindProperty("drink");
         sides = serializedObject.FindProperty("sides");
         baseIngredient = serializedObject.FindProperty("baseIngredient");
         semiProcessed = serializedObject.FindProperty("semiProcessed");
@@ -38,7 +42,9 @@ public class FoodEditor : Editor
         EditorGUILayout.PropertyField(food);
         EditorGUILayout.PropertyField(foodName);
         EditorGUILayout.PropertyField(sprite);
-        EditorGUILayout.PropertyField(drinks);
+        EditorGUILayout.PropertyField(sideRenderer);
+        EditorGUILayout.PropertyField(drinkRenderer);
+        EditorGUILayout.PropertyField(drink);
         EditorGUILayout.PropertyField(type);
 
         FoodType currType = (FoodType)type.enumValueIndex;

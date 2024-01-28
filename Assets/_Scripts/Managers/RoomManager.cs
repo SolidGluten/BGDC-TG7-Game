@@ -82,7 +82,6 @@ public class RoomManager : MonoBehaviour
         return;
     }
 
-
     public void SendFood(int code)
     {
         if(currentActiveRoom.roomElevator == null)
@@ -116,6 +115,12 @@ public class RoomManager : MonoBehaviour
 
         currentActiveRoom.roomElevator.foodObj = null;
         Debug.Log("Sent Succesfully! ");
+    }
+
+    public void RemoveFood()
+    {
+        if (currentActiveRoom.roomElevator.foodObj != null)
+            Destroy(currentActiveRoom.roomElevator.foodObj);
     }
 }
 

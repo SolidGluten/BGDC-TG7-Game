@@ -19,7 +19,8 @@ public class Generator : MonoBehaviour
     public void GenerateIngredient(FoodScriptable ingredients)
     {
         GameObject ingredientObj = Instantiate(ingredientPrefab, ingredientHolder.transform.position, Quaternion.identity);
-        ingredientObj.GetComponent<FoodHolder>().food = ingredients;
+        FoodHolder foodHolder = ingredientObj.GetComponent<FoodHolder>();
+           foodHolder.food = ingredients;
         ingredientObj.transform.parent = transform;
 
         if (ingredientHolder.ingredient == ingredientObj)

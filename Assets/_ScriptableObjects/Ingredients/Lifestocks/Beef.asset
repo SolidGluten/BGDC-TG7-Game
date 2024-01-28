@@ -15,12 +15,18 @@ MonoBehaviour:
   _foodName: Beef
   _foodSprite: {fileID: 21300000, guid: 83771a5438a9dae439a2c6e37f936424, type: 3}
   _foodType: 0
-  _drinks: 0
+  _drink: 0
   _sideDish: 0
   _baseIngredient: 1
   _semiProcessed: 0
   _dishType: 0
-  _addPotato: {fileID: 0}
-  _addCarrot: {fileID: 0}
-  _addCorn: {fileID: 0}
-  _addMushroom: {fileID: 0}
+  _addPotato: {fileID: 21300000, guid: 6e5a355a3057bc54a936e9be621c2995, type: 3}
+  _addCarrot: {fileID: 21300000, guid: 8196e7faa7a3f3e48894709be45e60e1, type: 3}
+  _addCorn: {fileID: 21300000, guid: 29fc3508dec62c94fbeee84fce442ea0, type: 3}
+  _addMushroom: {fileID: 21300000, guid: 8f9d658f088f0874a822542e21acc57b, type: 3}
+  _redDrink: {fileID: 21300000, guid: e465e79481537af4abecc5d99ef7c8d7, type: 3}
+  _orangeDrink: {fileID: 21300000, guid: bb71999176d3b864ba19f91f5afcc5dd, type: 3}
+  _yellowDrink: {fileID: 21300000, guid: 52cf591b6e192d74b869f94e71af31c7, type: 3}
+  _greenDrink: {fileID: 21300000, guid: 281dc8e282229f74f8ce28edc6cc8f71, type: 3}
+  _blueDrink: {fileID: 21300000, guid: 9ac433b3fa93b2542bee94edad399984, type: 3}
+  _purpleDrink: {fileID: 21300000, guid: 04265b0df9a39b94eac1f8c7e554a8a2, type: 3}
