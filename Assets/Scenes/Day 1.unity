@@ -1065,6 +1065,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cuttingObj: {fileID: 0}
+  soundManager: {fileID: 1244839920}
 --- !u!61 &197673949
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6184,6 +6185,55 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 2
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &1244839919
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1244839921}
+  - component: {fileID: 1244839920}
+  m_Layer: 0
+  m_Name: SoundManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1244839920
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1244839919}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3584b6c0c8e690d40b48d3b122b34fe3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  backgroundMusic: {fileID: 8300000, guid: 128d440f349d2624a8d59f349903839d, type: 3}
+  soundEffects:
+  - {fileID: 8300000, guid: f5254b94e93d9a14ead3ed093453d1ff, type: 3}
+  - {fileID: 8300000, guid: be9b6de90b311fc4880942384091c4bc, type: 3}
+  - {fileID: 8300000, guid: 906956a29f22f4f45b3a2b517df9811c, type: 3}
+--- !u!4 &1244839921
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1244839919}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1337990591
 GameObject:
   m_ObjectHideFlags: 0
@@ -8959,7 +9009,7 @@ MonoBehaviour:
   cashierRoom: {fileID: 2089078331}
   orderObjPrefab: {fileID: 5718254510981106274, guid: 4d4b0114518ec0c49b33a52b05b4f192, type: 3}
   orderContainer: {fileID: 1650110759}
-  orderObjects: []
+  activeOrders: []
 --- !u!1 &2026779817
 GameObject:
   m_ObjectHideFlags: 0
@@ -9421,6 +9471,7 @@ SceneRoots:
   - {fileID: 315430466}
   - {fileID: 126971353}
   - {fileID: 126588490}
+  - {fileID: 1244839921}
   - {fileID: 1059675485}
   - {fileID: 125422222}
   - {fileID: 392083225}
