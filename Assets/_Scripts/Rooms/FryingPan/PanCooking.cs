@@ -19,6 +19,8 @@ public class PanCooking : MonoBehaviour
     public FoodScriptable currentRaw;
     public FoodScriptable currentOutput;
 
+    public SoundManager soundManager;
+    private int SFXindex = 1;
     void Start()
     {
         ResetTimer();
@@ -53,6 +55,7 @@ public class PanCooking : MonoBehaviour
         if (isCooking) return;
 
         fryingPan.ProcessFood(transform.position, currentOutput);
+        soundManager.StopSoundEffect(SFXindex);
         ChangeSprite(emptySprite);
         isEmpty = true;
         isCooking = false;
@@ -62,6 +65,7 @@ public class PanCooking : MonoBehaviour
 
     private async void Cook()
     {
+        soundManager.PlaySoundEffect(SFXindex);
         while (currentCookTime > 0)
         {
             currentCookTime -= Time.deltaTime;
