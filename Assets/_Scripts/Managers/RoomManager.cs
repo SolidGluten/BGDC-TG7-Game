@@ -1,7 +1,9 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
+using static UnityEditor.Recorder.OutputPath;
 
 //enum has an order
 //Default = 0
@@ -14,76 +16,88 @@ using UnityEngine;
 public class RoomManager : MonoBehaviour
 {
     public Room currentActiveRoom;
+    public static RoomCode activeRoomCode = RoomCode.Cashier;
     public List<Room> roomList = new List<Room>();
-    public Room roomDestination;
+    public Vector3 activeRoomPos;
+    public float roomDistance = 5;
 
     private void Start()
     {
-        foreach (Room room in roomList)
-        {
-            room.SetRoomActive(false);
-        }
-        currentActiveRoom.SetRoomActive(true);  
+        SetRoomActive(activeRoomCode);
     }
 
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
-            ChangeRoom(1);
+            SetRoomActive((RoomCode)1); 
         } else if (Input.GetKeyDown(KeyCode.Alpha2))
         {
-            ChangeRoom(2);
+            SetRoomActive((RoomCode)2);
         }
         else if (Input.GetKeyDown(KeyCode.Alpha3))
         {
-            ChangeRoom(3);
+            SetRoomActive((RoomCode)3);
         }
         else if (Input.GetKeyDown(KeyCode.Alpha4))
         {
-            ChangeRoom(4);
+            SetRoomActive((RoomCode)4);
         }
         else if (Input.GetKeyDown(KeyCode.Alpha5))
         {
-            ChangeRoom(5);
+            SetRoomActive((RoomCode)5);
         }
         else if (Input.GetKeyDown(KeyCode.Alpha6))
         {
-            ChangeRoom(6);
+            SetRoomActive((RoomCode)6);
         }
         else if (Input.GetKeyDown(KeyCode.Alpha7))
         {
-            ChangeRoom(7);
+            SetRoomActive((RoomCode)7);
         }
         else if (Input.GetKeyDown(KeyCode.Alpha8))
         {
-            ChangeRoom(8);
+            SetRoomActive((RoomCode)8);
         }
         else if (Input.GetKeyDown(KeyCode.Alpha9))
         {
-            ChangeRoom(9);
+            SetRoomActive((RoomCode)9);
         }
     }
 
-    public void ChangeRoom(int nextRoomCode){
-        //iterate every rooms in the list
-        foreach (Room room in roomList)
-        {
-            //if the the room headed to is found then change to it
-            if(room.roomCode == (RoomCode)nextRoomCode)
-            {
-                //disable the current room
-                currentActiveRoom.SetRoomActive(false);
-                //set the current room as the next room
-                currentActiveRoom = room;
-                //set the next room as active
-                currentActiveRoom.SetRoomActive(true);
-                return;
-            }
-        }
+    public void SetRoomActive(RoomCode code)
+    {
+        List<Room> newList = roomList;
 
-        Debug.Log("Room not found!");
-        return;
+        int nextRoomIndex = newList.FindIndex(room => room.roomCode == code);
+        Room nextRoom = newList[nextRoomIndex];
+
+        if (newList[0].roomCode != code)
+            SwapRoom(newList, nextRoomIndex, 0); //swaps the next room being activated with the 2nd roomn in the list
+
+        currentActiveRoom = nextRoom;
+        activeRoomCode = nextRoom.roomCode;
+
+        int multiplier = 0;
+        foreach (Room room in newList)
+        {
+            room.SetRoomPos(activeRoomPos + roomDistance * multiplier * Vector3.right);
+            room.gameObject.SetActive(true);
+
+            if(room.roomElevator.foodObj != null)
+            {
+                room.roomElevator.foodObj?.GetComponent<Dragable>().ResetPosition();    
+            }
+
+            multiplier++;
+        }
+    }
+
+    public void SwapRoom(List<Room> list, int index1, int index2)
+    {
+        Room temp = list[index1];
+        list[index1] = list[index2];
+        list[index2] = temp;
     }
 
     public void SendFood(int code)
@@ -98,8 +112,8 @@ public class RoomManager : MonoBehaviour
             Debug.Log("Fud not found in the elevator");
             return;
         }
-
-        roomDestination = roomList.Find(i => i.roomCode == (RoomCode)code);
+        
+        var roomDestination = roomList.Find(i => i.roomCode == (RoomCode)code);
         if (roomDestination == null)
         {
             Debug.Log("Room not found!");
@@ -114,8 +128,11 @@ public class RoomManager : MonoBehaviour
         
         roomDestination.roomElevator.foodObj = currentActiveRoom.roomElevator.foodObj;
 
-        GameObject Food = currentActiveRoom.roomElevator.foodObj;
-        Food.transform.parent = roomDestination.gameObject.transform;
+        GameObject FoodObj = currentActiveRoom.roomElevator.foodObj;
+        FoodObj.transform.parent = roomDestination.gameObject.transform;
+            
+        FoodObj.GetComponent<Dragable>().SetLastPosition(roomDestination.roomElevator.gameObject.transform);
+        FoodObj.GetComponent<Dragable>().ResetPosition();
 
         currentActiveRoom.roomElevator.foodObj = null;
         Debug.Log("Sent Succesfully! ");

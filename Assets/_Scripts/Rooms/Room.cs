@@ -11,8 +11,8 @@ public class Room : MonoBehaviour
     public Elevator roomElevator;
 
     //A function just to activate this gameObject
-    public void SetRoomActive(bool active)
+    public void SetRoomPos(Vector3 pos)
     {
-        this.gameObject.SetActive(active);
+        transform.position = pos;
     }
 }

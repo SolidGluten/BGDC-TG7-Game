@@ -9,12 +9,12 @@ public class Dragable : MonoBehaviour
     private Camera mainCam;
     public DragNDrop dragAndDrop;
     public bool isDrag;
-    private Vector2 lastPos;
+    public Transform lastPos;
 
     private void Start()
     {
         mainCam = Camera.main;
-        lastPos = transform.position;
+        lastPos = lastPos ? lastPos : transform;
         dragAndDrop = FindAnyObjectByType<DragNDrop>();
     }
 
@@ -35,7 +35,7 @@ public class Dragable : MonoBehaviour
     {
         isDrag = false;
         dragAndDrop.DragObject = null;
-        transform.position = lastPos;
+        ResetPosition();
     }
 
     private void Drag()
@@ -45,10 +45,10 @@ public class Dragable : MonoBehaviour
 
     public void ResetPosition()
     {
-        transform.position = lastPos;
+        transform.position = lastPos.position;
     }
 
-    public void SetLastPosition(Vector2 pos)
+    public void SetLastPosition(Transform pos)
     {
         lastPos = pos;
     }

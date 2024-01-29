@@ -52,7 +52,7 @@ public class PanCooking : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if (isCooking) return;
+        if (isCooking || isEmpty) return;
 
         fryingPan.ProcessFood(transform.position, currentOutput);
         soundManager.StopSoundEffect(SFXindex);

@@ -28,7 +28,7 @@ public class CuttingBoard : MonoBehaviour
         {
             if (cuttingObj != null) return;
             cuttingObj = collision.gameObject;
-            cuttingObj.GetComponent<Dragable>().SetLastPosition(transform.position);
+            cuttingObj.GetComponent<Dragable>().SetLastPosition(transform);
             GetComponentInParent<Room>().roomElevator.foodObj = null;
 
         }

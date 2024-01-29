@@ -59,6 +59,8 @@ namespace Types
         BaconNEggs, //Bacon + Egg
         SurfNTurf, //Steak + PanSearedShrimp
         FishNChips, //Fries + GrilledSalmon
+        FriedChicken,
+        CarrotSoup
     }
 
     

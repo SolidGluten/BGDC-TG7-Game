@@ -21,7 +21,7 @@ public class OrderChute : MonoBehaviour
         {
             foodHolder = collision.gameObject;
             cashierRoom.roomElevator.foodObj = null;
-            foodHolder.GetComponent<Dragable>()?.SetLastPosition(transform.position);
+            foodHolder.GetComponent<Dragable>()?.SetLastPosition(transform);
         }
     }
 
