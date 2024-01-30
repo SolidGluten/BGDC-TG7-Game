@@ -11,7 +11,7 @@ using static UnityEditor.Recorder.OutputPath;
 //FryingPan = 2
 //...
 
-[Serializable] public enum RoomCode{Cashier = 1, FryingPan, DeepFryer, CuttingBoard, Fishing, Storage, Garden, Fermentation, Drinks}
+[Serializable] public enum RoomCode { Cashier = 1, Storage, Fishing, Garden, FryingPan, CuttingRoom, DeepFryer, Fermentation, Drinks }
 
 public class RoomManager : MonoBehaviour
 {

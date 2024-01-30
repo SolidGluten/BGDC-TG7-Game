@@ -48,18 +48,9 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public IEnumerator StartGame(int index)
-    {
-        currentState = GameState.Playing;
-        yield return new WaitForSeconds(delayBeforeNextLevel);
-        if(index > 0 && index <= LevelList.Count)
-        {
-            LoadLevel(index - 1);
-        }
-    }
-
     public IEnumerator ChangeLevel(int index)
     {
+        currentState = GameState.Playing;
         yield return new WaitForSeconds(delayBeforeNextLevel);
         if(index == LevelList.Count) {
             //End message
@@ -72,12 +63,12 @@ public class GameManager : MonoBehaviour
 
     public void LoadLevel(int index)
     {
-        SceneManager.LoadScene(LevelList[index].sceneBuildIndex);
         currentLevelIndex = index;
+        SceneManager.LoadScene(LevelList[index].sceneBuildIndex);
+        LevelList[index].isAccesible = true;
         GeneralSpeed = LevelList[index].generalSpeed;
         MaxOrder = LevelList[index].totalOrders;
         MaxPatience = (15 / GeneralSpeed) + 15;
-        Debug.Log(GeneralSpeed);
         CurrentOrderServed = 0;
     }
 

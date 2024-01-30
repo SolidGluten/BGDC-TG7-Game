@@ -5,7 +5,7 @@ public class MainMenu : MonoBehaviour
 {
     public void PlayButtonThing()
     {
-        StartCoroutine(GameManager.instance.StartGame(1));
+        StartCoroutine(GameManager.instance.ChangeLevel(0));
     }
     public void QuitButtonThing()
     {
