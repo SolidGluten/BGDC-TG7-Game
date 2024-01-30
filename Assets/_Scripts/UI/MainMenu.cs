@@ -11,4 +11,16 @@ public class MainMenu : MonoBehaviour
     {
         Application.Quit();
     }
+    public void ResumeButton()
+    {
+        GameManager.instance.Resume();
+    }
+    public void RetryButton()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+    public void MenuButton()
+    {
+        SceneManager.LoadScene(0);
+    }
 }

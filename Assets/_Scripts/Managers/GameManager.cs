@@ -6,27 +6,26 @@ using UnityEditorInternal;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public enum DeathCondition{Frying};
+public enum DeathCondition { Frying };
 
-public enum GameState { MainMenu, Playing, Dead, Paused}
+public enum GameState { MainMenu, Playing, Dead, Paused }
 
 public class GameManager : MonoBehaviour
 {
-    public static GameManager instance; 
+    public static GameManager instance;
 
     public float GeneralSpeed = 1;
     public int MaxOrder = 1;
     public static int CurrentOrderServed = 0;
     public float MaxPatience = 1;
     public GameState currentState;
-
     public int currentLevelIndex;
+    public GameObject pauseMenu;
     [SerializeField] private float delayBeforeNextLevel;
     public List<Level> LevelList = new List<Level>();
-
     private void Awake()
     {
-        if(instance != null & instance != this)
+        if (instance != null & instance != this)
         {
             Destroy(gameObject);
             return;
@@ -35,16 +34,29 @@ public class GameManager : MonoBehaviour
             instance = this;
 
         DontDestroyOnLoad(gameObject);
-        if(SceneManager.GetActiveScene().buildIndex != 0 )
+        if (SceneManager.GetActiveScene().buildIndex != 0)
             SceneManager.LoadScene(0); //starts from the main menu
         currentState = GameState.MainMenu;
+
     }
 
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            currentState = (currentState == GameState.Paused) ? GameState.Playing : GameState.Paused;
+            //bool isPaused = !pauseMenu.activeSelf;
+            //pauseMenu.SetActive(isPaused);
+
+            if (currentState == GameState.Paused)
+            {
+                Resume();
+                currentState = GameState.Playing;
+            }
+            else
+            {
+                Pause();
+                currentState = GameState.Paused;
+            }
         }
     }
 
@@ -52,7 +64,8 @@ public class GameManager : MonoBehaviour
     {
         currentState = GameState.Playing;
         yield return new WaitForSeconds(delayBeforeNextLevel);
-        if(index == LevelList.Count) {
+        if (index == LevelList.Count)
+        {
             //End message
         }
         else
@@ -80,25 +93,34 @@ public class GameManager : MonoBehaviour
 
     public void Pause()
     {
-        
+        SoundManager.instance.PausePlayAllSounds();
+        Time.timeScale = 0f;
+
+    }
+
+    public void Resume()
+    {
+        SoundManager.instance.PausePlayAllSounds();
+        Time.timeScale = 1;
+
     }
 
     public void Death(DeathCondition cond)
     {
         //currentState = GameState.Dead;
-        switch(cond)
+        switch (cond)
         {
             case DeathCondition.Frying:
-            {
-                break;
-            }
+                {
+                    break;
+                }
         }
     }
 
     public void UpdateOrderCount()
     {
         CurrentOrderServed++;
-        if(CurrentOrderServed >= MaxOrder)
+        if (CurrentOrderServed >= MaxOrder)
         {
             StartCoroutine(ChangeLevel(currentLevelIndex + 1));
         }
@@ -114,3 +136,4 @@ public class Level
     [SerializeField] public int totalOrders;
     [SerializeField] public bool isAccesible;
 }
+

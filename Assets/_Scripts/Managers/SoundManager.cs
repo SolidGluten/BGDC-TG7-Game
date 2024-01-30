@@ -7,7 +7,6 @@ public class SoundManager : MonoBehaviour
 
     public AudioClip backgroundMusic;    // Background music
     public AudioClip[] soundEffects;     // Array of sound effects
-
     private AudioSource musicSource;     // AudioSource for background music
 
     // Dictionary to store the playing AudioSource for each sound effect index
@@ -118,4 +117,17 @@ public class SoundManager : MonoBehaviour
         // Clear the dictionary
         playingSounds.Clear();
     }
+
+    public void PausePlayAllSounds()
+    {
+        if (AudioListener.pause == true)
+        {
+            AudioListener.pause = false;
+        }
+        else
+        {
+            AudioListener.pause = true;
+        }
+    }
 }
+
