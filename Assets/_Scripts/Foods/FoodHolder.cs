@@ -48,7 +48,7 @@ public class FoodHolder : MonoBehaviour
                     }
                 case DrinkType.Blue:
                     {
-                        drinkRenderer.sprite = food._greenDrink;
+                        drinkRenderer.sprite = food._blueDrink;
                         break;
                     }
                 case DrinkType.Purple:

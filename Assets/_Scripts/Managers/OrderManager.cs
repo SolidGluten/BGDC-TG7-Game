@@ -2,12 +2,16 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Types;
 
 public class OrderManager : MonoBehaviour
 {
     public OrderList orderList;
 
     public float arrivalTimer;
+
+    [SerializeField] private bool isDrinkAdded;
+    [SerializeField] private bool isSideDishAdded;
 
     public Orders simple;
     public Orders mediocre;
@@ -37,31 +41,34 @@ public class OrderManager : MonoBehaviour
     private FoodScriptable GetRandomDish()
     {
         //Pick random tier
+        FoodScriptable randomDish;
         int total = simple._spawnChance + mediocre._spawnChance + advance._spawnChance;
         int rand = UnityEngine.Random.Range(0, total);
         if (rand < simple._spawnChance)
         {
             var random = new System.Random();
             var index = random.Next(simple._orderList.Count);
-            return simple._orderList[index];
+            randomDish = simple._orderList[index];
         }
         else if (rand < mediocre._spawnChance)
         {
             var random = new System.Random();
             var index = random.Next(mediocre._orderList.Count);
-            return mediocre._orderList[index];
+            randomDish = mediocre._orderList[index];
         }
         else
         {
             var random = new System.Random();
             var index = random.Next(advance._orderList.Count);
-            return advance._orderList[index];
+            randomDish = advance._orderList[index];
         }
+
+        return randomDish;
     }
 
     private void SendNewOrder()
     {
-        orderList.AddOrder(GetRandomDish());
+        orderList.AddOrder(GetRandomDish(), isSideDishAdded, isDrinkAdded);
     }
 }
 

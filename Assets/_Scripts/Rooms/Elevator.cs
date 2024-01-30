@@ -20,33 +20,12 @@ public class Elevator : MonoBehaviour
             {
                 if (foodObj == collision.gameObject) return;
 
-                FoodScriptable addedTo = foodObj.GetComponent<FoodHolder>().food;
-                FoodScriptable adder = collision.GetComponent<FoodHolder>().food;
+                FoodHolder addedTo = foodObj.GetComponent<FoodHolder>();
+                FoodHolder adder = collision.GetComponent<FoodHolder>();
 
-                if (adder._foodType == FoodType.SideDish && addedTo._sideDish == SideDish.None)
-                {
-                    //If dish + sideDish combination
-                    Mixer.instance.AddSideDish(foodObj.GetComponent<FoodHolder>(), adder._sideDish);
-                    Destroy(collision.gameObject);
-                } else if (addedTo._foodType == FoodType.SideDish && adder._sideDish == SideDish.None) 
-                {
-                    //If sideDish + dish combination
-                    Mixer.instance.AddSideDish(collision.GetComponent<FoodHolder>(), addedTo._sideDish);
-                    Destroy(foodObj);
-                } else if (adder._foodType == FoodType.Beverage && addedTo._drink == DrinkType.None)
-                {
-                    //If dish + beverage combination
-                    Mixer.instance.AddDrink(foodObj.GetComponent<FoodHolder>(), adder._drink);
-                    Destroy(collision.gameObject);
-                } else if (addedTo._foodType == FoodType.Beverage && adder._drink == DrinkType.None)
-                {
-                    //If beverage + dish combination
-                    Mixer.instance.AddDrink(collision.GetComponent<FoodHolder>(), addedTo._drink);
-                    Destroy(foodObj);
-                }
-                else {
-                    //If dish + dish combination
-                    FoodScriptable output = Mixer.instance.FindRecipe(addedTo, adder);
+                //Mix dishes
+                if(addedTo.type == FoodType.Dish && adder.type == FoodType.Dish){
+                    FoodScriptable output = Mixer.instance.FindRecipe(addedTo.food, adder.food);
                     if (output == null)
                     {
                         Debug.Log("No recipe found!");
@@ -55,6 +34,32 @@ public class Elevator : MonoBehaviour
                     Mixer.instance.MakeMix(output, transform.position, transform.parent);
                     Destroy(foodObj);
                     Destroy(collision.gameObject);
+                }
+
+                if (addedTo.type == adder.type) return;
+
+                //Add side dish
+                if(addedTo.type == FoodType.SideDish || adder.type == FoodType.SideDish)
+                {
+                    FoodHolder sideDishHolder = addedTo.type == FoodType.SideDish ? addedTo : adder;
+                    FoodHolder foodHolder = addedTo.type != FoodType.SideDish ? addedTo : adder;
+
+                    Mixer.instance.AddSideDish(foodHolder, sideDishHolder.sideDish);
+                    foodObj = foodHolder.gameObject;
+                    foodHolder.GetComponent<Dragable>().SetLastPosition(transform);
+                    Destroy(sideDishHolder.gameObject);
+                }
+
+                //Add drink
+                if(addedTo.type == FoodType.Beverage || adder.type == FoodType.Beverage)
+                {
+                    FoodHolder drinkHolder = addedTo.type == FoodType.Beverage ? addedTo : adder;
+                    FoodHolder foodHolder = addedTo.type != FoodType.Beverage ? addedTo : adder;
+
+                    Mixer.instance.AddDrink(foodHolder, drinkHolder.drinkType);
+                    foodObj = foodHolder.gameObject;
+                    foodHolder.GetComponent<Dragable>().SetLastPosition(transform);
+                    Destroy(drinkHolder.gameObject);
                 }
             }
             #endregion

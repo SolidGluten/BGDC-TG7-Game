@@ -29,10 +29,11 @@ public class Mixer : MonoBehaviour
         return recipe ? recipe : null;
     }
 
-    public void MakeMix(FoodScriptable mixFood, Vector2 pos, Transform parent)
+    public GameObject MakeMix(FoodScriptable mixFood, Vector2 pos, Transform parent)
     {
         GameObject mixObj = Instantiate(foodObj, pos, Quaternion.identity, parent);
         mixObj.GetComponent<FoodHolder>().food = mixFood;
+        return mixObj;
     }
 
     public void AddSideDish(FoodHolder holder, SideDish type)

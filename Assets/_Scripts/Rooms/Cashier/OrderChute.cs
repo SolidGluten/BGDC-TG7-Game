@@ -29,7 +29,13 @@ public class OrderChute : MonoBehaviour
     {
         if(foodHolder != null)
         {
-            orderList.RemoveOrder(foodHolder.GetComponent<FoodHolder>().food);
+            Order orderToServe = orderList.FindOrder(foodHolder.GetComponent<FoodHolder>());
+            if(orderToServe == null) {
+                //Death Condition
+            } else
+            {
+                orderList.RemoveOrder(orderToServe);
+            }
             Destroy(foodHolder);
         }
     }

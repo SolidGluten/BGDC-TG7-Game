@@ -10,18 +10,27 @@ public class OrderList : MonoBehaviour
     public Transform orderContainer;
     public List<Order> activeOrders = new List<Order>();
 
-    public void AddOrder(FoodScriptable dish)
+    public void AddOrder(FoodScriptable dish, bool addSides, bool addDrink)
     {
         GameObject newOrder = Instantiate(orderObjPrefab, transform.position, Quaternion.identity, orderContainer);
         Order order = newOrder.GetComponent<Order>();
         order.orderDish = dish;
+        if (addSides) order.SetRandomSides();
+        if (addDrink) order.SetRandomDrink();
         order.orderList = this;
         activeOrders.Add(order);
     }
 
-    public bool RemoveOrder(FoodScriptable dish)
+    public Order FindOrder(FoodHolder foodHolder)
     {
-        Order orderToRemove = activeOrders.FirstOrDefault(order => order.orderDish == dish);
+        Order orderToFind = activeOrders
+            .FirstOrDefault(order => order.orderDish == foodHolder.food && order.OrderDrink == foodHolder.drinkType && order.OrderSideDish == foodHolder.sideDish);
+        return orderToFind ? orderToFind : null;
+    }
+
+    public bool RemoveOrder(Order order)
+    {
+        Order orderToRemove = activeOrders.FirstOrDefault(_order => _order == order);
 
         if(orderToRemove == null)
         {
