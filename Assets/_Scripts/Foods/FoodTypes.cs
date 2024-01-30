@@ -25,7 +25,11 @@ namespace Types
         Potato,
         Carrot,
         Mushroom,
-        Corn, 
+        Corn,
+        FermentedBeef,
+        FermentedDrumstick,
+        FermentedPorkchop,
+        FermentedEgg
     }
 
     public enum SemiProcessed
