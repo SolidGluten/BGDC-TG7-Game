@@ -9,6 +9,7 @@ public class HeatMeter : MonoBehaviour
     public FrySoup frySoup;
     public Image fillRect;
     [SerializeField] private Color initialColor;
+    [SerializeField] private Color rightColor;
     [SerializeField] private Color finalColor;
 
     private void Start()
@@ -21,7 +22,12 @@ public class HeatMeter : MonoBehaviour
     {
         var sliderVal = frySoup.currTemperature/frySoup.maxTemperature;
         slider.value = sliderVal;
-        fillRect.color = Color.Lerp(initialColor, finalColor, sliderVal);
 
+        var intitialToRightVal = frySoup.currTemperature / frySoup.rightTemperature;
+        var rightToFinalVal = (frySoup.currTemperature - frySoup.rightTemperature) / (frySoup.maxTemperature - frySoup.rightTemperature);
+        if(frySoup.currTemperature < frySoup.rightTemperature)
+            fillRect.color = Color.Lerp(initialColor, rightColor, intitialToRightVal);
+        else
+            fillRect.color = Color.Lerp(rightColor, finalColor, rightToFinalVal);
     }
 }

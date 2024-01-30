@@ -14,26 +14,63 @@ public class FrySoup : Processor
     public List<Recipe> fryRecipeList = new List<Recipe>();
     public List<Recipe> soupRecipeList = new List<Recipe>();
     public float currTemperature;
+    public float rightTemperature;
     public float maxTemperature;
-    [SerializeField] private bool isHot;
-    [SerializeField] private bool isHeating;
+    [SerializeField] private bool isHotEnough;
+    [SerializeField] private bool isHeatOn;
+
+    private void Update()
+    {
+        isHotEnough = currTemperature >= rightTemperature ? true : false;
+        if(currTemperature >= maxTemperature)
+        {
+            //Death Condition
+        }
+    }
+
+    public void HeatSwitch()
+    {
+        if (isHeatOn) TurnOffHeat();
+        else TurnOnHeat();
+    }
 
     public void TurnOnHeat()
     {
-        if (isHeating) return;
         StartCoroutine("I_TurnOnHeat");
+        StopCoroutine("I_TurnOffHeat"); 
+    }
+
+    public void TurnOffHeat()
+    {
+        StartCoroutine("I_TurnOffHeat");
+        StopCoroutine("I_TurnOnHeat");
     }
 
     public IEnumerator I_TurnOnHeat()
     {
-        isHeating = true;
+        isHeatOn = true;
         while(currTemperature < maxTemperature)
         {
             currTemperature += Time.deltaTime;
             yield return null;
         }
-        isHeating = false;
-        isHot = true;
+    }
+
+    public IEnumerator I_TurnOffHeat()
+    {
+        isHeatOn = false;
+        while (currTemperature > 0)
+        {
+            currTemperature -= Time.deltaTime;
+            yield return null;
+        }
+    }
+
+    public void ResetHeat()
+    {
+        currTemperature = 0;
+        StopAllCoroutines();
+        isHeatOn = false;
     }
 
     public void ChangePot()
@@ -42,13 +79,12 @@ public class FrySoup : Processor
             currentType = PotType.Oil;
         else
             currentType = PotType.Water;
-
         ResetHeat();
     }
 
     public GameObject ProcessPotFood(FoodScriptable input)
     {
-        if (!isHot)
+        if (!isHotEnough)
         {
             Debug.Log("Not hot enough!");
             return null;
@@ -65,7 +101,6 @@ public class FrySoup : Processor
             return null;
         }
 
-        ResetHeat();
         return ProcessFood(foodHolder.transform.position, foodToSpawn);
     }
 
@@ -79,13 +114,5 @@ public class FrySoup : Processor
     {
         FoodScriptable output = soupRecipeList.FirstOrDefault(recipe => recipe._rawInput == raw)?._processedOutput;
         return output ? output : null;
-    }
-
-    public void ResetHeat()
-    {
-        StopCoroutine("I_TurnOnHeat");
-        isHot = false;
-        currTemperature = 0;
-        isHeating = false;
     }
 }
