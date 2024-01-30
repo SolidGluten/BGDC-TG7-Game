@@ -5,7 +5,7 @@ using UnityEngine;
 public class CuttingRoom : Processor
 {
     [HideInInspector] public Room room;
-    private void Start()
+    private void Awake()
     {
         room = GetComponent<Room>();
     }

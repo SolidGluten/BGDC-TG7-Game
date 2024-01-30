@@ -19,7 +19,6 @@ public class PanCooking : MonoBehaviour
     public FoodScriptable currentRaw;
     public FoodScriptable currentOutput;
 
-    public SoundManager soundManager;
     private int SFXindex = 1;
     void Start()
     {
@@ -55,7 +54,7 @@ public class PanCooking : MonoBehaviour
         if (isCooking || isEmpty) return;
 
         fryingPan.ProcessFood(transform.position, currentOutput);
-        soundManager.StopSoundEffect(SFXindex);
+        SoundManager.instance.StopSoundEffect(SFXindex);
         ChangeSprite(emptySprite);
         isEmpty = true;
         isCooking = false;
@@ -65,7 +64,7 @@ public class PanCooking : MonoBehaviour
 
     private async void Cook()
     {
-        soundManager.PlaySoundEffect(SFXindex);
+        SoundManager.instance.PlaySoundEffect(SFXindex);
         while (currentCookTime > 0)
         {
             currentCookTime -= Time.deltaTime;
@@ -84,7 +83,7 @@ public class PanCooking : MonoBehaviour
             await Task.Yield();
         }
 
-        GameManager.Death((DeathCondition)1);
+        GameManager.instance.Death((DeathCondition)1);
     }
 
     //Combined the 3 CookSprite, ReadySprite, & EmptySprite into 1 function

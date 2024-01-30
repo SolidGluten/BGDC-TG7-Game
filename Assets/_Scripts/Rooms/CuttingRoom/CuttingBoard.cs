@@ -6,10 +6,9 @@ public class CuttingBoard : MonoBehaviour
 {
     public GameObject cuttingObj;
     private CuttingRoom cuttingRoom;
-    public SoundManager soundManager;
     private int SFXindex = 2;
 
-    private void Start()
+    private void Awake()
     {
         cuttingRoom = GetComponentInParent<CuttingRoom>();
     }
@@ -45,7 +44,7 @@ public class CuttingBoard : MonoBehaviour
 
             collision.GetComponent<Dragable>().isDrag = false;
             Destroy(cuttingObj);
-            soundManager.PlaySoundEffect(SFXindex);
+            SoundManager.instance.PlaySoundEffect(SFXindex);
             cuttingObj = cuttingRoom.ProcessFood(transform.position, processedObj);
         }
     }

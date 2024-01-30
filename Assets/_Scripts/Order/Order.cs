@@ -99,7 +99,7 @@ public class Order : MonoBehaviour
         gameObject.name = "Order_" + orderDish._foodName;
         orderImage.sprite = orderDish._foodSprite;
         orderNameTMP.text = orderDish._foodName;
-        currentPatience = GameManager.MaxPatience;
+        currentPatience = GameManager.instance.MaxPatience;
         orderSlider.maxValue = currentPatience;
         StartCoroutine(PatienceCountdown());
     }

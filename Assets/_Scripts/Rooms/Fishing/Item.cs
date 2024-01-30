@@ -18,6 +18,7 @@ public class Item : MonoBehaviour
 
     private void Update()
     {
-        textMeshPro.text = fishing.fishItems.FirstOrDefault(item => item._ingredient._baseIngredient == ingredient)?._ID;
+        if(textMeshPro != null)
+            textMeshPro.text = fishing.fishItems.FirstOrDefault(item => item._ingredient._baseIngredient == ingredient)?._ID;
     }
 }

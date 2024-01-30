@@ -36,7 +36,7 @@ public class OrderManager : MonoBehaviour
         }
     }
 
-    private float GetRandomArrival() => GameManager.MaxPatience + UnityEngine.Random.Range(-7, 3);
+    private float GetRandomArrival() => GameManager.instance.MaxPatience + UnityEngine.Random.Range(-7, 3);
 
     private FoodScriptable GetRandomDish()
     {

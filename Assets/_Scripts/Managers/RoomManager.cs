@@ -28,6 +28,11 @@ public class RoomManager : MonoBehaviour
 
     private void Update()
     {
+        if(GameManager.instance.currentState != GameState.Playing)
+        {
+            return;
+        }
+
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             SetRoomActive((RoomCode)1); 

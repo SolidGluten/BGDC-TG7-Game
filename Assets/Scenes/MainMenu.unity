@@ -2593,6 +2593,106 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!1 &1840904953
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1840904956}
+  - component: {fileID: 1840904955}
+  - component: {fileID: 1840904954}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1840904954
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1840904953}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5bd9dd0b5d3077149a29b2ab281c9d37, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GeneralSpeed: 1
+  MaxOrder: 1
+  MaxPatience: 1
+  currentState: 0
+  currentLevelIndex: 0
+  delayBeforeNextLevel: 0
+  LevelList:
+  - LevelName: Day 1
+    sceneBuildIndex: 1
+    generalSpeed: 1
+    totalOrders: 2
+    isAccesible: 1
+  - LevelName: Day 2
+    sceneBuildIndex: 2
+    generalSpeed: 0
+    totalOrders: 3
+    isAccesible: 0
+  - LevelName: Day 3
+    sceneBuildIndex: 3
+    generalSpeed: 0
+    totalOrders: 1
+    isAccesible: 0
+  - LevelName: Day 4
+    sceneBuildIndex: 4
+    generalSpeed: 0
+    totalOrders: 1
+    isAccesible: 0
+  - LevelName: Day 5
+    sceneBuildIndex: 5
+    generalSpeed: 0
+    totalOrders: 1
+    isAccesible: 0
+  - LevelName: Day 6
+    sceneBuildIndex: 6
+    generalSpeed: 0
+    totalOrders: 1
+    isAccesible: 0
+  - LevelName: Overtime
+    sceneBuildIndex: 7
+    generalSpeed: 0
+    totalOrders: 1
+    isAccesible: 0
+--- !u!114 &1840904955
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1840904953}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac37d938ae96fe341b80ebd25ba0feab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DragObject: {fileID: 0}
+--- !u!4 &1840904956
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1840904953}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1861456604
 GameObject:
   m_ObjectHideFlags: 0
@@ -3018,6 +3118,7 @@ Transform:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
+  - {fileID: 1840904956}
   - {fileID: 663232202}
   - {fileID: 1007491160}
   - {fileID: 2091400551}

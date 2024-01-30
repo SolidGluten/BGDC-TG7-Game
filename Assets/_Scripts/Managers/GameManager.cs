@@ -1,17 +1,100 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Reflection;
+using UnityEditorInternal;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public enum DeathCondition{Frying};
 
+public enum GameState { MainMenu, Playing, Dead, Paused}
+
 public class GameManager : MonoBehaviour
 {
-    public static float GeneralSpeed = 1;
-    public static int MaxOrder = 4;
-    public static float MaxPatience = (15 / GeneralSpeed) + 15;
+    public static GameManager instance; 
 
-    public static void Death(DeathCondition cond)
+    public float GeneralSpeed = 1;
+    public int MaxOrder = 1;
+    public static int CurrentOrderServed = 0;
+    public float MaxPatience = 1;
+    public GameState currentState;
+
+    public int currentLevelIndex;
+    [SerializeField] private float delayBeforeNextLevel;
+    public List<Level> LevelList = new List<Level>();
+
+    private void Awake()
     {
+        if(instance != null & instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        else
+            instance = this;
+
+        DontDestroyOnLoad(gameObject);
+        if(SceneManager.GetActiveScene().buildIndex != 0 )
+            SceneManager.LoadScene(0); //starts from the main menu
+        currentState = GameState.MainMenu;
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            currentState = (currentState == GameState.Paused) ? GameState.Playing : GameState.Paused;
+        }
+    }
+
+    public IEnumerator StartGame(int index)
+    {
+        currentState = GameState.Playing;
+        yield return new WaitForSeconds(delayBeforeNextLevel);
+        if(index > 0 && index <= LevelList.Count)
+        {
+            LoadLevel(index - 1);
+        }
+    }
+
+    public IEnumerator ChangeLevel(int index)
+    {
+        yield return new WaitForSeconds(delayBeforeNextLevel);
+        if(index == LevelList.Count) {
+            //End message
+        }
+        else
+        {
+            LoadLevel(index);
+        }
+    }
+
+    public void LoadLevel(int index)
+    {
+        SceneManager.LoadScene(LevelList[index].sceneBuildIndex);
+        currentLevelIndex = index;
+        GeneralSpeed = LevelList[index].generalSpeed;
+        MaxOrder = LevelList[index].totalOrders;
+        MaxPatience = (15 / GeneralSpeed) + 15;
+        Debug.Log(GeneralSpeed);
+        CurrentOrderServed = 0;
+    }
+
+    public IEnumerator RetryLevel()
+    {
+        SceneManager.LoadScene(currentLevelIndex);
+        yield return null;
+    }
+
+    public void Pause()
+    {
+        
+    }
+
+    public void Death(DeathCondition cond)
+    {
+        //currentState = GameState.Dead;
         switch(cond)
         {
             case DeathCondition.Frying:
@@ -20,4 +103,23 @@ public class GameManager : MonoBehaviour
             }
         }
     }
+
+    public void UpdateOrderCount()
+    {
+        CurrentOrderServed++;
+        if(CurrentOrderServed >= MaxOrder)
+        {
+            StartCoroutine(ChangeLevel(currentLevelIndex + 1));
+        }
+    }
+}
+
+[Serializable]
+public class Level
+{
+    [SerializeField] private string LevelName;
+    public int sceneBuildIndex;
+    [Range(1, 5)] public float generalSpeed = 1;
+    [SerializeField] public int totalOrders;
+    [SerializeField] public bool isAccesible;
 }

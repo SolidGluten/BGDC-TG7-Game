@@ -12,7 +12,7 @@ public class Fishing : Generator
 {
     public List<FishItem> fishItems = new List<FishItem>();
 
-    public void Start()
+    public void Awake()
     {
         int index = 0;
         foreach (var ingredient in ingredientsList)

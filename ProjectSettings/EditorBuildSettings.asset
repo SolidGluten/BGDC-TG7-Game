@@ -11,4 +11,22 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Day 1.unity
     guid: 903d5ba921d80ff478dfa161ec89644e
+  - enabled: 1
+    path: Assets/Scenes/Day 2.unity
+    guid: 781d19a09ce24cc459f3be8e96f83f64
+  - enabled: 1
+    path: Assets/Scenes/Day 3.unity
+    guid: 234d7d357cf656e489a518cae1aadc0b
+  - enabled: 1
+    path: Assets/Scenes/Day 4.unity
+    guid: d4cc4c2db3bb076488a96893ad99383c
+  - enabled: 1
+    path: Assets/Scenes/Day 5.unity
+    guid: 99c2262de1857464ca3e593a1a823f08
+  - enabled: 1
+    path: Assets/Scenes/Day 6.unity
+    guid: 8d159fec63db97741aea3e87b3d73dc3
+  - enabled: 1
+    path: Assets/Scenes/Extra.unity
+    guid: 344c8a00da43d0847b63a22469aa0124
   m_configObjects: {}
