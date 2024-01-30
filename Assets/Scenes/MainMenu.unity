@@ -1140,7 +1140,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 824756455340425167, guid: 845ee8c1ead5bfd469deb4b17520f532, type: 3}
       propertyPath: levelToLoad
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1680333541172323221, guid: 845ee8c1ead5bfd469deb4b17520f532, type: 3}
       propertyPath: m_Name
@@ -1993,7 +1993,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 824756455340425167, guid: 845ee8c1ead5bfd469deb4b17520f532, type: 3}
       propertyPath: levelToLoad
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 1680333541172323221, guid: 845ee8c1ead5bfd469deb4b17520f532, type: 3}
       propertyPath: m_Name
@@ -2666,7 +2666,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 824756455340425167, guid: 845ee8c1ead5bfd469deb4b17520f532, type: 3}
       propertyPath: levelToLoad
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 1680333541172323221, guid: 845ee8c1ead5bfd469deb4b17520f532, type: 3}
       propertyPath: m_Name
@@ -3289,7 +3289,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 824756455340425167, guid: 845ee8c1ead5bfd469deb4b17520f532, type: 3}
       propertyPath: levelToLoad
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1680333541172323221, guid: 845ee8c1ead5bfd469deb4b17520f532, type: 3}
       propertyPath: m_Name
@@ -3911,7 +3911,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 824756455340425167, guid: 845ee8c1ead5bfd469deb4b17520f532, type: 3}
       propertyPath: levelToLoad
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1680333541172323221, guid: 845ee8c1ead5bfd469deb4b17520f532, type: 3}
       propertyPath: m_Name
@@ -4064,7 +4064,7 @@ MonoBehaviour:
     sceneBuildIndex: 2
     generalSpeed: 1
     totalOrders: 1
-    isAccesible: 1
+    isAccesible: 0
   - LevelName: Day 3
     sceneBuildIndex: 3
     generalSpeed: 1
@@ -4471,7 +4471,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 824756455340425167, guid: 845ee8c1ead5bfd469deb4b17520f532, type: 3}
       propertyPath: levelToLoad
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1680333541172323221, guid: 845ee8c1ead5bfd469deb4b17520f532, type: 3}
       propertyPath: m_Name
@@ -4656,7 +4656,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 824756455340425167, guid: 845ee8c1ead5bfd469deb4b17520f532, type: 3}
       propertyPath: levelToLoad
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1680333541172323221, guid: 845ee8c1ead5bfd469deb4b17520f532, type: 3}
       propertyPath: m_Name
