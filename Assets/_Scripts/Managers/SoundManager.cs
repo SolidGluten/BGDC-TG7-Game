@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 using System.Collections.Generic;
 
 public class SoundManager : MonoBehaviour
@@ -8,7 +9,8 @@ public class SoundManager : MonoBehaviour
     public AudioClip backgroundMusic;    // Background music
     public AudioClip[] soundEffects;     // Array of sound effects
     private AudioSource musicSource;     // AudioSource for background music
-
+    [SerializeField] Slider musicSlider;
+    [SerializeField] Slider sfxSlider;
     // Dictionary to store the playing AudioSource for each sound effect index
     private Dictionary<int, AudioSource> playingSounds = new Dictionary<int, AudioSource>();
 
@@ -30,7 +32,10 @@ public class SoundManager : MonoBehaviour
     {
         // Set up the background music AudioSource
         musicSource = gameObject.AddComponent<AudioSource>();
-
+        musicSlider.value = PlayerPrefs.GetFloat("MusicVolume", 1.0f);
+        sfxSlider.value = PlayerPrefs.GetFloat("SFXVolume", 1.0f);
+        SetMusicVolume(musicSlider.value);
+        SetSFXVolume(sfxSlider.value);
         // Play background music on start
         PlayBackgroundMusic();
     }
@@ -39,7 +44,7 @@ public class SoundManager : MonoBehaviour
     {
         musicSource.clip = backgroundMusic;
         musicSource.loop = true;
-        musicSource.volume = 0.2f;  // Adjust the volume as needed
+        musicSource.volume = musicSlider.value;
         musicSource.Play();
     }
 
@@ -69,11 +74,17 @@ public class SoundManager : MonoBehaviour
         }
     }
 
-    public void SetVolume(float volume)
+    public void SetMusicVolume(float volume)
     {
-        // Set the volume for both music and sound effects
+        // Set the volume for the background music
         musicSource.volume = volume;
 
+        // Save the music volume to PlayerPrefs
+        PlayerPrefs.SetFloat("MusicVolume", volume);
+    }
+
+    public void SetSFXVolume(float volume)
+    {
         // Set the volume for all playing sound effects
         foreach (var kvp in playingSounds)
         {
@@ -82,7 +93,11 @@ public class SoundManager : MonoBehaviour
                 kvp.Value.volume = volume;
             }
         }
+
+        // Save the SFX volume to PlayerPrefs
+        PlayerPrefs.SetFloat("SFXVolume", volume);
     }
+
 
     public void StopSoundEffect(int index)
     {

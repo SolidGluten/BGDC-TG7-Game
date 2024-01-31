@@ -1322,7 +1322,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &562383268
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2075,6 +2075,8 @@ MonoBehaviour:
   - {fileID: 8300000, guid: f5254b94e93d9a14ead3ed093453d1ff, type: 3}
   - {fileID: 8300000, guid: be9b6de90b311fc4880942384091c4bc, type: 3}
   - {fileID: 8300000, guid: 906956a29f22f4f45b3a2b517df9811c, type: 3}
+  musicSlider: {fileID: 1475560952}
+  sfxSlider: {fileID: 1804732745}
 --- !u!4 &895642724
 Transform:
   m_ObjectHideFlags: 0
@@ -3346,10 +3348,22 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 895642723}
+        m_TargetAssemblyTypeName: SoundManager, Assembly-CSharp
+        m_MethodName: SetMusicVolume
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1518256339 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6193215190392853814, guid: 5cd98b8f8d03afd4486607387a5c621a, type: 3}
@@ -3742,10 +3756,22 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 895642723}
+        m_TargetAssemblyTypeName: SoundManager, Assembly-CSharp
+        m_MethodName: SetSFXVolume
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1840904953
 GameObject:
   m_ObjectHideFlags: 0
@@ -4024,7 +4050,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1941133028
 RectTransform:
   m_ObjectHideFlags: 0
