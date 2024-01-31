@@ -81,6 +81,7 @@ public class GameManager : MonoBehaviour
         MaxOrder = LevelList[index].totalOrders;
         MaxPatience = (15 / GeneralSpeed) + 15;
         CurrentOrderServed = 0;
+        Resume();
     }
 
     public IEnumerator RetryLevel()
@@ -93,14 +94,18 @@ public class GameManager : MonoBehaviour
     {
         if(currentState == GameState.Playing)
         {
-            SoundManager.instance.PausePlayAllSounds();
+            SoundManager.instance.PauseAllSounds(true);
+            PauseMenu.instance.SetPauseActive(true);
+            currentState = GameState.Paused;
             Time.timeScale = 0f;
         }
     }
 
     public void Resume()
     {
-        SoundManager.instance.PausePlayAllSounds();
+        SoundManager.instance.PauseAllSounds(false);
+        PauseMenu.instance.SetPauseActive(false);
+        currentState = GameState.Playing;
         Time.timeScale = 1;
     }
 
