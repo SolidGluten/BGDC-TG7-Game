@@ -114,6 +114,8 @@ public class SoundManager : MonoBehaviour
         }
     }
 
+    #region DONT TOUCH
+    //v Cursed DONT TOUCH!!!!!!
     public void StopAllSounds()
     {
         // Stop the background music
@@ -132,17 +134,11 @@ public class SoundManager : MonoBehaviour
         // Clear the dictionary
         playingSounds.Clear();
     }
+    #endregion
 
-    public void PausePlayAllSounds()
+    public void PauseAllSounds(bool setPause)
     {
-        if (AudioListener.pause == true)
-        {
-            AudioListener.pause = false;
-        }
-        else
-        {
-            AudioListener.pause = true;
-        }
+        AudioListener.pause = setPause;
     }
 }
 
