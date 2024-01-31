@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: YellowDrink
   m_EditorClassIdentifier: 
   _foodName: YellowDrink
-  _foodSprite: {fileID: 21300000, guid: 52cf591b6e192d74b869f94e71af31c7, type: 3}
+  _foodSprite: {fileID: 21300000, guid: e59393065bb39c44286dc9066d278dd9, type: 3}
   _foodType: 4
   _drink: 3
   _sideDish: 0

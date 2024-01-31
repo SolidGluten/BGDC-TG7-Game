@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1536
     height: 780.8
   m_ShowMode: 4
-  m_Title: Game
+  m_Title: Inspector
   m_RootView: {fileID: 7}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -295,8 +295,8 @@ MonoBehaviour:
     y: 0
     width: 439.19995
     height: 730.8
-  m_MinSize: {x: 276, y: 71}
-  m_MaxSize: {x: 4001, y: 4021}
+  m_MinSize: {x: 275, y: 50}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 14}
   m_Panes:
   - {fileID: 14}
@@ -428,7 +428,7 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/_Scripts/Managers
+    - Assets/Sprites/Food/Drinks
     m_Globs: []
     m_OriginalText: 
     m_ImportLogFlags: 0
@@ -469,24 +469,24 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_AssetTreeState:
-    scrollPos: {x: 0, y: 0}
+    scrollPos: {x: 0, y: 900}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: ffffffff00000000104d0000124d0000144d0000164d0000
+    m_ExpandedIDs: ffffffff00000000104d0000124d0000144d0000164d00002c4d0000304d0000344d0000384d00004c4d00004c5300005653000066530000b06b0000b66b0000b86b00009277000094770000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: 
-      m_OriginalName: 
+      m_Name: dotpict_20240131_230411
+      m_OriginalName: dotpict_20240131_230411
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 0
+      m_UserData: 21378
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
-      m_OriginalEventType: 11
+      m_OriginalEventType: 0
       m_IsRenamingFilename: 1
       m_ClientGUIView: {fileID: 4}
     m_SearchString: 
@@ -858,9 +858,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 834.4392, y: 439.01587, z: -16.396753}
+    m_Target: {x: 778.7737, y: 529.7679, z: -16.28499}
     speed: 2
-    m_Value: {x: 834.4392, y: 439.01587, z: -16.396753}
+    m_Value: {x: 778.7737, y: 529.7679, z: -16.28499}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -910,9 +910,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 793.1922
+    m_Target: 782.0168
     speed: 2
-    m_Value: 793.1922
+    m_Value: 782.0168
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -974,9 +974,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: d84b0000
-      m_LastClickedID: 19416
-      m_ExpandedIDs: 32fbfffff4ffffffde4b0000e44b0000
+      m_SelectedIDs: 82530000
+      m_LastClickedID: 0
+      m_ExpandedIDs: c4dcffff14f1ffff32fbffff4e4b0000b64b0000de4b0000e44b0000f04b00002a550000ec560000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
