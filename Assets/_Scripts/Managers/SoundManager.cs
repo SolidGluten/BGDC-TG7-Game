@@ -34,8 +34,8 @@ public class SoundManager : MonoBehaviour
         musicSource = gameObject.AddComponent<AudioSource>();
         musicSlider.value = PlayerPrefs.GetFloat("MusicVolume", 1.0f);
         sfxSlider.value = PlayerPrefs.GetFloat("SFXVolume", 1.0f);
-        SetMusicVolume(musicSlider.value);
-        SetSFXVolume(sfxSlider.value);
+        SetMusicVolume();
+        SetSFXVolume();
         // Play background music on start
         PlayBackgroundMusic();
     }
@@ -74,28 +74,28 @@ public class SoundManager : MonoBehaviour
         }
     }
 
-    public void SetMusicVolume(float volume)
+    public void SetMusicVolume()
     {
         // Set the volume for the background music
-        musicSource.volume = volume;
+        musicSource.volume = musicSlider.value;
 
         // Save the music volume to PlayerPrefs
-        PlayerPrefs.SetFloat("MusicVolume", volume);
+        PlayerPrefs.SetFloat("MusicVolume", musicSource.volume);
     }
 
-    public void SetSFXVolume(float volume)
+    public void SetSFXVolume()
     {
         // Set the volume for all playing sound effects
         foreach (var kvp in playingSounds)
         {
             if (kvp.Value != null)
             {
-                kvp.Value.volume = volume;
+                kvp.Value.volume = sfxSlider.value;
             }
         }
 
         // Save the SFX volume to PlayerPrefs
-        PlayerPrefs.SetFloat("SFXVolume", volume);
+        PlayerPrefs.SetFloat("SFXVolume", sfxSlider.value);
     }
 
 
