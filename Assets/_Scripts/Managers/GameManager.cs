@@ -1,8 +1,6 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Reflection;
-using UnityEditorInternal;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -87,22 +85,23 @@ public class GameManager : MonoBehaviour
 
     public IEnumerator RetryLevel()
     {
-        SceneManager.LoadScene(currentLevelIndex);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         yield return null;
     }
 
     public void Pause()
     {
-        SoundManager.instance.PausePlayAllSounds();
-        Time.timeScale = 0f;
-
+        if(currentState == GameState.Playing)
+        {
+            SoundManager.instance.PausePlayAllSounds();
+            Time.timeScale = 0f;
+        }
     }
 
     public void Resume()
     {
         SoundManager.instance.PausePlayAllSounds();
         Time.timeScale = 1;
-
     }
 
     public void Death(DeathCondition cond)
