@@ -87,6 +87,7 @@ public class GameManager : MonoBehaviour
     public IEnumerator RetryLevel()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        Resume();
         yield return null;
     }
 
