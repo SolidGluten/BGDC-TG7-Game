@@ -13,14 +13,18 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
 
     public float GeneralSpeed = 1;
+    public float MaxPatience = 1;
     public int MaxOrder = 1;
     public static int CurrentOrderServed = 0;
-    public float MaxPatience = 1;
+
     public GameState currentState;
     public int currentLevelIndex;
     public GameObject pauseMenu;
+
     [SerializeField] private float delayBeforeNextLevel;
     public List<Level> LevelList = new List<Level>();
+    public int CurrentLevelIndexUnlocked = 0;
+
     private void Awake()
     {
         if (instance != null & instance != this)
@@ -34,27 +38,26 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
         if (SceneManager.GetActiveScene().buildIndex != 0)
             SceneManager.LoadScene(0); //starts from the main menu
-        currentState = GameState.MainMenu;
+        currentState  = GameState.MainMenu;
 
+        //get current day from previous play
+        CurrentLevelIndexUnlocked = PlayerPrefs.GetInt("UnlockedLevel", 0);
+
+        //unlock every level from previous play
+        for(int i = 0; i <= CurrentLevelIndexUnlocked; i++)
+        {
+            LevelList[i].isAccesible = true;
+        }
     }
 
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            //bool isPaused = !pauseMenu.activeSelf;
-            //pauseMenu.SetActive(isPaused);
-
             if (currentState == GameState.Paused)
-            {
                 Resume();
-                currentState = GameState.Playing;
-            }
             else
-            {
                 Pause();
-                currentState = GameState.Paused;
-            }
         }
     }
 
@@ -74,13 +77,21 @@ public class GameManager : MonoBehaviour
 
     public void LoadLevel(int index)
     {
+        //Load level
         currentLevelIndex = index;
         SceneManager.LoadScene(LevelList[index].sceneBuildIndex);
         LevelList[index].isAccesible = true;
+        if (currentLevelIndex > CurrentLevelIndexUnlocked)
+        {
+            CurrentLevelIndexUnlocked = currentLevelIndex;
+            PlayerPrefs.SetInt("UnlockedLevel", CurrentLevelIndexUnlocked);
+        }
+        //Reset game settings
         GeneralSpeed = LevelList[index].generalSpeed;
         MaxOrder = LevelList[index].totalOrders;
         MaxPatience = (15 / GeneralSpeed) + 15;
         CurrentOrderServed = 0;
+
         Resume();
     }
 
@@ -129,6 +140,12 @@ public class GameManager : MonoBehaviour
         {
             StartCoroutine(ChangeLevel(currentLevelIndex + 1));
         }
+    }
+
+    [ContextMenu("Remove All Player Prefs")]
+    public void RemoveAllPlayerPrefs()
+    {
+        PlayerPrefs.DeleteAll();
     }
 }
 
