@@ -48,6 +48,7 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(backToMenuDelay);
         SceneManager.LoadScene(0);
         DeathScreen.instance.SetDeathTrue(false);
+        Resume();
     }
 
     public void Pause()
