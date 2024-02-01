@@ -83,7 +83,7 @@ public class PanCooking : MonoBehaviour
             await Task.Yield();
         }
 
-        GameManager.instance.Death((DeathCondition)1);
+        GameManager.instance.Death(DeathCondition.Frying);
     }
 
     //Combined the 3 CookSprite, ReadySprite, & EmptySprite into 1 function

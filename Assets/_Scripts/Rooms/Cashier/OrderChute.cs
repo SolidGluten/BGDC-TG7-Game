@@ -31,7 +31,7 @@ public class OrderChute : MonoBehaviour
         {
             Order orderToServe = orderList.FindOrder(foodHolder.GetComponent<FoodHolder>());
             if(orderToServe == null) {
-                //Death Condition
+                GameManager.instance.Death(DeathCondition.WrongOrder);
             } else
             {
                 orderList.RemoveOrder(orderToServe);
