@@ -15,7 +15,7 @@ public enum RoomCode { Cashier = 1, Storage, Fishing, Garden, FryingPan, Cutting
 
 public class RoomManager : MonoBehaviour
 {
-    public static RoomCode activeRoomCode = RoomCode.Cashier;
+    public static RoomCode activeRoomCode;
     public Room currentActiveRoom;
     public List<Room> roomList = new List<Room>();
 
@@ -100,6 +100,7 @@ public class RoomManager : MonoBehaviour
                 default: { break; }
             }
         }
+        activeRoomCode = RoomCode.Cashier;
         SetRoomActive(activeRoomCode);
     }
 

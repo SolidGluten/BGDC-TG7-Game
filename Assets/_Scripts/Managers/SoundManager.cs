@@ -66,6 +66,7 @@ public class SoundManager : MonoBehaviour
             // Create a new AudioSource for the sound effect
             AudioSource sfxSource = gameObject.AddComponent<AudioSource>();
             sfxSource.clip = soundEffects[index];
+            sfxSource.volume = SFXVolume;
             sfxSource.Play();
 
             // Add the AudioSource to the dictionary
