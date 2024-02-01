@@ -41,5 +41,9 @@ public class Garden : Generator
             Debug.Log(currentTimeBeforeDeath);
             yield return null;
         }
+        if(currentTimeBeforeDeath <= 0 && ingredientHolder.ingredient != null)
+        {
+            GameManager.instance.Death(DeathCondition.Fishing);
+        }
     }
 }

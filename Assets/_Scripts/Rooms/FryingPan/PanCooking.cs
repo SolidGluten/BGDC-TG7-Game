@@ -82,8 +82,10 @@ public class PanCooking : MonoBehaviour
             Debug.Log(currentBurnTime);
             await Task.Yield();
         }
-
-        GameManager.instance.Death(DeathCondition.Frying);
+        if(currentBurnTime <= 0)
+        {
+            GameManager.instance.Death(DeathCondition.Frying);
+        }
     }
 
     //Combined the 3 CookSprite, ReadySprite, & EmptySprite into 1 function
