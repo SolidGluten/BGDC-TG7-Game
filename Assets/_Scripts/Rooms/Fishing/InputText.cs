@@ -7,9 +7,8 @@ using UnityEngine;
 public class InputText : MonoBehaviour
 {
     public TextMeshPro textMesh;
-    public Fishing fishing;
-    private Regex alpha = new Regex("[a-zA-Z]");
-    private Regex number = new Regex("[0-9]");
+    public Garden garden;
+
     private void Start()
     {
         textMesh = GetComponentInChildren<TextMeshPro>();
@@ -23,7 +22,7 @@ public class InputText : MonoBehaviour
         }
         else if (string.Compare(inputVal, "ENTER") == 0)
         {
-            fishing.GenerateFish(textMesh.text);
+            garden.GeneratePlant(textMesh.text);
             textMesh.text = "";
         }
         else if (textMesh.text.Length >= 2)

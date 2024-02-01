@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -7,6 +8,6 @@ public class UI_BackToMenu : MenuItem
 {
     public override void OnSelect()
     {
-        SceneManager.LoadScene(0);
+        StartCoroutine(GameManager.instance.BackToMenu());
     }
 }

@@ -4,14 +4,14 @@ using Types;
 using UnityEngine;
 
 [RequireComponent(typeof(BoxCollider2D))]
-public class GardenButton : MonoBehaviour
+public class FishingButton : MonoBehaviour
 {
     public BaseIngredient ingredient;
-    public Garden garden;
+    public Fishing fishing;
 
     private void OnMouseDown()
     {
-        if (garden.isGrowing == false)
-            StartCoroutine(garden.Plant(ingredient));
+        if (fishing.isFishing == false)
+            StartCoroutine(fishing.Fish(ingredient));
     }
 }

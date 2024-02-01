@@ -2,73 +2,51 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Types;
-using System.Threading.Tasks;
-using System.Threading;
-using TMPro;
 using System;
 using System.Linq;
 
 public class Fishing : Generator
 {
-    public List<FishItem> fishItems = new List<FishItem>();
+    public float maxFishTime;
+    public float maxTimeBeforeDeath;
+    public bool isFishing = false;
+    [SerializeField] float currentFishTime;
+    [SerializeField] float currentTimeBeforeDeath;
 
-    public void Awake()
+    public IEnumerator Fish(BaseIngredient ingredient)
     {
-        int index = 0;
-        foreach (var ingredient in ingredientsList)
-        {
-            fishItems[index]._ingredient = ingredient;
-            index++;
-        }
-        RandomizeAllID();
-    }
-
-    public FoodScriptable FindFish(string id)
-    {
-        return fishItems.FirstOrDefault(item => string.Compare(item._ID, id) == 0)?._ingredient;
-    }
-
-    public void GenerateFish(string id)
-    {
-        FoodScriptable ingredientToSpawn = FindFish(id);
+        isFishing = true;
+        FoodScriptable ingredientToSpawn = FindIngredients(ingredient);
         if (ingredientToSpawn == null)
         {
-            Debug.Log("Fish Not FOUND!");
-            GameManager.instance.Death(DeathCondition.Garden);
-            return;
+            Debug.Log("No ingredients found!");
+            isFishing = false;
+            yield break;
+        }
+
+        currentFishTime = maxFishTime;
+        currentTimeBeforeDeath = maxTimeBeforeDeath;
+
+        while (currentFishTime > 0)
+        {
+            currentFishTime -= Time.deltaTime;
+            Debug.Log(currentFishTime);
+            yield return null;
         }
 
         GenerateIngredient(ingredientToSpawn);
-        RandomizeAllID();
-    }
+        isFishing = false;
 
-    public void RandomizeAllID()
-    {
-        foreach (FishItem item in fishItems)
+        while (currentTimeBeforeDeath > 0 && ingredientHolder.ingredient != null)
         {
-            string randomId;
-            do
-            {
-                randomId = GetRandomID();
-            } while (fishItems.FirstOrDefault(item => string.Compare(item._ID, randomId) == 0) != null);
-            item._ID = randomId;
+            currentTimeBeforeDeath -= Time.deltaTime;
+            Debug.Log(currentTimeBeforeDeath);
+            yield return null;
+        }
+        if (currentTimeBeforeDeath <= 0 && ingredientHolder.ingredient != null)
+        {
+            GameManager.instance.Death(DeathCondition.Fishing);
         }
     }
-
-    public string GetRandomID()
-    {
-        //A-D
-        char letter = (char)(65 + UnityEngine.Random.Range(0, 4));
-        //1-4
-        int num = UnityEngine.Random.Range(1, 5);
-
-        return letter + num.ToString();
-    }
-}
-
-[Serializable]
-public class FishItem
-{
-    public FoodScriptable _ingredient;
-    public string _ID;
+    
 }

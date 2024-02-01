@@ -9,7 +9,7 @@ public class Item : MonoBehaviour
 {
     public BaseIngredient ingredient;
     private TextMeshPro textMeshPro;
-    public Fishing fishing;
+    public Garden garden;
 
     private void Start()
     {
@@ -19,6 +19,6 @@ public class Item : MonoBehaviour
     private void Update()
     {
         if(textMeshPro != null)
-            textMeshPro.text = fishing.fishItems.FirstOrDefault(item => item._ingredient._baseIngredient == ingredient)?._ID;
+            textMeshPro.text = garden.PlantItems.FirstOrDefault(item => item._ingredient._baseIngredient == ingredient)?._ID;
     }
 }

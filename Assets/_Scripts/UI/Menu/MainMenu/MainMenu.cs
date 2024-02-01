@@ -4,8 +4,5 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-    private void Awake()
-    {
-        DeathScreen.instance.SetDeathTrue(false);
-    }
+
 }

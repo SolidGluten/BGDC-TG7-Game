@@ -14,6 +14,8 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
     public static GameState currentState;
     public TextMeshProUGUI deathReason;
+    public float backToMenuDelay;
+
     private void Awake()
     {
         if (instance != null & instance != this)
@@ -39,6 +41,13 @@ public class GameManager : MonoBehaviour
             else if(currentState == GameState.Playing)
                 Pause();
         }
+    }
+
+    public IEnumerator BackToMenu()
+    {
+        yield return new WaitForSeconds(backToMenuDelay);
+        SceneManager.LoadScene(0);
+        DeathScreen.instance.SetDeathTrue(false);
     }
 
     public void Pause()

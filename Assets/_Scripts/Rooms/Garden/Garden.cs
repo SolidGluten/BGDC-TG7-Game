@@ -1,49 +1,71 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Types;
 using UnityEngine;
 
 public class Garden : Generator
 {
-    public float maxGrowTime;
-    public float maxTimeBeforeDeath;
-    public bool isGrowing = false;
-    [SerializeField] float currentGrowTime;
-    [SerializeField] float currentTimeBeforeDeath;
+    public List<PlantItem> PlantItems = new List<PlantItem>();
 
-    public IEnumerator Plant(BaseIngredient ingredient)
+    public void Awake()
     {
-        isGrowing = true;
-        FoodScriptable ingredientToSpawn = FindIngredients(ingredient);
+        int index = 0;
+        foreach (var ingredient in ingredientsList)
+        {
+            PlantItems[index]._ingredient = ingredient;
+            index++;
+        }
+        RandomizeAllID();
+    }
+
+    public FoodScriptable FindPlant(string id)
+    {
+        return PlantItems.FirstOrDefault(item => string.Compare(item._ID, id) == 0)?._ingredient;
+    }
+
+    public void GeneratePlant(string id)
+    {
+        FoodScriptable ingredientToSpawn = FindPlant(id);
         if (ingredientToSpawn == null)
         {
-            Debug.Log("No ingredients found!");
-            isGrowing = false;
-            yield break;
-        }
-
-        currentGrowTime = maxGrowTime;
-        currentTimeBeforeDeath = maxTimeBeforeDeath;
-
-        while (currentGrowTime > 0)
-        {
-            currentGrowTime -= Time.deltaTime;
-            Debug.Log(currentGrowTime);
-            yield return null;
+            Debug.Log("Plant Not FOUND!");
+            GameManager.instance.Death(DeathCondition.Garden);
+            return;
         }
 
         GenerateIngredient(ingredientToSpawn);
-        isGrowing = false;
+        RandomizeAllID();
+    }
 
-        while (currentTimeBeforeDeath > 0 && ingredientHolder.ingredient != null)
+    public void RandomizeAllID()
+    {
+        foreach (PlantItem item in PlantItems)
         {
-            currentTimeBeforeDeath -= Time.deltaTime;
-            Debug.Log(currentTimeBeforeDeath);
-            yield return null;
-        }
-        if(currentTimeBeforeDeath <= 0 && ingredientHolder.ingredient != null)
-        {
-            GameManager.instance.Death(DeathCondition.Fishing);
+            string randomId;
+            do
+            {
+                randomId = GetRandomID();
+            } while (PlantItems.FirstOrDefault(item => string.Compare(item._ID, randomId) == 0) != null);
+            item._ID = randomId;
         }
     }
+
+    public string GetRandomID()
+    {
+        //A-D
+        char letter = (char)(65 + UnityEngine.Random.Range(0, 4));
+        //1-4
+        int num = UnityEngine.Random.Range(1, 5);
+
+        return letter + num.ToString();
+    }
+}
+
+[Serializable]
+public class PlantItem
+{
+    public FoodScriptable _ingredient;
+    public string _ID;
 }

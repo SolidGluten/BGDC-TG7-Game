@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 3287996}
   - component: {fileID: 3287997}
   m_Layer: 0
-  m_Name: CrabSprite
+  m_Name: CornSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -196,7 +196,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 21300000, guid: 98bbd78640142204ebcac0e2a4a87422, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 58646e942c8945c4fae5135715d23d15, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -656,7 +656,7 @@ GameObject:
   - component: {fileID: 41874734}
   - component: {fileID: 41874735}
   m_Layer: 0
-  m_Name: SalmonSprite
+  m_Name: PotatoSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -718,7 +718,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 21300000, guid: 80bfcea8dcf2e4a48be00a20e32ded57, type: 3}
+  m_Sprite: {fileID: 21300000, guid: db36d2ba2614365428b9b8713b838b29, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1613,7 +1613,7 @@ Transform:
   - {fileID: 1930491185}
   - {fileID: 1516019315}
   - {fileID: 1726703034}
-  m_Father: {fileID: 703006946}
+  m_Father: {fileID: 2073608904}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &255687503
 GameObject:
@@ -2541,12 +2541,23 @@ PrefabInstance:
     - target: {fileID: 8253179273957069637, guid: 50e257f99b96e41428fbd2078bded364, type: 3}
       propertyPath: elevator
       value: 
-      objectReference: {fileID: 1965623392}
+      objectReference: {fileID: 1486370104}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 50e257f99b96e41428fbd2078bded364, type: 3}
+--- !u!114 &304794889 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8253179273957069637, guid: 50e257f99b96e41428fbd2078bded364, type: 3}
+  m_PrefabInstance: {fileID: 304794888}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49cce7d1eeba72c4490d2480c33e53bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &315430464
 GameObject:
   m_ObjectHideFlags: 0
@@ -4009,7 +4020,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &465620511
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4163,7 +4174,7 @@ GameObject:
   - component: {fileID: 502160427}
   - component: {fileID: 502160428}
   m_Layer: 0
-  m_Name: ClamSprite
+  m_Name: MushroomSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4225,7 +4236,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 21300000, guid: cc1e1de91f53fce48afe24a000a0584c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 484877f6799155647b56a697ff243740, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -4398,8 +4409,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e456db6684e0a1446917269c1f263a34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ingredient: 7
-  fishing: {fileID: 2073608903}
+  ingredient: 11
+  garden: {fileID: 703006947}
 --- !u!4 &559553293 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 242275333223997590, guid: 50e257f99b96e41428fbd2078bded364, type: 3}
@@ -5103,12 +5114,16 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 25467bc503560914f87aaffb94500361, type: 2}
   - {fileID: 11400000, guid: d0e5a4c885d523f4eb4c872595556b84, type: 2}
   ingredientPrefab: {fileID: 4324814194680753293, guid: d23cf9631c76cfb468455ce0efd19d83, type: 3}
-  ingredientHolder: {fileID: 856577227}
-  maxGrowTime: 3
-  maxTimeBeforeDeath: 5
-  isGrowing: 0
-  currentGrowTime: 0
-  currentTimeBeforeDeath: 0
+  ingredientHolder: {fileID: 304794889}
+  PlantItems:
+  - _ingredient: {fileID: 0}
+    _ID: 
+  - _ingredient: {fileID: 0}
+    _ID: 
+  - _ingredient: {fileID: 0}
+    _ID: 
+  - _ingredient: {fileID: 0}
+    _ID: 
 --- !u!114 &723083211 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7503446155433239347, guid: 04c13bca2ee27e7459d8f00e3cfa9c28, type: 3}
@@ -5402,17 +5417,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 242275333223997590, guid: 50e257f99b96e41428fbd2078bded364, type: 3}
   m_PrefabInstance: {fileID: 304794888}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &768248551 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8253179273957069637, guid: 50e257f99b96e41428fbd2078bded364, type: 3}
-  m_PrefabInstance: {fileID: 304794888}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 49cce7d1eeba72c4490d2480c33e53bd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &773884918
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5471,11 +5475,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7419630290465934756, guid: 04c13bca2ee27e7459d8f00e3cfa9c28, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.5
+      value: 2.6
       objectReference: {fileID: 0}
     - target: {fileID: 7419630290465934756, guid: 04c13bca2ee27e7459d8f00e3cfa9c28, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2
+      value: 3.05
       objectReference: {fileID: 0}
     - target: {fileID: 7654037471394302884, guid: 04c13bca2ee27e7459d8f00e3cfa9c28, type: 3}
       propertyPath: m_Color.b
@@ -5506,10 +5510,10 @@ PrefabInstance:
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 2137367443188252296, guid: 04c13bca2ee27e7459d8f00e3cfa9c28, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 856577229}
+      addedObject: {fileID: 1743074605}
     - targetCorrespondingSourceObject: {fileID: 2137367443188252296, guid: 04c13bca2ee27e7459d8f00e3cfa9c28, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 251800264}
+      addedObject: {fileID: 1068462479}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 963710813796213682, guid: 04c13bca2ee27e7459d8f00e3cfa9c28, type: 3}
       insertIndex: -1
@@ -6201,7 +6205,7 @@ GameObject:
   - component: {fileID: 846813087}
   - component: {fileID: 846813086}
   m_Layer: 0
-  m_Name: PotatoButton
+  m_Name: SalmonButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6234,8 +6238,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 781e364c238a60c45862687ba948104b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ingredient: 9
-  garden: {fileID: 703006947}
+  ingredient: 5
+  fishing: {fileID: 2073608903}
 --- !u!61 &846813087
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6323,7 +6327,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 2
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 1, g: 0.59114444, b: 0, a: 1}
+  m_Color: {r: 1, g: 0.30541164, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -6840,19 +6844,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7419630290465934756, guid: 04c13bca2ee27e7459d8f00e3cfa9c28, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.57
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 7419630290465934756, guid: 04c13bca2ee27e7459d8f00e3cfa9c28, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.95
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7654037471394302884, guid: 04c13bca2ee27e7459d8f00e3cfa9c28, type: 3}
       propertyPath: m_Color.b
-      value: 0.5500684
+      value: 0.6613394
       objectReference: {fileID: 0}
     - target: {fileID: 7654037471394302884, guid: 04c13bca2ee27e7459d8f00e3cfa9c28, type: 3}
       propertyPath: m_Color.g
-      value: 0
+      value: 0.24905658
       objectReference: {fileID: 0}
     - target: {fileID: 7654037471394302884, guid: 04c13bca2ee27e7459d8f00e3cfa9c28, type: 3}
       propertyPath: m_Color.r
@@ -6871,10 +6875,10 @@ PrefabInstance:
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 2137367443188252296, guid: 04c13bca2ee27e7459d8f00e3cfa9c28, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1743074605}
+      addedObject: {fileID: 856577229}
     - targetCorrespondingSourceObject: {fileID: 2137367443188252296, guid: 04c13bca2ee27e7459d8f00e3cfa9c28, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1068462479}
+      addedObject: {fileID: 251800264}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 963710813796213682, guid: 04c13bca2ee27e7459d8f00e3cfa9c28, type: 3}
       insertIndex: -1
@@ -7643,7 +7647,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1068462478}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 2.65, y: 0.81, z: 0}
   m_LocalScale: {x: 0.8, y: 0.8, z: 1}
   m_ConstrainProportionsScale: 0
@@ -7651,7 +7655,7 @@ Transform:
   - {fileID: 1075542806}
   - {fileID: 2026779818}
   - {fileID: 359835532}
-  m_Father: {fileID: 2073608904}
+  m_Father: {fileID: 703006946}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1075542805
 GameObject:
@@ -7752,7 +7756,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textMesh: {fileID: 388502954}
-  fishing: {fileID: 2073608903}
+  garden: {fileID: 703006947}
 --- !u!1001 &1076217062
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8408,8 +8412,8 @@ MonoBehaviour:
   - {fileID: 8300000, guid: f5254b94e93d9a14ead3ed093453d1ff, type: 3}
   - {fileID: 8300000, guid: be9b6de90b311fc4880942384091c4bc, type: 3}
   - {fileID: 8300000, guid: 906956a29f22f4f45b3a2b517df9811c, type: 3}
-  musicSlider: {fileID: 0}
-  sfxSlider: {fileID: 0}
+  MusicVolume: 0
+  SFXVolume: 0
 --- !u!4 &1244839921
 Transform:
   m_ObjectHideFlags: 0
@@ -8836,7 +8840,7 @@ GameObject:
   - component: {fileID: 1516019317}
   - component: {fileID: 1516019316}
   m_Layer: 0
-  m_Name: MushroomButton
+  m_Name: ClamButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8869,8 +8873,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 781e364c238a60c45862687ba948104b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ingredient: 11
-  garden: {fileID: 703006947}
+  ingredient: 7
+  fishing: {fileID: 2073608903}
 --- !u!61 &1516019317
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -8958,7 +8962,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 2
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 1, g: 0, b: 0.12826729, a: 1}
+  m_Color: {r: 0.49056602, g: 0.49056602, b: 0.49056602, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -9176,7 +9180,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 703006946}
+    m_TransformParent: {fileID: 2073608904}
     m_Modifications:
     - target: {fileID: 25921032867991983, guid: 50e257f99b96e41428fbd2078bded364, type: 3}
       propertyPath: m_Name
@@ -9237,7 +9241,7 @@ PrefabInstance:
     - target: {fileID: 8253179273957069637, guid: 50e257f99b96e41428fbd2078bded364, type: 3}
       propertyPath: elevator
       value: 
-      objectReference: {fileID: 1486370104}
+      objectReference: {fileID: 1965623392}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -9277,7 +9281,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -225, y: 555600}
+  m_AnchoredPosition: {x: -225, y: 732300}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1650110760
@@ -9331,7 +9335,7 @@ GameObject:
   - component: {fileID: 1650652976}
   - component: {fileID: 1650652977}
   m_Layer: 0
-  m_Name: ShrimpSprite
+  m_Name: CarrotSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9393,7 +9397,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 21300000, guid: f885e346545d8024f82f69a2d8274edf, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 29308d06ee7ab8d4eadde74cfc25a850, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -9843,7 +9847,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 963710813796213682, guid: 04c13bca2ee27e7459d8f00e3cfa9c28, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2137367443188252296, guid: 04c13bca2ee27e7459d8f00e3cfa9c28, type: 3}
       propertyPath: m_LocalPosition.x
@@ -10272,7 +10276,7 @@ GameObject:
   - component: {fileID: 1726703036}
   - component: {fileID: 1726703035}
   m_Layer: 0
-  m_Name: CornButton
+  m_Name: CrabButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10305,8 +10309,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 781e364c238a60c45862687ba948104b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ingredient: 12
-  garden: {fileID: 703006947}
+  ingredient: 8
+  fishing: {fileID: 2073608903}
 --- !u!61 &1726703036
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -10394,7 +10398,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 2
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 1, g: 0.85567, b: 0, a: 1}
+  m_Color: {r: 1, g: 0.06568897, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -10428,7 +10432,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1743074604}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -1.7, y: 1.13, z: 0.10840089}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -10439,7 +10443,7 @@ Transform:
   - {fileID: 556515034}
   - {fileID: 768248550}
   - {fileID: 1669969317}
-  m_Father: {fileID: 2073608904}
+  m_Father: {fileID: 703006946}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1752992940
 GameObject:
@@ -10852,8 +10856,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e456db6684e0a1446917269c1f263a34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ingredient: 8
-  fishing: {fileID: 2073608903}
+  ingredient: 12
+  garden: {fileID: 703006947}
 --- !u!1 &1898023494
 GameObject:
   m_ObjectHideFlags: 0
@@ -11137,7 +11141,7 @@ GameObject:
   - component: {fileID: 1930491187}
   - component: {fileID: 1930491186}
   m_Layer: 0
-  m_Name: CarrotButton
+  m_Name: ShrimpButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11170,8 +11174,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 781e364c238a60c45862687ba948104b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ingredient: 10
-  garden: {fileID: 703006947}
+  ingredient: 6
+  fishing: {fileID: 2073608903}
 --- !u!61 &1930491187
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -11259,7 +11263,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 2
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.9622642, g: 0.31764707, b: 0, a: 1}
+  m_Color: {r: 1, g: 0.536631, b: 0.1830188, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -11315,8 +11319,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e456db6684e0a1446917269c1f263a34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ingredient: 6
-  fishing: {fileID: 2073608903}
+  ingredient: 10
+  garden: {fileID: 703006947}
 --- !u!114 &1965623392 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7503446155433239347, guid: 04c13bca2ee27e7459d8f00e3cfa9c28, type: 3}
@@ -11589,8 +11593,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e456db6684e0a1446917269c1f263a34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ingredient: 5
-  fishing: {fileID: 2073608903}
+  ingredient: 9
+  garden: {fileID: 703006947}
 --- !u!1 &2017795358
 GameObject:
   m_ObjectHideFlags: 0
@@ -11724,7 +11728,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2026779818}
-  - component: {fileID: 2026779819}
   m_Layer: 0
   m_Name: ButtonPads
   m_TagString: Untagged
@@ -11751,20 +11754,6 @@ Transform:
   - {fileID: 30106645}
   m_Father: {fileID: 1068462479}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2026779819
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2026779817}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3aa1316dde5fdab4f8a4a9d6a9c08266, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  textMesh: {fileID: 0}
-  fishing: {fileID: 0}
 --- !u!1 &2029973713
 GameObject:
   m_ObjectHideFlags: 0
@@ -11920,16 +11909,12 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 11d79e13e4d68a540b6b7d1fe00080dc, type: 2}
   - {fileID: 11400000, guid: 729939f5c1efa5e4b8a0980e9f25c900, type: 2}
   ingredientPrefab: {fileID: 4324814194680753293, guid: d23cf9631c76cfb468455ce0efd19d83, type: 3}
-  ingredientHolder: {fileID: 768248551}
-  fishItems:
-  - _ingredient: {fileID: 0}
-    _ID: 
-  - _ingredient: {fileID: 0}
-    _ID: 
-  - _ingredient: {fileID: 0}
-    _ID: 
-  - _ingredient: {fileID: 0}
-    _ID: 
+  ingredientHolder: {fileID: 856577227}
+  maxFishTime: 3
+  maxTimeBeforeDeath: 5
+  isFishing: 0
+  currentFishTime: 0
+  currentTimeBeforeDeath: 0
 --- !u!4 &2073608904 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2137367443188252296, guid: 04c13bca2ee27e7459d8f00e3cfa9c28, type: 3}
