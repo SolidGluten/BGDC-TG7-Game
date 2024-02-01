@@ -3,17 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class MusicSlider : MonoBehaviour
+public class SFXSlider : MonoBehaviour
 {
     public Slider slider;
 
     private void Start()
     {
-        slider.SetValueWithoutNotify(SoundManager.instance.MusicVolume);
+        slider.SetValueWithoutNotify(SoundManager.instance.SFXVolume);
     }
 
     private void Update()
     {
-        SoundManager.instance.SetMusicVolume(slider.value);
+        SoundManager.instance.SetSFXVolume(slider.value);
     }
 }

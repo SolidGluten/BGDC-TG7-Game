@@ -1,6 +1,7 @@
+using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using System.Collections.Generic;
 
 public class SoundManager : MonoBehaviour
 {
@@ -9,8 +10,10 @@ public class SoundManager : MonoBehaviour
     public AudioClip backgroundMusic;    // Background music
     public AudioClip[] soundEffects;     // Array of sound effects
     private AudioSource musicSource;     // AudioSource for background music
-    [SerializeField] Slider musicSlider;
-    [SerializeField] Slider sfxSlider;
+
+    public float MusicVolume;
+    public float SFXVolume;
+
     // Dictionary to store the playing AudioSource for each sound effect index
     private Dictionary<int, AudioSource> playingSounds = new Dictionary<int, AudioSource>();
 
@@ -32,10 +35,11 @@ public class SoundManager : MonoBehaviour
     {
         // Set up the background music AudioSource
         musicSource = gameObject.AddComponent<AudioSource>();
-        musicSlider.value = PlayerPrefs.GetFloat("MusicVolume", 1.0f);
-        sfxSlider.value = PlayerPrefs.GetFloat("SFXVolume", 1.0f);
-        SetMusicVolume();
-        SetSFXVolume();
+        MusicVolume = PlayerPrefs.GetFloat("MusicVolume", 1.0f);
+        SFXVolume = PlayerPrefs.GetFloat("SFXVolume", 1.0f);
+        SetMusicVolume(MusicVolume);
+        SetSFXVolume(SFXVolume);
+
         // Play background music on start
         PlayBackgroundMusic();
     }
@@ -44,7 +48,6 @@ public class SoundManager : MonoBehaviour
     {
         musicSource.clip = backgroundMusic;
         musicSource.loop = true;
-        musicSource.volume = musicSlider.value;
         musicSource.Play();
     }
 
@@ -74,30 +77,33 @@ public class SoundManager : MonoBehaviour
         }
     }
 
-    public void SetMusicVolume()
+    public void SetMusicVolume(float val)
     {
+        MusicVolume = val;
+
         // Set the volume for the background music
-        musicSource.volume = musicSlider.value;
+        musicSource.volume = MusicVolume;
 
         // Save the music volume to PlayerPrefs
-        PlayerPrefs.SetFloat("MusicVolume", musicSource.volume);
+        PlayerPrefs.SetFloat("MusicVolume", val);
     }
 
-    public void SetSFXVolume()
+    public void SetSFXVolume(float val)
     {
+        SFXVolume = val;
+
         // Set the volume for all playing sound effects
         foreach (var kvp in playingSounds)
         {
             if (kvp.Value != null)
             {
-                kvp.Value.volume = sfxSlider.value;
+                kvp.Value.volume = SFXVolume;
             }
         }
 
         // Save the SFX volume to PlayerPrefs
-        PlayerPrefs.SetFloat("SFXVolume", sfxSlider.value);
+        PlayerPrefs.SetFloat("SFXVolume", SFXVolume);
     }
-
 
     public void StopSoundEffect(int index)
     {
