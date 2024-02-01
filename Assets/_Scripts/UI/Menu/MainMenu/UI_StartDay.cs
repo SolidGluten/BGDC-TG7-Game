@@ -5,6 +5,6 @@ using UnityEngine;
 public class UI_StartDay : MenuItem
 {
     public override void OnSelect() {
-        StartCoroutine(GameManager.instance.ChangeLevel(0));
+        StartCoroutine(LevelManager.instance.ChangeLevel(0));
     }
 }

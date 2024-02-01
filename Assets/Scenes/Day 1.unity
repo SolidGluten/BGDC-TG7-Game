@@ -892,50 +892,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &125422220
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 125422222}
-  - component: {fileID: 125422221}
-  m_Layer: 0
-  m_Name: UI Manager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &125422221
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 125422220}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 201b0adf8d003964ca21b66e84569721, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!4 &125422222
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 125422220}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &126588489
 GameObject:
   m_ObjectHideFlags: 0
@@ -1608,6 +1564,12 @@ MonoBehaviour:
   recipeList:
   - _rawInput: {fileID: 11400000, guid: d6a27a671ea93ad4196898e17b6b16f9, type: 2}
     _processedOutput: {fileID: 11400000, guid: 527bee66479150643ab668e3af8be21b, type: 2}
+  - _rawInput: {fileID: 11400000, guid: a1f0be941cfbda945b6742bb8f9e75dd, type: 2}
+    _processedOutput: {fileID: 11400000, guid: 30a47ff182482c6449251b752a3fc694, type: 2}
+  - _rawInput: {fileID: 11400000, guid: a983312554589734a8619e724c506dec, type: 2}
+    _processedOutput: {fileID: 11400000, guid: bb7a4150d7506134db6796660b9176fb, type: 2}
+  - _rawInput: {fileID: 11400000, guid: 147f773c7a4c3ad429f214766d594d17, type: 2}
+    _processedOutput: {fileID: 11400000, guid: b89fa2075c918ec49afe25e077cef39f, type: 2}
   - _rawInput: {fileID: 11400000, guid: 1effb65e22a5cdf42b6b2552b7959f64, type: 2}
     _processedOutput: {fileID: 11400000, guid: df2ad9cc258e46240861bf30e1afabb2, type: 2}
   - _rawInput: {fileID: 11400000, guid: 3ad654d41614ce64bbf0d7feb46c2c61, type: 2}
@@ -5344,6 +5306,12 @@ MonoBehaviour:
   soupRecipeList:
   - _rawInput: {fileID: 11400000, guid: 1effb65e22a5cdf42b6b2552b7959f64, type: 2}
     _processedOutput: {fileID: 11400000, guid: a5dae71349f6dc14ba770be9f621ebdc, type: 2}
+  - _rawInput: {fileID: 11400000, guid: d0e5a4c885d523f4eb4c872595556b84, type: 2}
+    _processedOutput: {fileID: 11400000, guid: fc6d8375e1d16154e85eb02753ffdbc3, type: 2}
+  - _rawInput: {fileID: 11400000, guid: 25467bc503560914f87aaffb94500361, type: 2}
+    _processedOutput: {fileID: 11400000, guid: e3d0c12066345db47918b311eac0502a, type: 2}
+  - _rawInput: {fileID: 11400000, guid: 3ad654d41614ce64bbf0d7feb46c2c61, type: 2}
+    _processedOutput: {fileID: 11400000, guid: 76c479502a41d7f4b9f1cb8bb12dd76c, type: 2}
   currTemperature: 0
   rightTemperature: 5
   maxTemperature: 20
@@ -8440,6 +8408,8 @@ MonoBehaviour:
   - {fileID: 8300000, guid: f5254b94e93d9a14ead3ed093453d1ff, type: 3}
   - {fileID: 8300000, guid: be9b6de90b311fc4880942384091c4bc, type: 3}
   - {fileID: 8300000, guid: 906956a29f22f4f45b3a2b517df9811c, type: 3}
+  musicSlider: {fileID: 0}
+  sfxSlider: {fileID: 0}
 --- !u!4 &1244839921
 Transform:
   m_ObjectHideFlags: 0
@@ -9307,7 +9277,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -225, y: 354000}
+  m_AnchoredPosition: {x: -225, y: 555600}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1650110760
@@ -9873,7 +9843,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 963710813796213682, guid: 04c13bca2ee27e7459d8f00e3cfa9c28, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2137367443188252296, guid: 04c13bca2ee27e7459d8f00e3cfa9c28, type: 3}
       propertyPath: m_LocalPosition.x
@@ -11521,10 +11491,22 @@ MonoBehaviour:
   recipeList:
   - _rawInput: {fileID: 11400000, guid: d6a27a671ea93ad4196898e17b6b16f9, type: 2}
     _processedOutput: {fileID: 11400000, guid: 312cf49d68b3705429bb3b1c410594c6, type: 2}
-  - _rawInput: {fileID: 11400000, guid: 527bee66479150643ab668e3af8be21b, type: 2}
-    _processedOutput: {fileID: 11400000, guid: b3384bef87dea3144b935b49140b9ce8, type: 2}
   - _rawInput: {fileID: 11400000, guid: a1f0be941cfbda945b6742bb8f9e75dd, type: 2}
     _processedOutput: {fileID: 11400000, guid: 9cfc5be720c9df14bbdc0f2bbc0c3dcb, type: 2}
+  - _rawInput: {fileID: 11400000, guid: a983312554589734a8619e724c506dec, type: 2}
+    _processedOutput: {fileID: 11400000, guid: 9d15c6b5a2e45fe41bbcc9faa273c1ca, type: 2}
+  - _rawInput: {fileID: 11400000, guid: 147f773c7a4c3ad429f214766d594d17, type: 2}
+    _processedOutput: {fileID: 11400000, guid: bb7aaa43c5f59c947b994db96dc6723c, type: 2}
+  - _rawInput: {fileID: 11400000, guid: d0e5a4c885d523f4eb4c872595556b84, type: 2}
+    _processedOutput: {fileID: 11400000, guid: 0f6131dfde60ec445a7add1f62421c59, type: 2}
+  - _rawInput: {fileID: 11400000, guid: 1effb65e22a5cdf42b6b2552b7959f64, type: 2}
+    _processedOutput: {fileID: 11400000, guid: 1b1f7ecfc39b113478c2713e48978efb, type: 2}
+  - _rawInput: {fileID: 11400000, guid: 3ad654d41614ce64bbf0d7feb46c2c61, type: 2}
+    _processedOutput: {fileID: 11400000, guid: a3846a362f8ad9c4da1898e0dd646f61, type: 2}
+  - _rawInput: {fileID: 11400000, guid: 25467bc503560914f87aaffb94500361, type: 2}
+    _processedOutput: {fileID: 11400000, guid: 6bb35f00b202b7d44bb991c995efc0f8, type: 2}
+  - _rawInput: {fileID: 11400000, guid: 527bee66479150643ab668e3af8be21b, type: 2}
+    _processedOutput: {fileID: 11400000, guid: b3384bef87dea3144b935b49140b9ce8, type: 2}
   FoodObj: {fileID: 4324814194680753293, guid: d23cf9631c76cfb468455ce0efd19d83, type: 3}
 --- !u!1 &2000501498
 GameObject:
@@ -12196,7 +12178,6 @@ SceneRoots:
   - {fileID: 126588490}
   - {fileID: 1244839921}
   - {fileID: 1059675485}
-  - {fileID: 125422222}
   - {fileID: 392083225}
   - {fileID: 519420033}
   - {fileID: 465620514}

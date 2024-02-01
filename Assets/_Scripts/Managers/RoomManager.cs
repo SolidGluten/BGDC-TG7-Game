@@ -11,24 +11,101 @@ using static UnityEditor.Recorder.OutputPath;
 //FryingPan = 2
 //...
 
-[Serializable] public enum RoomCode { Cashier = 1, Storage, Fishing, Garden, FryingPan, CuttingRoom, DeepFryer, Fermentation, Drinks }
+public enum RoomCode { Cashier = 1, Storage, Fishing, Garden, FryingPan, CuttingRoom, DeepFryer, Fermentation, Drinks }
 
 public class RoomManager : MonoBehaviour
 {
-    public Room currentActiveRoom;
     public static RoomCode activeRoomCode = RoomCode.Cashier;
+    public Room currentActiveRoom;
     public List<Room> roomList = new List<Room>();
+
     public Vector3 activeRoomPos;
     public float roomDistance = 5;
 
     private void Start()
     {
+        for(int i = 0; i < roomList.Count; i++)
+        {
+            switch (roomList[i].roomCode)
+            {
+                case RoomCode.Cashier:
+                    {
+                        roomList[i].isAccesible = true;
+                        break;
+                    }
+                case RoomCode.Storage:
+                    {
+                        if((LevelManager.currentLevel.accesibleRooms & AccesibleRoom.Storage) == AccesibleRoom.Storage)
+                            roomList[i].isAccesible = true;
+                        else
+                            roomList[i].isAccesible = false;
+                        break;
+                    }
+                case RoomCode.Fishing:
+                    {
+                        if ((LevelManager.currentLevel.accesibleRooms & AccesibleRoom.Fishing) == AccesibleRoom.Fishing)
+                            roomList[i].isAccesible = true;
+                        else
+                            roomList[i].isAccesible = false;
+                        break;
+                    }
+                case RoomCode.Garden:
+                    {
+                        if ((LevelManager.currentLevel.accesibleRooms & AccesibleRoom.Garden) == AccesibleRoom.Garden)
+                            roomList[i].isAccesible = true;
+                        else
+                            roomList[i].isAccesible = false;
+                        break;
+                    }
+                case RoomCode.FryingPan:
+                    {
+                        if ((LevelManager.currentLevel.accesibleRooms & AccesibleRoom.FryingPan) == AccesibleRoom.FryingPan)
+                            roomList[i].isAccesible = true;
+                        else
+                            roomList[i].isAccesible = false;
+                        break;
+                    }
+                case RoomCode.CuttingRoom:
+                    {
+                        if ((LevelManager.currentLevel.accesibleRooms & AccesibleRoom.CuttingRoom) == AccesibleRoom.CuttingRoom)
+                            roomList[i].isAccesible = true;
+                        else
+                            roomList[i].isAccesible = false;
+                        break;
+                    }
+                case RoomCode.DeepFryer:
+                    {
+                        if ((LevelManager.currentLevel.accesibleRooms & AccesibleRoom.DeepFryer) == AccesibleRoom.DeepFryer)
+                            roomList[i].isAccesible = true;
+                        else
+                            roomList[i].isAccesible = false;
+                        break;
+                    }
+                case RoomCode.Fermentation:
+                    {
+                        if ((LevelManager.currentLevel.accesibleRooms & AccesibleRoom.Fermentation) == AccesibleRoom.Fermentation)
+                            roomList[i].isAccesible = true;
+                        else
+                            roomList[i].isAccesible = false;
+                        break;
+                    }
+                case RoomCode.Drinks:
+                    {
+                        if ((LevelManager.currentLevel.accesibleRooms & AccesibleRoom.Drinks) == AccesibleRoom.Drinks)
+                            roomList[i].isAccesible = true;
+                        else
+                            roomList[i].isAccesible = false;
+                        break;
+                    }
+                default: { break; }
+            }
+        }
         SetRoomActive(activeRoomCode);
     }
 
     private void Update()
     {
-        if(GameManager.instance.currentState != GameState.Playing)
+        if(GameManager.currentState != GameState.Playing)
         {
             return;
         }
@@ -77,6 +154,12 @@ public class RoomManager : MonoBehaviour
         int nextRoomIndex = newList.FindIndex(room => room.roomCode == code);
         Room nextRoom = newList[nextRoomIndex];
 
+        if(nextRoom.isAccesible == false)
+        {
+            Debug.LogWarning("Room is not Accessible!");
+            return;
+        }
+
         if (newList[0].roomCode != code)
             SwapRoom(newList, nextRoomIndex, 0); //swaps the next room being activated with the 2nd roomn in the list
 
@@ -114,20 +197,26 @@ public class RoomManager : MonoBehaviour
 
         if(!currentActiveRoom.roomElevator.foodObj)
         {
-            Debug.Log("Fud not found in the elevator");
+            Debug.LogWarning("Fud not found in the elevator");
             return;
         }
         
         var roomDestination = roomList.Find(i => i.roomCode == (RoomCode)code);
         if (roomDestination == null)
         {
-            Debug.Log("Room not found!");
+            Debug.LogWarning("Room not found!");
+            return;
+        }
+
+        if(roomDestination.isAccesible == false)
+        {
+            Debug.LogWarning("Room is not accesible!");
             return;
         }
 
         if (roomDestination.roomElevator.foodObj != null)
         {
-            Debug.Log("Elevator is already loaded!");
+            Debug.LogWarning("Elevator is already loaded!");
             return;
         }
         

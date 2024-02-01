@@ -17,7 +17,7 @@ public class UI_Level : MenuItem
     public override void OnSelect()
     {
         if (isLocked) return;
-        StartCoroutine(GameManager.instance.ChangeLevel(levelIndex));
+        StartCoroutine(LevelManager.instance.ChangeLevel(levelIndex));
     }
 
     public void Lock(bool isLock) //true = locked; false = unlocked

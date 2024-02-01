@@ -35,7 +35,7 @@ public class OrderChute : MonoBehaviour
             } else
             {
                 orderList.RemoveOrder(orderToServe);
-                GameManager.instance.UpdateOrderCount();
+                LevelManager.instance.UpdateOrderCount();
             }
             Destroy(foodHolder);
         }

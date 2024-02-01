@@ -912,10 +912,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1980, y: 1080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -2313,13 +2313,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7486d07a79abaf345b7d0c7d1cb9a936, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  menuItems:
-  - {fileID: 0}
-  - {fileID: 888373664}
-  - {fileID: 584952132}
-  - {fileID: 2063070492}
-  currentItemSelected: {fileID: 0}
-  currentItemIndex: 0
 --- !u!1 &562670698
 GameObject:
   m_ObjectHideFlags: 0
@@ -4476,13 +4469,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7486d07a79abaf345b7d0c7d1cb9a936, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  menuItems:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  currentItemSelected: {fileID: 0}
-  currentItemIndex: 0
 --- !u!224 &1252653233
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5589,6 +5575,99 @@ RectTransform:
   m_AnchoredPosition: {x: -5, y: 0}
   m_SizeDelta: {x: -20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &1572355896
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1572355898}
+  - component: {fileID: 1572355897}
+  m_Layer: 0
+  m_Name: LevelManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1572355897
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1572355896}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56afa63a86ef35a4e803f5236131bac6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GeneralSpeed: 1
+  MaxPatience: 1
+  MaxOrder: 1
+  currentLevelIndex: 0
+  CurrentLevelIndexUnlocked: 0
+  delayBeforeNextLevel: 0
+  LevelList:
+  - levelName: Day 1
+    sceneBuildIndex: 1
+    generalSpeed: 1
+    totalOrders: 1
+    isAccesible: 1
+    accesibleRooms: -1
+  - levelName: Day 2
+    sceneBuildIndex: 2
+    generalSpeed: 1
+    totalOrders: 0
+    isAccesible: 0
+    accesibleRooms: 31
+  - levelName: Day 3
+    sceneBuildIndex: 3
+    generalSpeed: 1
+    totalOrders: 0
+    isAccesible: 0
+    accesibleRooms: 63
+  - levelName: Day 4
+    sceneBuildIndex: 4
+    generalSpeed: 1
+    totalOrders: 3
+    isAccesible: 0
+    accesibleRooms: 127
+  - levelName: Day 5
+    sceneBuildIndex: 5
+    generalSpeed: 1
+    totalOrders: 0
+    isAccesible: 0
+    accesibleRooms: -1
+  - levelName: Day 6
+    sceneBuildIndex: 6
+    generalSpeed: 1
+    totalOrders: 0
+    isAccesible: 0
+    accesibleRooms: -1
+  - levelName: Overtime
+    sceneBuildIndex: 7
+    generalSpeed: 1
+    totalOrders: 0
+    isAccesible: 0
+    accesibleRooms: -1
+--- !u!4 &1572355898
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1572355896}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1151.6049, y: 477.89398, z: -41.20519}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1629170293 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3964863123317799592, guid: 6172dd19f3360f74eb4f0bbc5fa8aa69, type: 3}
@@ -5902,49 +5981,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5bd9dd0b5d3077149a29b2ab281c9d37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GeneralSpeed: 1
-  MaxOrder: 1
-  MaxPatience: 1
-  currentState: 0
-  currentLevelIndex: 0
-  pauseMenu: {fileID: 0}
-  delayBeforeNextLevel: 0
-  LevelList:
-  - LevelName: Day 1
-    sceneBuildIndex: 1
-    generalSpeed: 1
-    totalOrders: 1
-    isAccesible: 1
-  - LevelName: Day 2
-    sceneBuildIndex: 2
-    generalSpeed: 1
-    totalOrders: 1
-    isAccesible: 0
-  - LevelName: Day 3
-    sceneBuildIndex: 3
-    generalSpeed: 1
-    totalOrders: 1
-    isAccesible: 0
-  - LevelName: Day 4
-    sceneBuildIndex: 4
-    generalSpeed: 1
-    totalOrders: 1
-    isAccesible: 0
-  - LevelName: Day 5
-    sceneBuildIndex: 5
-    generalSpeed: 1
-    totalOrders: 1
-    isAccesible: 0
-  - LevelName: Day 6
-    sceneBuildIndex: 6
-    generalSpeed: 1
-    totalOrders: 1
-    isAccesible: 0
-  - LevelName: Overtime
-    sceneBuildIndex: 7
-    generalSpeed: 1
-    totalOrders: 1
-    isAccesible: 0
 --- !u!114 &1840904955
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7157,8 +7193,9 @@ MonoBehaviour:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
-  - {fileID: 1840904956}
   - {fileID: 663232202}
+  - {fileID: 1840904956}
+  - {fileID: 1572355898}
   - {fileID: 895642724}
   - {fileID: 1007491160}
   - {fileID: 138249149}

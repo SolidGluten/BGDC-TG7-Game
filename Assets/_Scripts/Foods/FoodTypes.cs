@@ -32,9 +32,9 @@ namespace Types
     {
         None,
         MincedBeef,
-        MincedDrumstick,
+        MincedChicken,
         MincedPork,
-        MincedEgg,
+        BeatenEgg,
         MincedSalmon,
         MincedShrimp,
         MincedClam,
@@ -83,6 +83,11 @@ namespace Types
         BaconNEggs, //Bacon + Egg
         SurfNTurf, //Steak + PanSearedShrimp
         FishNChips, //Fries + GrilledSalmon
+
+        SauteedPotato,
+        SauteedCarrot,
+        SauteedCorn,
+        SauteedMushroom
     }
 
     

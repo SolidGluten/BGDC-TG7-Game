@@ -6,6 +6,6 @@ public class UI_Restart : MenuItem
 {
     public override void OnSelect()
     {
-        StartCoroutine(GameManager.instance.RetryLevel());
+        StartCoroutine(LevelManager.instance.RetryLevel());
     }
 }
