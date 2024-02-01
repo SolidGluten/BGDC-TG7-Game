@@ -34,6 +34,7 @@ public class Fishing : Generator
         if (ingredientToSpawn == null)
         {
             Debug.Log("Fish Not FOUND!");
+            GameManager.instance.Death(DeathCondition.Garden);
             return;
         }
 

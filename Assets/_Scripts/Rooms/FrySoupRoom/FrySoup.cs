@@ -24,7 +24,7 @@ public class FrySoup : Processor
         isHotEnough = currTemperature >= rightTemperature ? true : false;
         if(currTemperature >= maxTemperature)
         {
-            //Death Condition
+            GameManager.instance.Death(DeathCondition.HotPot);
         }
     }
 
