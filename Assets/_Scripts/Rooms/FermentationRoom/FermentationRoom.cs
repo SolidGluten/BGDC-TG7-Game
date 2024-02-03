@@ -4,15 +4,16 @@ using UnityEngine;
 
 public class FermentationRoom : Processor
 {
+    public Room room;
     [SerializeField] private float maxFermentationTime;
     [SerializeField] private float currentFermentationTime = 0;
 
-    public void Ferment(Transform spawnPoint, FoodScriptable raw)
+    private void Start()
     {
-        StartCoroutine(I_Ferment(spawnPoint, raw));
+        room = GetComponentInParent<Room>();
     }
 
-    private IEnumerator I_Ferment(Transform spawnPoint, FoodScriptable raw)
+    public IEnumerator Ferment(FoodHolder raw)
     {
         while(currentFermentationTime < maxFermentationTime)
         {
@@ -20,8 +21,7 @@ public class FermentationRoom : Processor
             yield return null;
         }
 
-        GameObject fermentedFood = ProcessFood(spawnPoint.position, raw);
-        fermentedFood.GetComponent<Dragable>().SetLastPosition(spawnPoint);
+        raw.GetComponent<FoodHolder>().IsFermented = true;
         currentFermentationTime = 0;
     }
 }

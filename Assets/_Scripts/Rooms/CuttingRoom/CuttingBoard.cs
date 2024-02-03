@@ -8,6 +8,8 @@ public class CuttingBoard : MonoBehaviour
     private CuttingRoom cuttingRoom;
     private int SFXindex = 2;
 
+    private FoodHolder foodOnCuttingBoard;
+    private FoodScriptable processedFood;
     private void Awake()
     {
         cuttingRoom = GetComponentInParent<CuttingRoom>();
@@ -30,22 +32,19 @@ public class CuttingBoard : MonoBehaviour
             cuttingObj.GetComponent<Dragable>().SetLastPosition(transform);
             GetComponentInParent<Room>().roomElevator.foodObj = null;
 
+            foodOnCuttingBoard = cuttingObj.GetComponent<FoodHolder>();
         }
         else if (collision.CompareTag("Knife"))
         {
             if (cuttingObj == null) return;
-            FoodScriptable ingredient = cuttingObj.GetComponent<FoodHolder>().food;
-            FoodScriptable processedObj = cuttingRoom.FindOutputDish(ingredient);
 
-            if (processedObj == null)
-            {
-                return;
-            }
+            foodOnCuttingBoard = cuttingObj.GetComponent<FoodHolder>();
+            processedFood = cuttingRoom.FindOutputDish(foodOnCuttingBoard.FoodScript);
+            if (processedFood == null) return;
 
             collision.GetComponent<Dragable>().isDrag = false;
-            Destroy(cuttingObj);
             SoundManager.instance.PlaySoundEffect(SFXindex);
-            cuttingObj = cuttingRoom.ProcessFood(transform.position, processedObj);
+            cuttingObj = cuttingRoom.ProcessFood(foodOnCuttingBoard, processedFood);
         }
     }
 }

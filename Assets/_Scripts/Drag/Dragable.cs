@@ -7,7 +7,6 @@ public class Dragable : MonoBehaviour
 {
     private Vector2 mousePos;
     private Camera mainCam;
-    public DragNDrop dragAndDrop;
     public bool isDrag;
     public Transform lastPos;
 
@@ -15,7 +14,6 @@ public class Dragable : MonoBehaviour
     {
         mainCam = Camera.main;
         lastPos = lastPos ? lastPos : transform;
-        dragAndDrop = FindAnyObjectByType<DragNDrop>();
     }
 
     private void Update()
@@ -25,16 +23,21 @@ public class Dragable : MonoBehaviour
         if (isDrag) Drag();
     }
 
+    private void OnMouseDown()
+    {
+        DragNDrop.DragObject = this.gameObject;
+    }
+
     private void OnMouseDrag()
     {
+        if(DragNDrop.DragObject != null)
         isDrag = true;
-        dragAndDrop.DragObject = this.gameObject;
     }
 
     private void OnMouseUp()
     {
         isDrag = false;
-        dragAndDrop.DragObject = null;
+        DragNDrop.DragObject = null;
         ResetPosition();
     }
 
@@ -46,6 +49,8 @@ public class Dragable : MonoBehaviour
     public void ResetPosition()
     {
         transform.position = lastPos.position;
+        DragNDrop.DragObject = null;
+        isDrag = false;
     }
 
     public void SetLastPosition(Transform pos)

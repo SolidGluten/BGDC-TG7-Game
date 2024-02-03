@@ -4,7 +4,5 @@ using UnityEngine;
 
 public class DragNDrop : MonoBehaviour
 {
-    public GameObject DragObject;
-
-
+    public static GameObject DragObject;
 }

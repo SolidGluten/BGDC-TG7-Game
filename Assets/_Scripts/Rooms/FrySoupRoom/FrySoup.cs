@@ -9,7 +9,7 @@ public enum PotType {Water, Oil}
 public class FrySoup : Processor
 {
     public PotType currentType = PotType.Water;
-    public Room frySoupRoom;
+    public Room room;
     public GameObject foodHolder;
     public List<Recipe> fryRecipeList = new List<Recipe>();
     public List<Recipe> soupRecipeList = new List<Recipe>();
@@ -18,6 +18,13 @@ public class FrySoup : Processor
     public float maxTemperature;
     [SerializeField] private bool isHotEnough;
     [SerializeField] private bool isHeatOn;
+
+    private FoodScriptable processedFood;
+
+    private void Start()
+    {
+        room = GetComponentInParent<Room>();
+    }
 
     private void Update()
     {
@@ -82,7 +89,7 @@ public class FrySoup : Processor
         ResetHeat();
     }
 
-    public GameObject ProcessPotFood(FoodScriptable input)
+    public GameObject ProcessPotFood(FoodHolder foodInPot)
     {
         if (!isHotEnough)
         {
@@ -90,18 +97,17 @@ public class FrySoup : Processor
             return null;
         }
 
-        FoodScriptable foodToSpawn;
-        if(currentType == PotType.Water)
-            foodToSpawn = FindSoupDish(input);   
+        if (currentType == PotType.Water) 
+            processedFood = FindSoupDish(foodInPot.FoodScript);   
         else
-            foodToSpawn = FindFryDish(input);
+            processedFood = FindFryDish(foodInPot.FoodScript);
 
-        if(foodToSpawn == null) {
+        if(processedFood == null) {
             Debug.Log("No recipe found!");
             return null;
         }
 
-        return ProcessFood(foodHolder.transform.position, foodToSpawn);
+        return ProcessFood(foodInPot, processedFood);
     }
 
     public FoodScriptable FindFryDish(FoodScriptable raw)

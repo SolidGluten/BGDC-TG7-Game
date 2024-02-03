@@ -8,12 +8,55 @@ using UnityEngine;
 [RequireComponent(typeof(SpriteRenderer))]
 public class FoodHolder : MonoBehaviour
 {
-    [SerializeField] public FoodScriptable food;
+    [SerializeField] private FoodScriptable foodScript;
+    public FoodScriptable FoodScript 
+    { 
+        get { return foodScript; }
+        set { 
+            foodScript = value;
+            foodName = foodScript._foodName;
+            sprite = foodScript._foodSprite;
+            type = foodScript._foodType;
+            drink = foodScript._drink;
+            sideDish = foodScript._sideDish;
+            baseIngredient = foodScript._baseIngredient;
+            semiProcessed = foodScript._semiProcessed;
+            dishType = foodScript._dishType;
+
+            this.name = "F_" + foodName;
+            foodRenderer.sprite = sprite;
+        }
+    }
+
     [SerializeField] public string foodName;
     [SerializeField] public Sprite sprite;
+    [SerializeField] public SpriteRenderer plateRenderer;
     [SerializeField] public SpriteRenderer sideRenderer;
     [SerializeField] public SpriteRenderer drinkRenderer;
     [SerializeField] public FoodType type;
+
+    public bool isFermented;
+    [SerializeField] public bool IsFermented
+    {
+        get { return isFermented; }
+        set { 
+            isFermented = value;
+            switch (value)
+            {
+                case true:
+                    {
+                        plateRenderer.sprite =  foodScript._fermentedPlate;
+                        break;
+                    }
+                case false:
+                    {
+                        plateRenderer.sprite = foodScript._normalPlate;
+                        break;
+                    }
+            }    
+        }
+    }
+
     [SerializeField] private DrinkType drink;
     public DrinkType drinkType
     {
@@ -28,32 +71,32 @@ public class FoodHolder : MonoBehaviour
                     }
                 case DrinkType.Red:
                     {
-                        drinkRenderer.sprite = food._redDrink;
+                        drinkRenderer.sprite = foodScript._redDrink;
                         break;
                     }
                 case DrinkType.Orange:
                     {
-                        drinkRenderer.sprite = food._orangeDrink;
+                        drinkRenderer.sprite = foodScript._orangeDrink;
                         break;
                     }
                 case DrinkType.Yellow:
                     {
-                        drinkRenderer.sprite = food._yellowDrink;
+                        drinkRenderer.sprite = foodScript._yellowDrink;
                         break;
                     }
                 case DrinkType.Green:
                     {
-                        drinkRenderer.sprite = food._greenDrink;
+                        drinkRenderer.sprite = foodScript._greenDrink;
                         break;
                     }
                 case DrinkType.Blue:
                     {
-                        drinkRenderer.sprite = food._blueDrink;
+                        drinkRenderer.sprite = foodScript._blueDrink;
                         break;
                     }
                 case DrinkType.Purple:
                     {
-                        drinkRenderer.sprite = food._purpleDrink;
+                        drinkRenderer.sprite = foodScript._purpleDrink;
                         break;
                     }
                 default: { break; }
@@ -75,48 +118,37 @@ public class FoodHolder : MonoBehaviour
                     }
                 case SideDish.CutCarrot:
                     {
-                        sideRenderer.sprite = food._addCarrot;
+                        sideRenderer.sprite = foodScript._addCarrot;
                         break;
                     }
                 case SideDish.CutPotato:
                     {
-                        sideRenderer.sprite = food._addPotato;
+                        sideRenderer.sprite = foodScript._addPotato;
                         break;
                     }
                 case SideDish.CutMushroom:
                     {
-                        sideRenderer.sprite = food._addMushroom;
+                        sideRenderer.sprite = foodScript._addMushroom;
                         break;
                     }
                 case SideDish.CutCorn:
                     {
-                        sideRenderer.sprite = food._addCorn;
+                        sideRenderer.sprite = foodScript._addCorn;
                         break;
                     }
                 default: { break; }
             }
         }
     }
+
     [SerializeField] public BaseIngredient baseIngredient;
     [SerializeField] public SemiProcessed semiProcessed;
     [SerializeField] public DishType dishType;
 
     private SpriteRenderer foodRenderer;
 
-    private void Start()
+    private void Awake()
     {
         foodRenderer = GetComponent<SpriteRenderer>();
-
-        foodName = food._foodName;
-        sprite = food._foodSprite;
-        type = food._foodType;
-        drink = food._drink;
-        sideDish = food._sideDish;
-        baseIngredient = food._baseIngredient;
-        semiProcessed = food._semiProcessed;
-        dishType = food._dishType;
-
-        this.name = "F_" + foodName;
-        foodRenderer.sprite = sprite;
     }
 }

@@ -33,12 +33,13 @@ public class Pot : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Food"))
         {
-            FoodScriptable food = collision.GetComponent<FoodHolder>().food;
+            FoodHolder food = collision.GetComponent<FoodHolder>();
             GameObject processedFood = frySoup.ProcessPotFood(food);
             if (processedFood != null)
             {
+                frySoup.room.roomElevator.foodObj = null;
                 processedFood.GetComponent<Dragable>().SetLastPosition(transform);
-                Destroy(collision.gameObject);
+                processedFood.GetComponent<Dragable>().ResetPosition();
             }
         }
     }

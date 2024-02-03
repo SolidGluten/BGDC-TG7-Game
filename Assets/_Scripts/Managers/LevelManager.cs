@@ -19,7 +19,6 @@ public class LevelManager : MonoBehaviour
     [SerializeField] private float delayBeforeNextLevel;
     public List<Level> LevelList = new List<Level>();
 
-
     private void Awake()
     {
         if(instance == null)
@@ -57,8 +56,10 @@ public class LevelManager : MonoBehaviour
 
     public IEnumerator RetryLevel()
     {
+        SoundManager.instance.StopAllSounds();
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         GameManager.instance.Resume();
+        SoundManager.instance.PlayBackgroundMusic();
         yield return null;
     }
 

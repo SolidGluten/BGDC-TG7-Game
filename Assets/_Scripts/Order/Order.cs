@@ -9,6 +9,29 @@ public class Order : MonoBehaviour
 {
     public OrderList orderList;
     public FoodScriptable orderDish;
+    public bool isOrderFermented;
+    [SerializeField] public bool IsOrderFermented
+    {
+        get { return isOrderFermented; }
+        set
+        {
+            isOrderFermented = value;
+            switch (value)
+            {
+                case true:
+                    {
+                        plateImage.sprite = orderDish._fermentedPlate;
+                        break;
+                    }
+                case false:
+                    {
+                        plateImage.sprite = orderDish._normalPlate;
+                        break;
+                    }
+            }
+        }
+    }
+
     [SerializeField] private DrinkType orderDrink;
     public DrinkType OrderDrink {
 
@@ -89,6 +112,7 @@ public class Order : MonoBehaviour
     public Image orderImage;
     public Image sideDishImage;
     public Image drinkImage;
+    public Image plateImage;
 
     public Slider orderSlider;
     public TextMeshProUGUI orderNameTMP;

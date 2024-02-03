@@ -16,8 +16,8 @@ public class PanCooking : MonoBehaviour
     public float CookTime, BurnTime;
     private float currentCookTime, currentBurnTime;
 
-    public FoodScriptable currentRaw;
-    public FoodScriptable currentOutput;
+    private FoodHolder foodInPan;
+    private FoodScriptable processedFood;
 
     private int SFXindex = 1;
     void Start()
@@ -33,17 +33,19 @@ public class PanCooking : MonoBehaviour
 
         if (other.gameObject.CompareTag("Food"))
         {
-            currentRaw = other.gameObject.GetComponent<FoodHolder>().food;
-            currentOutput = fryingPan.FindOutputDish(currentRaw);   
+            foodInPan = other.GetComponent<FoodHolder>();
+            processedFood = fryingPan.FindOutputDish(foodInPan.FoodScript);   
         }
 
-        if(currentOutput == null)
+        if(processedFood == null)
         {
             Debug.Log("No dish found!");
+            foodInPan = null;
             return;
         }
 
-        Destroy(other.gameObject);
+        fryingPan.room.roomElevator.foodObj = null;
+        other.gameObject.SetActive(false);
         isEmpty = false; isCooking = true;
         ChangeSprite(cookSprite);
         Cook();
@@ -53,8 +55,13 @@ public class PanCooking : MonoBehaviour
     {
         if (isCooking || isEmpty) return;
 
-        fryingPan.ProcessFood(transform.position, currentOutput);
+        fryingPan.ProcessFood(foodInPan, processedFood);
+        foodInPan.gameObject.SetActive(true);
+        foodInPan.GetComponent<Dragable>().SetLastPosition(transform);
+        foodInPan.GetComponent<Dragable>().ResetPosition();
+
         SoundManager.instance.StopSoundEffect(SFXindex);
+
         ChangeSprite(emptySprite);
         isEmpty = true;
         isCooking = false;

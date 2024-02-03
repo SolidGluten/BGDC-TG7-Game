@@ -17,11 +17,10 @@ public class Processor : MonoBehaviour
     }
 
     //Spawn Processed Food
-    public GameObject ProcessFood(Vector2 spawnPos, FoodScriptable processedFood)
+    public GameObject ProcessFood(FoodHolder input, FoodScriptable changeFoodTo)
     {
-        GameObject foodObj = Instantiate(FoodObj, spawnPos, Quaternion.identity, this.transform);
-        foodObj.GetComponent<FoodHolder>().food = processedFood;
-        return foodObj;
+        input.FoodScript = changeFoodTo;
+        return input.gameObject;
     }
 }
 

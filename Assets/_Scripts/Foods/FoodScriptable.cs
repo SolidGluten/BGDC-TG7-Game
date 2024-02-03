@@ -15,6 +15,10 @@ public class FoodScriptable : ScriptableObject
     [SerializeField] public SemiProcessed _semiProcessed;
     [SerializeField] public DishType _dishType;
 
+    [SerializeField] public bool _isFermented;
+    [SerializeField] public Sprite _fermentedPlate;
+    [SerializeField] public Sprite _normalPlate;
+
     #region SideDishSprites
     [SerializeField] public Sprite _addPotato;
     [SerializeField] public Sprite _addCarrot;

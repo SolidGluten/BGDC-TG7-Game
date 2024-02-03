@@ -16,16 +16,17 @@ public class Fermentator : MonoBehaviour
     {
         if (collision.CompareTag("Food"))
         {
-            FoodScriptable raw = collision.GetComponent<FoodHolder>().food;
-            FoodScriptable fermentedFood = fermentRoom.FindOutputDish(raw);
+            FoodHolder raw = collision.GetComponent<FoodHolder>();
+            FoodScriptable fermentedFood = fermentRoom.FindOutputDish(raw.FoodScript);
             if(fermentedFood == null)
             {
                 Debug.Log("Fermented food not found!");
                 return;
             }
 
-            fermentRoom.Ferment(transform, fermentedFood);
-            Destroy(collision.gameObject);
+            raw.GetComponent<Dragable>().SetLastPosition(transform);
+            fermentRoom.room.roomElevator.foodObj = null;
+            StartCoroutine(fermentRoom.Ferment(raw));
         }
     }
 }

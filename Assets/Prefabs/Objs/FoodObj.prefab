@@ -157,7 +157,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 21300000, guid: d14bcfa8c5c93e24ca15fe7b26762cff, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5f5d4b4fe463de248a045334c4c9499f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -346,6 +346,7 @@ MonoBehaviour:
   food: {fileID: 11400000, guid: d6a27a671ea93ad4196898e17b6b16f9, type: 2}
   foodName: 
   sprite: {fileID: 0}
+  plateRenderer: {fileID: 7723964551323223587}
   sideRenderer: {fileID: 594221752954927361}
   drinkRenderer: {fileID: 3103877208710494765}
   type: 3
@@ -368,6 +369,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dragAndDrop: {fileID: 0}
   isDrag: 0
+  lastPos: {fileID: 0}
 --- !u!1 &5564856522122375373
 GameObject:
   m_ObjectHideFlags: 0

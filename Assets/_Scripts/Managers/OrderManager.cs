@@ -12,6 +12,7 @@ public class OrderManager : MonoBehaviour
 
     [SerializeField] private bool isDrinkAdded;
     [SerializeField] private bool isSideDishAdded;
+    [SerializeField] private bool isFermentedAdded;
 
     public Orders simple;
     public Orders mediocre;
@@ -68,7 +69,7 @@ public class OrderManager : MonoBehaviour
 
     private void SendNewOrder()
     {
-        orderList.AddOrder(GetRandomDish(), isSideDishAdded, isDrinkAdded);
+        orderList.AddOrder(GetRandomDish(), isSideDishAdded, isDrinkAdded, isFermentedAdded);
     }
 }
 

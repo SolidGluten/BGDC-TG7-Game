@@ -10,13 +10,18 @@ public class OrderList : MonoBehaviour
     public Transform orderContainer;
     public List<Order> activeOrders = new List<Order>();
 
-    public void AddOrder(FoodScriptable dish, bool addSides, bool addDrink)
+    public void AddOrder(FoodScriptable dish, bool addSides, bool addDrink, bool addFermented)
     {
         GameObject newOrder = Instantiate(orderObjPrefab, transform.position, Quaternion.identity, orderContainer);
         Order order = newOrder.GetComponent<Order>();
         order.orderDish = dish;
         if (addSides) order.SetRandomSides();
         if (addDrink) order.SetRandomDrink();
+        if (addFermented) {
+            float rand = Random.Range(0f, 1f);
+            if(rand < .5f) order.IsOrderFermented = false;
+            else order.IsOrderFermented = true;
+        }
         order.orderList = this;
         activeOrders.Add(order);
     }
@@ -24,7 +29,10 @@ public class OrderList : MonoBehaviour
     public Order FindOrder(FoodHolder foodHolder)
     {
         Order orderToFind = activeOrders
-            .FirstOrDefault(order => order.orderDish == foodHolder.food && order.OrderDrink == foodHolder.drinkType && order.OrderSideDish == foodHolder.sideDish);
+            .FirstOrDefault(order => order.orderDish == foodHolder.FoodScript && 
+            order.OrderDrink == foodHolder.drinkType && 
+            order.OrderSideDish == foodHolder.sideDish && 
+            order.IsOrderFermented == foodHolder.IsFermented);
         return orderToFind ? orderToFind : null;
     }
 

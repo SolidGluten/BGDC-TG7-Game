@@ -25,7 +25,7 @@ public class Generator : MonoBehaviour
     {
         GameObject ingredientObj = Instantiate(ingredientPrefab, ingredientHolder.transform.position, Quaternion.identity);
         FoodHolder foodHolder = ingredientObj.GetComponent<FoodHolder>();
-           foodHolder.food = ingredients;
+           foodHolder.FoodScript = ingredients;
         ingredientObj.GetComponent<Dragable>().SetLastPosition(ingredientHolder.transform);
         ingredientObj.transform.parent = transform;
 

@@ -29,21 +29,65 @@ public class Mixer : MonoBehaviour
         return recipe ? recipe : null;
     }
 
-    public GameObject MakeMix(FoodScriptable mixFood, Vector2 pos, Transform parent)
+    public GameObject MixFood(FoodHolder food1, FoodHolder food2)
     {
-        GameObject mixObj = Instantiate(foodObj, pos, Quaternion.identity, parent);
-        mixObj.GetComponent<FoodHolder>().food = mixFood;
-        return mixObj;
+        //Mix dishes
+        if (food1.type == FoodType.Dish && food2.type == FoodType.Dish)
+        {
+            FoodScriptable output = FindRecipe(food1.FoodScript, food2.FoodScript);
+            if (output == null)
+            {
+                Debug.Log("No recipe found!");
+                return null;
+            }
+
+            OverwriteFoodDetails(food1, food2);
+            food1.FoodScript = output;  
+
+            Destroy(food2.gameObject);
+            return food1.gameObject;
+        }
+
+        if (food1.type == food2.type) return null;
+
+        //Add side dish
+        if (food1.type == FoodType.SideDish || food2.type == FoodType.SideDish)
+        {
+            FoodHolder sideDishHolder = food1.type == FoodType.SideDish ? food1 : food2;
+            FoodHolder foodHolder = food1.type != FoodType.SideDish ? food1 : food2;
+
+            foodHolder.sideDish = sideDishHolder.sideDish;
+            foodObj = foodHolder.gameObject;
+            OverwriteFoodDetails(foodHolder, sideDishHolder);
+
+            foodHolder.GetComponent<Dragable>().SetLastPosition(transform);
+            Destroy(sideDishHolder.gameObject);
+            return foodHolder.gameObject;
+        }
+
+        //Add drink
+        if (food1.type == FoodType.Beverage || food2.type == FoodType.Beverage)
+        {
+            FoodHolder drinkHolder = food1.type == FoodType.Beverage ? food1 : food2;
+            FoodHolder foodHolder = food1.type != FoodType.Beverage ? food1 : food2;
+
+            foodHolder.drinkType = drinkHolder.drinkType;
+            foodObj = foodHolder.gameObject;
+            OverwriteFoodDetails(foodHolder, drinkHolder);
+
+            foodHolder.GetComponent<Dragable>().SetLastPosition(transform);
+            Destroy(drinkHolder.gameObject);
+            return foodHolder.gameObject;
+        }
+
+        return null;
     }
 
-    public void AddSideDish(FoodHolder holder, SideDish type)
+    public void OverwriteFoodDetails(FoodHolder destination, FoodHolder from)
     {
-        holder.sideDish = type;
-    }
-
-    public void AddDrink(FoodHolder holder, DrinkType type)
-    {
-        holder.drinkType = type;
+        if (from.sideDish != SideDish.None) destination.sideDish = from.sideDish;
+        if (from.drinkType != DrinkType.None) destination.drinkType = from.drinkType;
+        if (from.IsFermented != false) destination.isFermented = from.isFermented;
     }
 }
 
