@@ -878,30 +878,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7972357657779680878, guid: 44f697c28495b424aa8af38a427c72ec, type: 3}
-      propertyPath: m_PixelPerfect
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8222346692635750762, guid: 44f697c28495b424aa8af38a427c72ec, type: 3}
-      propertyPath: m_UiScaleMode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8222346692635750762, guid: 44f697c28495b424aa8af38a427c72ec, type: 3}
-      propertyPath: m_ScreenMatchMode
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8222346692635750762, guid: 44f697c28495b424aa8af38a427c72ec, type: 3}
-      propertyPath: m_MatchWidthOrHeight
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8222346692635750762, guid: 44f697c28495b424aa8af38a427c72ec, type: 3}
-      propertyPath: m_ReferenceResolution.x
-      value: 1920
-      objectReference: {fileID: 0}
-    - target: {fileID: 8222346692635750762, guid: 44f697c28495b424aa8af38a427c72ec, type: 3}
-      propertyPath: m_ReferenceResolution.y
-      value: 1080
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1027,6 +1003,6 @@ SceneRoots:
   - {fileID: 895642724}
   - {fileID: 2512863076134870734}
   - {fileID: 8634613926820946278}
-  - {fileID: 4478479702026437667}
   - {fileID: 1676205360}
+  - {fileID: 4478479702026437667}
   - {fileID: 2091400551}

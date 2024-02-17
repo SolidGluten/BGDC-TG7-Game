@@ -6,7 +6,6 @@ public class OfficeBG : MonoBehaviour
 {
     public static OfficeBG instance;
 
-
     private void Start()
     {
         if (instance != null && instance != this)
