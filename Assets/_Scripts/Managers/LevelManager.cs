@@ -79,7 +79,7 @@ public class LevelManager : MonoBehaviour
         //Reset game settings
         GeneralSpeed = LevelList[index].generalSpeed;
         MaxOrder = LevelList[index].totalOrders;
-        MaxPatience = (15 / GeneralSpeed) + 25;
+        MaxPatience = (15 / GeneralSpeed) + 30;
         CurrentOrderServed = 0;
 
         GameManager.instance.Resume();

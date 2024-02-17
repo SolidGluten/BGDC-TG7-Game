@@ -18,7 +18,7 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
-        if (instance != null & instance != this)
+        if (instance != null && instance != this)
         {
             Destroy(gameObject);
             return;
@@ -34,7 +34,7 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape) && currentState != GameState.MainMenu)
         {
             if (currentState == GameState.Paused)
                 Resume();
@@ -48,6 +48,7 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(backToMenuDelay);
         SceneManager.LoadScene(0);
         DeathScreen.instance.SetDeathTrue(false);
+        currentState = GameState.MainMenu;
         Resume();
     }
 

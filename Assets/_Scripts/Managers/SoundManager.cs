@@ -51,6 +51,12 @@ public class SoundManager : MonoBehaviour
         musicSource.Play();
     }
 
+    public void StopBackgroundMusic()
+    {
+        // Stop the background music
+        musicSource.Stop();
+    }
+
     public void PlaySoundEffect(int index)
     {
         // Check if the index is valid
@@ -120,7 +126,6 @@ public class SoundManager : MonoBehaviour
             Debug.LogWarning("No playing sound effect found for the specified index.");
         }
     }
-
 
     public void StopAllSounds()
     {
