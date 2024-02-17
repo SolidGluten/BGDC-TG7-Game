@@ -10,8 +10,8 @@ public class Fishing : Generator
     public float maxFishTime;
     public float maxTimeBeforeDeath;
     public bool isFishing = false;
-    [SerializeField] float currentFishTime;
-    [SerializeField] float currentTimeBeforeDeath;
+    public float currentFishTime;
+    public float currentTimeBeforeDeath;
 
     public IEnumerator Fish(BaseIngredient ingredient)
     {
@@ -24,12 +24,12 @@ public class Fishing : Generator
             yield break;
         }
 
-        currentFishTime = maxFishTime;
-        currentTimeBeforeDeath = maxTimeBeforeDeath;
+        currentFishTime = 0;
+        currentTimeBeforeDeath = 0;
 
-        while (currentFishTime > 0)
+        while (currentFishTime < maxFishTime)
         {
-            currentFishTime -= Time.deltaTime;
+            currentFishTime += Time.deltaTime;
             Debug.Log(currentFishTime);
             yield return null;
         }
@@ -37,13 +37,20 @@ public class Fishing : Generator
         GenerateIngredient(ingredientToSpawn);
         isFishing = false;
 
-        while (currentTimeBeforeDeath > 0 && ingredientHolder.ingredient != null)
+        while (currentTimeBeforeDeath < maxTimeBeforeDeath)
         {
-            currentTimeBeforeDeath -= Time.deltaTime;
+            if(ingredientHolder.ingredient == null)
+            {
+                currentFishTime = 0;
+                currentTimeBeforeDeath = 0;
+                yield break;
+            }
+            currentTimeBeforeDeath += Time.deltaTime;
             Debug.Log(currentTimeBeforeDeath);
             yield return null;
         }
-        if (currentTimeBeforeDeath <= 0 && ingredientHolder.ingredient != null)
+
+        if (currentTimeBeforeDeath >= maxTimeBeforeDeath && ingredientHolder.ingredient != null)
         {
             GameManager.instance.Death(DeathCondition.Fishing);
         }
