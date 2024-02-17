@@ -9,6 +9,7 @@ public class OrderManager : MonoBehaviour
     public OrderList orderList;
 
     public float arrivalTimer;
+    public float arrivalTimeIfNone = 3f;
 
     [SerializeField] private bool isDrinkAdded;
     [SerializeField] private bool isSideDishAdded;
@@ -18,9 +19,6 @@ public class OrderManager : MonoBehaviour
     public Orders mediocre;
     public Orders advance;
 
-    public float arrivalTimeIfNone= 2f;
-
-    private bool isSendingOrder;
 
     private void Start()
     {
@@ -33,9 +31,11 @@ public class OrderManager : MonoBehaviour
         if (arrivalTimer > 0)
         {
             arrivalTimer -= Time.deltaTime;
-            if (isSendingOrder)
+
+            //if there is no order, reduce the arrival time
+            if(orderList.activeOrders.Count == 0 && arrivalTimer > arrivalTimeIfNone)
             {
-                arrivalTimer = 2f;
+                arrivalTimer -= arrivalTimer - arrivalTimeIfNone;
             }
         }
         else
