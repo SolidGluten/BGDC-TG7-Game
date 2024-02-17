@@ -2387,8 +2387,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   orderList: {fileID: 2017795363}
   arrivalTimer: 0
+  arrivalTimeIfNone: 3
   isDrinkAdded: 0
-  isSideDishAdded: 0
+  isSideDishAdded: 1
   isFermentedAdded: 0
   simple:
     _spawnChance: 40
@@ -2404,6 +2405,10 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 1b1f7ecfc39b113478c2713e48978efb, type: 2}
     - {fileID: 11400000, guid: 6bb35f00b202b7d44bb991c995efc0f8, type: 2}
     - {fileID: 11400000, guid: a3846a362f8ad9c4da1898e0dd646f61, type: 2}
+    - {fileID: 11400000, guid: 276a4d91386971945adb31b2665d1eda, type: 2}
+    - {fileID: 11400000, guid: 3b1dc71063cc3d1409f7875dae1fa52b, type: 2}
+    - {fileID: 11400000, guid: b3384bef87dea3144b935b49140b9ce8, type: 2}
+    - {fileID: 11400000, guid: 211f4281aa0921d4a99e4f7017394f9e, type: 2}
   advance:
     _spawnChance: 25
     _orderList:
@@ -2411,7 +2416,6 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 57b19f042dd91424887f93d31ff0f107, type: 2}
     - {fileID: 11400000, guid: 18c8bbf5a89ac7947a798a0e75cd3dc3, type: 2}
     - {fileID: 11400000, guid: 9ce40fbf7f46ecf42bfc4390c20fee07, type: 2}
-  arrivalTimeIfNone: 3
 --- !u!4 &1059675485
 Transform:
   m_ObjectHideFlags: 0

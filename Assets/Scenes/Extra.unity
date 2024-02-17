@@ -2387,9 +2387,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   orderList: {fileID: 2017795363}
   arrivalTimer: 0
-  isDrinkAdded: 0
-  isSideDishAdded: 0
-  isFermentedAdded: 0
+  arrivalTimeIfNone: 3
+  isDrinkAdded: 1
+  isSideDishAdded: 1
+  isFermentedAdded: 1
   simple:
     _spawnChance: 40
     _orderList:
@@ -2397,6 +2398,10 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 9cfc5be720c9df14bbdc0f2bbc0c3dcb, type: 2}
     - {fileID: 11400000, guid: 9d15c6b5a2e45fe41bbcc9faa273c1ca, type: 2}
     - {fileID: 11400000, guid: bb7aaa43c5f59c947b994db96dc6723c, type: 2}
+    - {fileID: 11400000, guid: 90981d73a4e5b24448cfd3781c85452e, type: 2}
+    - {fileID: 11400000, guid: a055b341e891dc140925d0d03127d446, type: 2}
+    - {fileID: 11400000, guid: 40dd5da95b4ecf7419c6927ebf6bc9d4, type: 2}
+    - {fileID: 11400000, guid: 40dd5da95b4ecf7419c6927ebf6bc9d4, type: 2}
   mediocre:
     _spawnChance: 35
     _orderList:
@@ -2404,6 +2409,14 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 1b1f7ecfc39b113478c2713e48978efb, type: 2}
     - {fileID: 11400000, guid: 6bb35f00b202b7d44bb991c995efc0f8, type: 2}
     - {fileID: 11400000, guid: a3846a362f8ad9c4da1898e0dd646f61, type: 2}
+    - {fileID: 11400000, guid: 276a4d91386971945adb31b2665d1eda, type: 2}
+    - {fileID: 11400000, guid: 3b1dc71063cc3d1409f7875dae1fa52b, type: 2}
+    - {fileID: 11400000, guid: b3384bef87dea3144b935b49140b9ce8, type: 2}
+    - {fileID: 11400000, guid: 211f4281aa0921d4a99e4f7017394f9e, type: 2}
+    - {fileID: 11400000, guid: 2aa2d5c57019c024ba7e0a7a17fdc363, type: 2}
+    - {fileID: 11400000, guid: be9e430ac20d9b34a8097592fe5b2a7d, type: 2}
+    - {fileID: 11400000, guid: fb6987d8b3f90ca4ea38010072402234, type: 2}
+    - {fileID: 11400000, guid: 370daacb6f4b5464e878cfd0b66940b3, type: 2}
   advance:
     _spawnChance: 25
     _orderList:
@@ -2411,7 +2424,13 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 57b19f042dd91424887f93d31ff0f107, type: 2}
     - {fileID: 11400000, guid: 18c8bbf5a89ac7947a798a0e75cd3dc3, type: 2}
     - {fileID: 11400000, guid: 9ce40fbf7f46ecf42bfc4390c20fee07, type: 2}
-  arrivalTimeIfNone: 3
+    - {fileID: 11400000, guid: 7892939987ff2cf46bbb886412cc6e07, type: 2}
+    - {fileID: 11400000, guid: ac8616d3034d956409ba869439cecdfa, type: 2}
+    - {fileID: 11400000, guid: e9c25ab58593ada4cb9b5164d9af54a6, type: 2}
+    - {fileID: 11400000, guid: 8701c070e8f36b143811dfc39db1cbb7, type: 2}
+    - {fileID: 11400000, guid: 8890216f00847a241bc7507f6ba7ff2e, type: 2}
+    - {fileID: 11400000, guid: c4670f3e67ee7ea49a85fdfe3ac18a50, type: 2}
+    - {fileID: 11400000, guid: 718f45f5a8c2dd34fa52844ae65b3290, type: 2}
 --- !u!4 &1059675485
 Transform:
   m_ObjectHideFlags: 0

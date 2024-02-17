@@ -339,7 +339,7 @@ MonoBehaviour:
     generalSpeed: 1
     totalOrders: 7
     isAccesible: 1
-    accesibleRooms: -1
+    accesibleRooms: 15
   - levelName: Day 2
     sceneBuildIndex: 2
     generalSpeed: 1
@@ -348,31 +348,31 @@ MonoBehaviour:
     accesibleRooms: 31
   - levelName: Day 3
     sceneBuildIndex: 3
-    generalSpeed: 1.2
+    generalSpeed: 1.1
     totalOrders: 15
     isAccesible: 0
     accesibleRooms: 63
   - levelName: Day 4
     sceneBuildIndex: 4
-    generalSpeed: 1.7
+    generalSpeed: 1.2
     totalOrders: 20
     isAccesible: 1
     accesibleRooms: 127
   - levelName: Day 5
     sceneBuildIndex: 5
-    generalSpeed: 2
+    generalSpeed: 1.3
     totalOrders: 25
     isAccesible: 0
     accesibleRooms: -1
   - levelName: Day 6
     sceneBuildIndex: 6
-    generalSpeed: 2.2
+    generalSpeed: 1.5
     totalOrders: 30
     isAccesible: 0
     accesibleRooms: -1
   - levelName: Overtime
     sceneBuildIndex: 7
-    generalSpeed: 2.2
+    generalSpeed: 2
     totalOrders: 35
     isAccesible: 0
     accesibleRooms: -1
