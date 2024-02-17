@@ -153,7 +153,7 @@ public class Order : MonoBehaviour
             yield return null;
         }
 
-        //GameManager.instance.Death(DeathCondition.PatienceGone);
+        GameManager.instance.Death(DeathCondition.PatienceGone);
         orderList?.RemoveOrder(this);
     }
 

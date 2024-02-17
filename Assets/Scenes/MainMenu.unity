@@ -356,7 +356,7 @@ MonoBehaviour:
     sceneBuildIndex: 4
     generalSpeed: 1.2
     totalOrders: 20
-    isAccesible: 1
+    isAccesible: 0
     accesibleRooms: 127
   - levelName: Day 5
     sceneBuildIndex: 5
