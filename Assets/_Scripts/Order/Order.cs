@@ -7,14 +7,18 @@ using UnityEngine.UI;
 
 public class Order : MonoBehaviour
 {
+    public static int OrderCount;
     public OrderList orderList;
     public FoodScriptable orderDish;
-    public bool isOrderFermented;
+    public bool isOrderFermented = false;
+
     [SerializeField] public bool IsOrderFermented
     {
         get { return isOrderFermented; }
         set
         {
+            if (!orderDish._isFermentable) return;
+
             isOrderFermented = value;
             switch (value)
             {
@@ -126,6 +130,8 @@ public class Order : MonoBehaviour
         currentPatience = LevelManager.instance.MaxPatience;
         orderSlider.maxValue = currentPatience;
         StartCoroutine(PatienceCountdown());
+
+        OrderCount++;
     }
 
     public void SetRandomDrink()
@@ -149,5 +155,10 @@ public class Order : MonoBehaviour
 
         //GameManager.instance.Death(DeathCondition.PatienceGone);
         orderList?.RemoveOrder(this);
+    }
+
+    public void OnDestroy()
+    {
+        OrderCount--;
     }
 }

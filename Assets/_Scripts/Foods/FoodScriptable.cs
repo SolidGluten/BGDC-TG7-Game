@@ -14,8 +14,7 @@ public class FoodScriptable : ScriptableObject
     [SerializeField] public BaseIngredient _baseIngredient;
     [SerializeField] public SemiProcessed _semiProcessed;
     [SerializeField] public DishType _dishType;
-
-    [SerializeField] public bool _isFermented;
+    [SerializeField] public bool _isFermentable;
     [SerializeField] public Sprite _fermentedPlate;
     [SerializeField] public Sprite _normalPlate;
 

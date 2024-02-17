@@ -337,43 +337,43 @@ MonoBehaviour:
   - levelName: Day 1
     sceneBuildIndex: 1
     generalSpeed: 1
-    totalOrders: 1
+    totalOrders: 7
     isAccesible: 1
     accesibleRooms: -1
   - levelName: Day 2
     sceneBuildIndex: 2
     generalSpeed: 1
-    totalOrders: 0
+    totalOrders: 12
     isAccesible: 0
     accesibleRooms: 31
   - levelName: Day 3
     sceneBuildIndex: 3
-    generalSpeed: 1
-    totalOrders: 0
+    generalSpeed: 1.2
+    totalOrders: 15
     isAccesible: 0
     accesibleRooms: 63
   - levelName: Day 4
     sceneBuildIndex: 4
-    generalSpeed: 1
-    totalOrders: 3
-    isAccesible: 0
+    generalSpeed: 1.7
+    totalOrders: 20
+    isAccesible: 1
     accesibleRooms: 127
   - levelName: Day 5
     sceneBuildIndex: 5
-    generalSpeed: 1
-    totalOrders: 0
+    generalSpeed: 2
+    totalOrders: 25
     isAccesible: 0
     accesibleRooms: -1
   - levelName: Day 6
     sceneBuildIndex: 6
-    generalSpeed: 1
-    totalOrders: 0
+    generalSpeed: 2.2
+    totalOrders: 30
     isAccesible: 0
     accesibleRooms: -1
   - levelName: Overtime
     sceneBuildIndex: 7
-    generalSpeed: 1
-    totalOrders: 0
+    generalSpeed: 2.2
+    totalOrders: 35
     isAccesible: 0
     accesibleRooms: -1
 --- !u!4 &1572355898
@@ -435,7 +435,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac37d938ae96fe341b80ebd25ba0feab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DragObject: {fileID: 0}
 --- !u!4 &1840904956
 Transform:
   m_ObjectHideFlags: 0

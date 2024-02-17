@@ -18,6 +18,10 @@ public class OrderManager : MonoBehaviour
     public Orders mediocre;
     public Orders advance;
 
+    public float arrivalTimeIfNone= 2f;
+
+    private bool isSendingOrder;
+
     private void Start()
     {
         SendNewOrder();
@@ -29,6 +33,10 @@ public class OrderManager : MonoBehaviour
         if (arrivalTimer > 0)
         {
             arrivalTimer -= Time.deltaTime;
+            if (isSendingOrder)
+            {
+                arrivalTimer = 2f;
+            }
         }
         else
         {
@@ -37,7 +45,7 @@ public class OrderManager : MonoBehaviour
         }
     }
 
-    private float GetRandomArrival() => LevelManager.instance.MaxPatience + UnityEngine.Random.Range(-7, 3);
+    private float GetRandomArrival() => LevelManager.instance.MaxPatience + UnityEngine.Random.Range(-10, 0);
 
     private FoodScriptable GetRandomDish()
     {
@@ -48,19 +56,19 @@ public class OrderManager : MonoBehaviour
         if (rand < simple._spawnChance)
         {
             var random = new System.Random();
-            var index = random.Next(simple._orderList.Count);
+            var index = random.Next(0, simple._orderList.Count);
             randomDish = simple._orderList[index];
         }
-        else if (rand < mediocre._spawnChance)
+        else if (rand < mediocre._spawnChance + simple._spawnChance)
         {
             var random = new System.Random();
-            var index = random.Next(mediocre._orderList.Count);
+            var index = random.Next(0, mediocre._orderList.Count);
             randomDish = mediocre._orderList[index];
         }
         else
         {
             var random = new System.Random();
-            var index = random.Next(advance._orderList.Count);
+            var index = random.Next(0, advance._orderList.Count);
             randomDish = advance._orderList[index];
         }
 

@@ -11,13 +11,14 @@ public class Elevator : MonoBehaviour
     {
         if (collision.CompareTag("Food"))
         {
-            #region Mixing
+            
             if (foodObj == null)
             {
                 foodObj = collision.gameObject;
                 foodObj.GetComponent<Dragable>().SetLastPosition(transform);
             } else
             {
+                #region Mixing
                 if (foodObj == collision.gameObject) return;
 
                 FoodHolder addedTo = foodObj.GetComponent<FoodHolder>();    
@@ -29,10 +30,11 @@ public class Elevator : MonoBehaviour
                     return;
                 }
 
+                foodObj = mixedFood;
                 mixedFood.GetComponent<Dragable>().SetLastPosition(transform);
                 mixedFood.GetComponent<Dragable>().ResetPosition();
+                #endregion
             }
-            #endregion
         }
     }
 }

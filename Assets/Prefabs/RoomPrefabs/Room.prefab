@@ -46,9 +46,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d887f06fc3279e408592e95f268f462, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentFoodHolder: {fileID: 0}
   roomCode: 0
   roomElevator: {fileID: 7503446155433239347}
+  isAccesible: 0
 --- !u!1 &8564649259753212229
 GameObject:
   m_ObjectHideFlags: 0

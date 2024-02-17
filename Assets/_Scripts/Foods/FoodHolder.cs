@@ -17,12 +17,15 @@ public class FoodHolder : MonoBehaviour
             foodName = foodScript._foodName;
             sprite = foodScript._foodSprite;
             type = foodScript._foodType;
-            drink = foodScript._drink;
-            sideDish = foodScript._sideDish;
+
+            if(type == FoodType.SideDish)
+            {
+                sideDish = value._sideDish;
+            }
+
             baseIngredient = foodScript._baseIngredient;
             semiProcessed = foodScript._semiProcessed;
             dishType = foodScript._dishType;
-
             this.name = "F_" + foodName;
             foodRenderer.sprite = sprite;
         }
@@ -150,5 +153,20 @@ public class FoodHolder : MonoBehaviour
     private void Awake()
     {
         foodRenderer = GetComponent<SpriteRenderer>();
+    }
+
+    private void Start()
+    {
+        foodName = foodScript._foodName;
+        sprite = foodScript._foodSprite;
+        type = foodScript._foodType;
+        drink = foodScript._drink;
+        sideDish = foodScript._sideDish;
+        baseIngredient = foodScript._baseIngredient;
+        semiProcessed = foodScript._semiProcessed;
+        dishType = foodScript._dishType;
+
+        this.name = "F_" + foodName;
+        foodRenderer.sprite = sprite;
     }
 }

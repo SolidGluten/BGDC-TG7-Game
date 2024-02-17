@@ -20,7 +20,7 @@ MonoBehaviour:
   _baseIngredient: 0
   _semiProcessed: 0
   _dishType: 10
-  _isFermented: 0
+  _isFermentable: 1
   _fermentedPlate: {fileID: 21300000, guid: d14bcfa8c5c93e24ca15fe7b26762cff, type: 3}
   _normalPlate: {fileID: 21300000, guid: 5f5d4b4fe463de248a045334c4c9499f, type: 3}
   _addPotato: {fileID: 21300000, guid: 6e5a355a3057bc54a936e9be621c2995, type: 3}

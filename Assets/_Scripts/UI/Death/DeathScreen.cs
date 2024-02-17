@@ -6,6 +6,7 @@ public class DeathScreen : MonoBehaviour
 {
     public static DeathScreen instance;
 
+
     private void Awake()
     {
         DontDestroyOnLoad(gameObject);

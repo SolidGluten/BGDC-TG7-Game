@@ -56,10 +56,7 @@ public class Mixer : MonoBehaviour
             FoodHolder sideDishHolder = food1.type == FoodType.SideDish ? food1 : food2;
             FoodHolder foodHolder = food1.type != FoodType.SideDish ? food1 : food2;
 
-            foodHolder.sideDish = sideDishHolder.sideDish;
-            foodObj = foodHolder.gameObject;
             OverwriteFoodDetails(foodHolder, sideDishHolder);
-
             foodHolder.GetComponent<Dragable>().SetLastPosition(transform);
             Destroy(sideDishHolder.gameObject);
             return foodHolder.gameObject;
@@ -71,10 +68,7 @@ public class Mixer : MonoBehaviour
             FoodHolder drinkHolder = food1.type == FoodType.Beverage ? food1 : food2;
             FoodHolder foodHolder = food1.type != FoodType.Beverage ? food1 : food2;
 
-            foodHolder.drinkType = drinkHolder.drinkType;
-            foodObj = foodHolder.gameObject;
             OverwriteFoodDetails(foodHolder, drinkHolder);
-
             foodHolder.GetComponent<Dragable>().SetLastPosition(transform);
             Destroy(drinkHolder.gameObject);
             return foodHolder.gameObject;

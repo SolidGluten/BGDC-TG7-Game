@@ -8,10 +8,12 @@ public class FishingButton : MonoBehaviour
 {
     public BaseIngredient ingredient;
     public Fishing fishing;
+    public Coroutine fish;
 
     private void OnMouseDown()
     {
         if (fishing.isFishing == false)
-            StartCoroutine(fishing.Fish(ingredient));
+            if(fish != null) StopCoroutine(fish);
+            fish = StartCoroutine(fishing.Fish(ingredient));
     }
 }
