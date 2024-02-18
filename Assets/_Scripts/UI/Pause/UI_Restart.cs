@@ -6,7 +6,7 @@ public class UI_Restart : MenuItem
 {
     public override void OnSelect()
     {
-        StartCoroutine(LevelManager.instance.RetryLevel());
+        LevelManager.instance.RetryLevel();
         DeathScreen.instance.SetDeathTrue(false);
     }
 }

@@ -16,8 +16,11 @@ public class LevelManager : MonoBehaviour
     public static Level currentLevel;
     public int currentLevelIndex;
     public int CurrentLevelIndexUnlocked = 0;
+
     [SerializeField] private float delayBeforeNextLevel;
     public List<Level> LevelList = new List<Level>();
+
+    public static event Action OnLevelChanging;
 
     private void Awake()
     {
@@ -43,7 +46,10 @@ public class LevelManager : MonoBehaviour
     public IEnumerator ChangeLevel(int index)
     {
         GameManager.currentState = GameState.Playing;
+
+        OnLevelChanging();
         yield return new WaitForSeconds(delayBeforeNextLevel);
+
         if (index == LevelList.Count)
         {
             //End message
@@ -53,14 +59,13 @@ public class LevelManager : MonoBehaviour
             LoadLevel(index);
         }
     }
-
-    public IEnumerator RetryLevel()
+        
+    public void RetryLevel()
     {
         SoundManager.instance.StopAllSounds();
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        StartCoroutine(ChangeLevel(currentLevelIndex));
         GameManager.instance.Resume();
         SoundManager.instance.PlayBackgroundMusic();
-        yield return null;
     }
 
     public void LoadLevel(int index)
@@ -68,8 +73,11 @@ public class LevelManager : MonoBehaviour
         //Load level
         currentLevelIndex = index;
         currentLevel = LevelList[currentLevelIndex];
-        SceneManager.LoadScene(LevelList[index].sceneBuildIndex);
         LevelList[index].isAccesible = true;
+
+        SceneManager.LoadScene(LevelList[index].sceneBuildIndex);
+
+        //Save current level
         if (currentLevelIndex > CurrentLevelIndexUnlocked)
         {
             CurrentLevelIndexUnlocked = currentLevelIndex;
