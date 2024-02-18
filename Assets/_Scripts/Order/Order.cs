@@ -42,9 +42,13 @@ public class Order : MonoBehaviour
         get { return orderDrink; }
         set {
             orderDrink = value;
-            drinkImage.gameObject.SetActive(true);
             switch (value)
             {
+                case DrinkType.None:
+                    {
+                        drinkImage.gameObject.SetActive(false);
+                        return;
+                    }
                 case DrinkType.Red:
                     {
                         drinkImage.sprite = orderDish._redDrink;
@@ -77,6 +81,7 @@ public class Order : MonoBehaviour
                     }
                 default: break;
             }
+            drinkImage.gameObject.SetActive(true);
         }
     }
     [SerializeField] private SideDish orderSideDish;
@@ -85,9 +90,13 @@ public class Order : MonoBehaviour
         get { return orderSideDish; }
         set {
             orderSideDish = value;
-            sideDishImage.gameObject.SetActive(true);
             switch (value)
             {
+                case SideDish.None:
+                    {
+                        sideDishImage.gameObject.SetActive(false);
+                        return;
+                    }
                 case SideDish.CutCarrot:
                     {
                         sideDishImage.sprite = orderDish._addCarrot;
@@ -110,6 +119,7 @@ public class Order : MonoBehaviour
                     }
                 default: break;
             }
+            sideDishImage.gameObject.SetActive(true);
         }
     }
 
