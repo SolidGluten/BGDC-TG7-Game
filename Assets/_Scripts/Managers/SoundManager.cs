@@ -13,7 +13,7 @@ public class SoundManager : MonoBehaviour
 
     public float MusicVolume;
     public float SFXVolume;
-
+    private bool isBGMPlaying = false;
     // Dictionary to store the playing AudioSource for each sound effect index
     private Dictionary<int, AudioSource> playingSounds = new Dictionary<int, AudioSource>();
 
@@ -49,12 +49,21 @@ public class SoundManager : MonoBehaviour
         musicSource.clip = backgroundMusic;
         musicSource.loop = true;
         musicSource.Play();
+        isBGMPlaying = true;
     }
 
     public void StopBackgroundMusic()
     {
-        // Stop the background music
-        musicSource.Stop();
+        if (isBGMPlaying)
+        {
+            musicSource.Pause();
+            isBGMPlaying = false;
+        }
+        else
+        {
+            musicSource.UnPause();
+            isBGMPlaying = true;
+        }
     }
 
     public void PlaySoundEffect(int index)
