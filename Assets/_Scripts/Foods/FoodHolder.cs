@@ -20,7 +20,7 @@ public class FoodHolder : MonoBehaviour
 
             if(type == FoodType.SideDish)
             {
-                sideDish = value._sideDish;
+                SideDish = value._sideDish;
             }
 
             baseIngredient = foodScript._baseIngredient;
@@ -38,7 +38,7 @@ public class FoodHolder : MonoBehaviour
     [SerializeField] public SpriteRenderer drinkRenderer;
     [SerializeField] public FoodType type;
 
-    public bool isFermented;
+    [SerializeField] private bool isFermented;
     [SerializeField] public bool IsFermented
     {
         get { return isFermented; }
@@ -61,7 +61,7 @@ public class FoodHolder : MonoBehaviour
     }
 
     [SerializeField] private DrinkType drink;
-    public DrinkType drinkType
+    public DrinkType DrinkType
     {
         get { return drink; }
         set { 
@@ -107,7 +107,7 @@ public class FoodHolder : MonoBehaviour
         }
     }
     [SerializeField] private SideDish sides;
-    public SideDish sideDish
+    public SideDish SideDish
     {
         get { return sides; }
         set
@@ -161,7 +161,7 @@ public class FoodHolder : MonoBehaviour
         sprite = foodScript._foodSprite;
         type = foodScript._foodType;
         drink = foodScript._drink;
-        sideDish = foodScript._sideDish;
+        SideDish = foodScript._sideDish;
         baseIngredient = foodScript._baseIngredient;
         semiProcessed = foodScript._semiProcessed;
         dishType = foodScript._dishType;

@@ -30,8 +30,8 @@ public class OrderList : MonoBehaviour
     {
         Order orderToFind = activeOrders
             .FirstOrDefault(order => order.orderDish == foodHolder.FoodScript && 
-            order.OrderDrink == foodHolder.drinkType && 
-            order.OrderSideDish == foodHolder.sideDish && 
+            order.OrderDrink == foodHolder.DrinkType && 
+            order.OrderSideDish == foodHolder.SideDish && 
             order.IsOrderFermented == foodHolder.IsFermented);
         return orderToFind ? orderToFind : null;
     }

@@ -17,7 +17,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2255096207653723369
 Transform:
   m_ObjectHideFlags: 0
@@ -220,7 +220,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0.009504283, y: 0}
   serializedVersion: 2
-  m_Radius: 0.75694716
+  m_Radius: 0.5
 --- !u!50 &8715517075757020960
 Rigidbody2D:
   serializedVersion: 4
@@ -474,7 +474,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0.009504283, y: 0}
   serializedVersion: 2
-  m_Radius: 0.75694716
+  m_Radius: 0.5
 --- !u!50 &2130918158225866122
 Rigidbody2D:
   serializedVersion: 4
@@ -608,6 +608,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Left Pan
       objectReference: {fileID: 0}
+    - target: {fileID: 1093804940458182982, guid: 8cfc4b87a8ccab74e9918b818b8be1d8, type: 3}
+      propertyPath: m_Radius
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 1779756035182764478, guid: 8cfc4b87a8ccab74e9918b818b8be1d8, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.32
@@ -697,6 +701,10 @@ PrefabInstance:
     - target: {fileID: 1062067704553421541, guid: 8cfc4b87a8ccab74e9918b818b8be1d8, type: 3}
       propertyPath: m_Name
       value: Right Pan
+      objectReference: {fileID: 0}
+    - target: {fileID: 1093804940458182982, guid: 8cfc4b87a8ccab74e9918b818b8be1d8, type: 3}
+      propertyPath: m_Radius
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 1779756035182764478, guid: 8cfc4b87a8ccab74e9918b818b8be1d8, type: 3}
       propertyPath: m_LocalPosition.x

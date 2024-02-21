@@ -13,16 +13,22 @@ public class Fishing : Generator
     public float currentFishTime;
     public float currentTimeBeforeDeath;
 
-    public IEnumerator Fish(BaseIngredient ingredient)
+    public void Fish(BaseIngredient ingredient)
     {
-        isFishing = true;
+        StopAllCoroutines();
+        StartCoroutine(I_Fish(ingredient));
+    }
+
+    public IEnumerator I_Fish(BaseIngredient ingredient)
+    {
         FoodScriptable ingredientToSpawn = FindIngredients(ingredient);
         if (ingredientToSpawn == null)
         {
             Debug.Log("No ingredients found!");
-            isFishing = false;
             yield break;
         }
+
+        isFishing = true;
 
         currentFishTime = 0;
         currentTimeBeforeDeath = 0;

@@ -79,9 +79,9 @@ public class Mixer : MonoBehaviour
 
     public void OverwriteFoodDetails(FoodHolder destination, FoodHolder from)
     {
-        if (from.sideDish != SideDish.None) destination.sideDish = from.sideDish;
-        if (from.drinkType != DrinkType.None) destination.drinkType = from.drinkType;
-        if (from.IsFermented != false) destination.isFermented = from.isFermented;
+        if (from.SideDish != SideDish.None) destination.SideDish = from.SideDish;
+        if (from.DrinkType != DrinkType.None) destination.DrinkType = from.DrinkType;
+        if (from.IsFermented != false) destination.IsFermented = from.IsFermented;
     }
 }
 

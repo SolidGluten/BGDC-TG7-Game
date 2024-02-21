@@ -19,9 +19,10 @@ public class ElevatorButton : MonoBehaviour
     private void GetReference(Scene scene, LoadSceneMode mode)
     {
         if(roomManager == null)
-        {
+            button.onClick.RemoveAllListeners();
             roomManager = FindAnyObjectByType<RoomManager>();
+
+        if(roomManager != null) 
             button.onClick.AddListener(() => roomManager.SendFood((int)roomTo));
-        }
     }
 }

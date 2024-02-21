@@ -21,7 +21,7 @@ public class Fermentator : MonoBehaviour
         {
             FoodHolder raw = collision.GetComponent<FoodHolder>();
             FoodScriptable fermentedFood = fermentFoodList.FirstOrDefault(food => food == raw.FoodScript);
-            if (raw.isFermented)
+            if (raw.IsFermented)
             {
                 Debug.Log("Food is already fermented");
                 return;
@@ -34,8 +34,9 @@ public class Fermentator : MonoBehaviour
             }
 
             raw.GetComponent<Dragable>().SetLastPosition(transform);
+            raw.GetComponent<Dragable>().ResetPosition();
             fermentRoom.room.roomElevator.foodObj = null;
-            raw.isFermented = true;
+            raw.IsFermented = true;
         }
     }
 }

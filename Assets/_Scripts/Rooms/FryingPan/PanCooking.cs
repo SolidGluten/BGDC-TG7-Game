@@ -48,7 +48,7 @@ public class PanCooking : MonoBehaviour
         other.gameObject.SetActive(false);
         isEmpty = false; isCooking = true;
         ChangeSprite(cookSprite);
-        Cook();
+        StartCoroutine(Cook());
     }
 
     private void OnMouseDown()
@@ -69,14 +69,14 @@ public class PanCooking : MonoBehaviour
         ResetTimer();
     }
 
-    private async void Cook()
+    private IEnumerator Cook()
     {
         SoundManager.instance.PlaySoundEffect(SFXindex);
         while (currentCookTime > 0)
         {
             currentCookTime -= Time.deltaTime;
             Debug.Log(currentCookTime);
-            await Task.Yield();
+            yield return null;
         }
 
         ChangeSprite(readySprite);
@@ -87,7 +87,7 @@ public class PanCooking : MonoBehaviour
         {
             currentBurnTime -= Time.deltaTime;
             Debug.Log(currentBurnTime);
-            await Task.Yield();
+            yield return null;
         }
         if(currentBurnTime <= 0)
         {
