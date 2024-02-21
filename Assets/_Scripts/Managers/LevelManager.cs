@@ -34,7 +34,9 @@ public class LevelManager : MonoBehaviour
         }
 
         //get current day from previous play
-        CurrentLevelIndexUnlocked = PlayerPrefs.GetInt("UnlockedLevel", 0);
+        //CurrentLevelIndexUnlocked = PlayerPrefs.GetInt("UnlockedLevel", 0);
+
+        CurrentLevelIndexUnlocked = 6;
 
         //unlock every level from previous play
         for (int i = 0; i <= CurrentLevelIndexUnlocked; i++)
