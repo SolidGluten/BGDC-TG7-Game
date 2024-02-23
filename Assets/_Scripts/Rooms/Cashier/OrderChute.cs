@@ -17,7 +17,7 @@ public class OrderChute : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Food"))
+        if (collision.CompareTag("Food") && foodHolder != null)
         {
             foodHolder = collision.gameObject;
             cashierRoom.roomElevator.foodObj = null;

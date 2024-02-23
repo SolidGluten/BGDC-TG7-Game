@@ -126,6 +126,12 @@ public class GameManager : MonoBehaviour
         }
         DeathScreen.instance.SetDeathTrue(true);
     }
+    [ContextMenu("Unlock All Levels")]
+    public void ChangeCurrentLevel()
+    {
+        PlayerPrefs.SetInt("UnlockedLevel", 6);
+    }
+
     [ContextMenu("Remove All Player Prefs")]
     public void RemoveAllPlayerPrefs()
     {
