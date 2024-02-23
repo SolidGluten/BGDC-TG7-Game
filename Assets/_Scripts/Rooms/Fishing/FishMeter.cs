@@ -5,20 +5,21 @@ using UnityEngine.UI;
 
 public class FishMeter : MonoBehaviour
 {
-    private Slider slider;
     public Fishing fishing;
-    public float maxSliderValue;
-    public float currentSliderValue;
+    public Slider readyMeter;
+    public Slider readyBackground;
+    private float maxSliderValue;
+    private float currentSliderValue;
 
     private void Start()
     {
-        slider = GetComponent<Slider>();
         maxSliderValue = fishing.maxFishTime + fishing.maxTimeBeforeDeath;
+        readyBackground.value = fishing.maxFishTime/maxSliderValue;
     }
 
     private void Update()
     {
         currentSliderValue = fishing.currentFishTime + fishing.currentTimeBeforeDeath;
-        slider.value = currentSliderValue/maxSliderValue;
+        readyMeter.value = currentSliderValue/maxSliderValue;
     }
 }
