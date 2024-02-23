@@ -7,10 +7,12 @@ public class MenuItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     public GameObject selectorIcon;
     public bool isHovered;
+    public bool isHoverable;
 
     private void Awake()
     {
         selectorIcon.SetActive(false);
+        isHoverable = true;
     }
 
     private void OnDisable()
@@ -20,6 +22,7 @@ public class MenuItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
     public void OnPointerEnter(PointerEventData eventData)
     {
+        if (!isHoverable) return;
         isHovered = true;
         selectorIcon.SetActive(true);
     }
@@ -30,6 +33,7 @@ public class MenuItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         selectorIcon.SetActive(false);
     }
     public void OnPointerClick(PointerEventData eventData) => OnSelect();
+
     public virtual void OnSelect()
     {
 

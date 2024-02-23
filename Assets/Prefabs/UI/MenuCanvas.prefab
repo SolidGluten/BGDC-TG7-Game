@@ -293,15 +293,15 @@ MonoBehaviour:
       m_Calls: []
   m_text: Select Day
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: c0675e2fcbefa1944907bbecf7846ca4, type: 2}
+  m_sharedMaterial: {fileID: -9106301363199769451, guid: c0675e2fcbefa1944907bbecf7846ca4, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4278255425
+  m_fontColor: {r: 0.25490198, g: 1, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -427,15 +427,15 @@ MonoBehaviour:
       m_Calls: []
   m_text: Culinary Surveillance
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: c0675e2fcbefa1944907bbecf7846ca4, type: 2}
+  m_sharedMaterial: {fileID: -9106301363199769451, guid: c0675e2fcbefa1944907bbecf7846ca4, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4278255425
+  m_fontColor: {r: 0.25490198, g: 1, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -468,7 +468,7 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_enableWordWrapping: 0
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
@@ -510,7 +510,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2347467595017281208
 RectTransform:
   m_ObjectHideFlags: 0
@@ -641,7 +641,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &6943320039514358771
 RectTransform:
   m_ObjectHideFlags: 0
@@ -804,6 +804,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   selectorIcon: {fileID: 3922461616794715094}
   isHovered: 0
+  isHoverable: 0
   OnSelectEvent:
     m_PersistentCalls:
       m_Calls:
@@ -1136,6 +1137,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   selectorIcon: {fileID: 4352394213593548884}
   isHovered: 0
+  isHoverable: 0
   OnSelectEvent:
     m_PersistentCalls:
       m_Calls:
@@ -1185,7 +1187,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2742897615507623488, guid: 5cd98b8f8d03afd4486607387a5c621a, type: 3}
       propertyPath: m_fontColor.b
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2742897615507623488, guid: 5cd98b8f8d03afd4486607387a5c621a, type: 3}
       propertyPath: m_fontColor.g
@@ -1193,11 +1195,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2742897615507623488, guid: 5cd98b8f8d03afd4486607387a5c621a, type: 3}
       propertyPath: m_fontColor.r
-      value: 1
+      value: 0.25490198
       objectReference: {fileID: 0}
     - target: {fileID: 2742897615507623488, guid: 5cd98b8f8d03afd4486607387a5c621a, type: 3}
       propertyPath: m_fontColor32.rgba
-      value: 4294967295
+      value: 4278255425
       objectReference: {fileID: 0}
     - target: {fileID: 3942676923772326589, guid: 5cd98b8f8d03afd4486607387a5c621a, type: 3}
       propertyPath: m_Pivot.x
@@ -1588,6 +1590,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   selectorIcon: {fileID: 8134102192792092761}
   isHovered: 0
+  isHoverable: 0
   OnClickEvent:
     m_PersistentCalls:
       m_Calls:
@@ -2034,6 +2037,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   selectorIcon: {fileID: 8026014573814742591}
   isHovered: 0
+  isHoverable: 1
   currentDayText: {fileID: 6010236509070143623}
 --- !u!114 &6010236509070143623 stripped
 MonoBehaviour:
@@ -2184,6 +2188,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   selectorIcon: {fileID: 5933461808974972640}
   isHovered: 0
+  isHoverable: 0
 --- !u!1 &5933461808974972640 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3964863123317799592, guid: 6172dd19f3360f74eb4f0bbc5fa8aa69, type: 3}

@@ -17,5 +17,7 @@ public class BookManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+        gameObject.SetActive(false);
     }
 }

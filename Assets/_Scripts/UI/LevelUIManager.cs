@@ -6,11 +6,11 @@ using UnityEngine.SceneManagement;
 public class LevelUIManager : MonoBehaviour
 {
     public List<UI_Level> levelObj = new List<UI_Level>();
+    private List<Level> tempList;
 
-
-    private void Update()
+    private void Start()
     {
-        List<Level> tempList = LevelManager.instance.LevelList;
+        tempList = LevelManager.instance.LevelList;
         for (int i = 0; i < tempList.Count; i++)
         {
             if (tempList[i].isAccesible) levelObj[i].Lock(false);
@@ -18,8 +18,4 @@ public class LevelUIManager : MonoBehaviour
         }
     }
 
-    public void OnSceneLoaded(Scene scene, LoadSceneMode mode)
-    {
-
-    }
 }

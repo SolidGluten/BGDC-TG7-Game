@@ -50,9 +50,9 @@ public class LevelManager : MonoBehaviour
         OnLevelChanging();
         yield return new WaitForSeconds(delayBeforeNextLevel);
 
-        if (index == LevelList.Count)
+        if (index == LevelList.Count - 1)
         {
-            //End message
+            GameManager.instance.BackToMenu();
         }
         else
         {
