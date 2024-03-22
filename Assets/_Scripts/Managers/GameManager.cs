@@ -127,7 +127,7 @@ public class GameManager : MonoBehaviour
         DeathScreen.instance.SetDeathTrue(true);
     }
     [ContextMenu("Unlock All Levels")]
-    public void ChangeCurrentLevel()
+    public void UnlockAllLevel()
     {
         PlayerPrefs.SetInt("UnlockedLevel", 6);
     }

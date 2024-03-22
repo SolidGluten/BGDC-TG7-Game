@@ -47,10 +47,11 @@ public class LevelManager : MonoBehaviour
     {
         GameManager.currentState = GameState.Playing;
 
-        OnLevelChanging();
+        if (OnLevelChanging != null) OnLevelChanging();
+
         yield return new WaitForSeconds(delayBeforeNextLevel);
 
-        if (index == LevelList.Count - 1)
+        if (index == LevelList.Count)
         {
             GameManager.instance.BackToMenu();
         }

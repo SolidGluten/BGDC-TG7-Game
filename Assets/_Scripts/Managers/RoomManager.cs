@@ -110,38 +110,38 @@ public class RoomManager : MonoBehaviour
             return;
         }
 
-        if (Input.GetKeyDown(KeyCode.Alpha1))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             SetRoomActive((RoomCode)1); 
-        } else if (Input.GetKeyDown(KeyCode.Alpha2))
+        } else if (Input.GetKeyDown(KeyCode.Q))
         {
             SetRoomActive((RoomCode)2);
         }
-        else if (Input.GetKeyDown(KeyCode.Alpha3))
+        else if (Input.GetKeyDown(KeyCode.W))
         {
             SetRoomActive((RoomCode)3);
         }
-        else if (Input.GetKeyDown(KeyCode.Alpha4))
+        else if (Input.GetKeyDown(KeyCode.E))
         {
             SetRoomActive((RoomCode)4);
         }
-        else if (Input.GetKeyDown(KeyCode.Alpha5))
+        else if (Input.GetKeyDown(KeyCode.A))
         {
             SetRoomActive((RoomCode)5);
         }
-        else if (Input.GetKeyDown(KeyCode.Alpha6))
+        else if (Input.GetKeyDown(KeyCode.S))
         {
             SetRoomActive((RoomCode)6);
         }
-        else if (Input.GetKeyDown(KeyCode.Alpha7))
+        else if (Input.GetKeyDown(KeyCode.D))
         {
             SetRoomActive((RoomCode)7);
         }
-        else if (Input.GetKeyDown(KeyCode.Alpha8))
+        else if (Input.GetKeyDown(KeyCode.F))
         {
             SetRoomActive((RoomCode)8);
         }
-        else if (Input.GetKeyDown(KeyCode.Alpha9))
+        else if (Input.GetKeyDown(KeyCode.R))
         {
             SetRoomActive((RoomCode)9);
         }
