@@ -21,7 +21,8 @@ namespace Types
         Salmon,
         Shrimp,
         Clam,
-        Crab,
+        //Crab,
+        Lobster,
         Potato,
         Carrot,
         Mushroom,
@@ -35,10 +36,6 @@ namespace Types
         MincedChicken,
         MincedPork,
         BeatenEgg,
-        MincedSalmon,
-        MincedShrimp,
-        MincedClam,
-        MincedCrab,
         FermentedBeef,
         FermentedDrumstick,
         FermentedPorkchop,
@@ -55,7 +52,7 @@ namespace Types
         GrilledSalmon, //Cooked version of salmon
         PanSearedShrimp, //Cooked version of shrimp
         SauteedClams, //Cooked version of clams
-        PanFriedCrab, //Cooked version of crab
+        PanFriedLobster, //Cooked version of crab
 
         Meatball, //Cooked & Cut version of beef
         GrilledChicken, //Cooked & Cut version of drumstick
@@ -71,10 +68,13 @@ namespace Types
         FriedChicken,
         FriedPorkchop,
         FriedEgg,
+
         BatteredSalmon,
-        FriedShrimp,
+        FriedLobster,
+        //FriedCrab,
         FriedClam,
-        FriedCrab,
+        FriedShrimp,
+
         FrenchFries,
         FriedCarrot,
         FriedMushroom,
@@ -82,7 +82,7 @@ namespace Types
 
         BaconNEggs, //Bacon + Egg
         SurfNTurf, //Steak + PanSearedShrimp
-        FishNChips, //Fries + GrilledSalmon
+        StuffedChicken, //Chicken + Shrimp
 
         SauteedPotato,
         SauteedCarrot,

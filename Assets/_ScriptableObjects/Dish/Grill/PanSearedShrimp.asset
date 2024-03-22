@@ -13,23 +13,23 @@ MonoBehaviour:
   m_Name: PanSearedShrimp
   m_EditorClassIdentifier: 
   _foodName: PanSearedShrimp
-  _foodSprite: {fileID: 21300000, guid: c930b58871cb1e54bad5a023e2ecdeac, type: 3}
+  _foodSprite: {fileID: 21300000, guid: 00bca844361bc0b458eb3cd71f6b12b6, type: 3}
   _foodType: 2
   _drink: 0
   _sideDish: 0
   _baseIngredient: 0
   _semiProcessed: 0
   _dishType: 6
-  _isFermented: 0
-  _fermentedPlate: {fileID: 21300000, guid: d14bcfa8c5c93e24ca15fe7b26762cff, type: 3}
-  _normalPlate: {fileID: 21300000, guid: 5f5d4b4fe463de248a045334c4c9499f, type: 3}
-  _addPotato: {fileID: 21300000, guid: 6e5a355a3057bc54a936e9be621c2995, type: 3}
-  _addCarrot: {fileID: 21300000, guid: 8196e7faa7a3f3e48894709be45e60e1, type: 3}
-  _addCorn: {fileID: 21300000, guid: 29fc3508dec62c94fbeee84fce442ea0, type: 3}
-  _addMushroom: {fileID: 21300000, guid: 8f9d658f088f0874a822542e21acc57b, type: 3}
-  _redDrink: {fileID: 21300000, guid: c9beddd2d2ddf0d438c8aee37b0d813e, type: 3}
-  _orangeDrink: {fileID: 21300000, guid: 9513e16cb5da63f429fddc60d670f29d, type: 3}
-  _yellowDrink: {fileID: 21300000, guid: e59393065bb39c44286dc9066d278dd9, type: 3}
-  _greenDrink: {fileID: 21300000, guid: 0e48db4a118e9174183667f9f179ae77, type: 3}
-  _blueDrink: {fileID: 21300000, guid: 3610a036716492c4b82a17bc7a219c91, type: 3}
-  _purpleDrink: {fileID: 21300000, guid: 079ae50d05d299c47b4bb44f4249f49c, type: 3}
+  _isFermentable: 0
+  _fermentedPlate: {fileID: 21300000, guid: 1a9afacf034b4ec408d97ae8e5eab346, type: 3}
+  _normalPlate: {fileID: 21300000, guid: 2d8fd8b1e62e8ad48abbdd1f57808d18, type: 3}
+  _addPotato: {fileID: 21300000, guid: 391394f13a252f54e9dc6f804802bb87, type: 3}
+  _addCarrot: {fileID: 21300000, guid: cbe9bdda58941b44aa580c238a5a6fde, type: 3}
+  _addCorn: {fileID: 21300000, guid: 824ea1ebab4937a49b85677666dd3e95, type: 3}
+  _addMushroom: {fileID: 21300000, guid: b31191feb22d3a14792b2e9f2fe60611, type: 3}
+  _redDrink: {fileID: 21300000, guid: 90827db5585f48b4f978640e9e9501a0, type: 3}
+  _orangeDrink: {fileID: 21300000, guid: fbc2c1249b93cc24b8fcebd3b7f873c1, type: 3}
+  _yellowDrink: {fileID: 21300000, guid: de3d34096dc46c04487de3de9591f720, type: 3}
+  _greenDrink: {fileID: 21300000, guid: 6ac5135d7bd540d47b401c31e6303197, type: 3}
+  _blueDrink: {fileID: 21300000, guid: 1d1b7234bd241f34e83e1d197c78f35f, type: 3}
+  _purpleDrink: {fileID: 21300000, guid: d253f487e6417de42bc19a94130e46a5, type: 3}

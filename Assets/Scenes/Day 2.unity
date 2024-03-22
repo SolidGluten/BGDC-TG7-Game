@@ -178,7 +178,7 @@ MonoBehaviour:
   - {fileID: 8506278934487129159}
   - {fileID: 8506278932775637847}
   - {fileID: 8506278934651063342}
-  activeRoomPos: {x: 0, y: 0, z: 0}
+  activeRoomPos: {x: 0, y: 1.1, z: 0}
   roomDistance: 100
 --- !u!1 &126971352
 GameObject:
@@ -2299,6 +2299,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: DeepFryer/Soup
       objectReference: {fileID: 0}
+    - target: {fileID: 6750176475542580764, guid: f5b0ca1ec165886419b85adce058c001, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7477048920767928909, guid: f5b0ca1ec165886419b85adce058c001, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7477048920767928909, guid: f5b0ca1ec165886419b85adce058c001, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8652431075307024182, guid: f5b0ca1ec165886419b85adce058c001, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -2434,15 +2446,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8976542128578507923, guid: 4c29b23ec5cd59642b2aa010d06213e3, type: 3}
       propertyPath: m_Color.b
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8976542128578507923, guid: 4c29b23ec5cd59642b2aa010d06213e3, type: 3}
       propertyPath: m_Color.g
-      value: 0.29407352
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8976542128578507923, guid: 4c29b23ec5cd59642b2aa010d06213e3, type: 3}
       propertyPath: m_Color.r
-      value: 0.754717
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2639,6 +2651,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cashier
       objectReference: {fileID: 0}
+    - target: {fileID: 1828028447979877468, guid: 62cd6833acccf4146b5903d7e1e45754, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 222.49994
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2763,6 +2779,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1942094452926002538, guid: b1867ad42329aa94ca1813399c9a15eb, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2376085356018024421, guid: b1867ad42329aa94ca1813399c9a15eb, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2612523628103923982, guid: b1867ad42329aa94ca1813399c9a15eb, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2612523628103923982, guid: b1867ad42329aa94ca1813399c9a15eb, type: 3}
+      propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2971573024467598154, guid: b1867ad42329aa94ca1813399c9a15eb, type: 3}
