@@ -423,11 +423,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3584b6c0c8e690d40b48d3b122b34fe3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  backgroundMusic: {fileID: 8300000, guid: 128d440f349d2624a8d59f349903839d, type: 3}
+  backgroundMusic: {fileID: 8300000, guid: 4d56d2032e78ebd4684efef4fdb4bd34, type: 3}
   soundEffects:
   - {fileID: 8300000, guid: f5254b94e93d9a14ead3ed093453d1ff, type: 3}
   - {fileID: 8300000, guid: be9b6de90b311fc4880942384091c4bc, type: 3}
   - {fileID: 8300000, guid: 906956a29f22f4f45b3a2b517df9811c, type: 3}
+  - {fileID: 8300000, guid: f6a1d9762a9e1ea448804325a6122c4d, type: 3}
+  - {fileID: 8300000, guid: e9fbefdd038f57a4f928e60032dd718a, type: 3}
+  - {fileID: 8300000, guid: a1e823dfc679ad140a815fc071463829, type: 3}
+  - {fileID: 8300000, guid: 1c160468c17afe4468786bd6528767b0, type: 3}
+  - {fileID: 8300000, guid: ddf31ace579bc8640aae1ae688715f3a, type: 3}
+  - {fileID: 8300000, guid: 5dba5e185193fed40b946407d9667593, type: 3}
   MusicVolume: 0
   SFXVolume: 0
 --- !u!4 &895642724

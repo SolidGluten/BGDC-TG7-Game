@@ -8,9 +8,10 @@ public class FishingButton : MonoBehaviour
 {
     public BaseIngredient ingredient;
     public Fishing fishing;
-
+    private int SFXindex = 6;
     private void OnMouseDown()
     {
         fishing.Fish(ingredient);
+        SoundManager.instance.PlaySoundEffect(SFXindex);
     }
 }
