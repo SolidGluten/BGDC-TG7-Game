@@ -463,8 +463,14 @@ MonoBehaviour:
   foodObj: {fileID: 4324814194680753293, guid: d23cf9631c76cfb468455ce0efd19d83, type: 3}
   mixRecipes:
   - _raw1: {fileID: 11400000, guid: 312cf49d68b3705429bb3b1c410594c6, type: 2}
-    _raw2: {fileID: 11400000, guid: 9cfc5be720c9df14bbdc0f2bbc0c3dcb, type: 2}
-    _output: {fileID: 11400000, guid: a1f0be941cfbda945b6742bb8f9e75dd, type: 2}
+    _raw2: {fileID: 11400000, guid: 9ce40fbf7f46ecf42bfc4390c20fee07, type: 2}
+    _output: {fileID: 11400000, guid: 718f45f5a8c2dd34fa52844ae65b3290, type: 2}
+  - _raw1: {fileID: 11400000, guid: 276a4d91386971945adb31b2665d1eda, type: 2}
+    _raw2: {fileID: 11400000, guid: bb7aaa43c5f59c947b994db96dc6723c, type: 2}
+    _output: {fileID: 11400000, guid: 8890216f00847a241bc7507f6ba7ff2e, type: 2}
+  - _raw1: {fileID: 11400000, guid: 9cfc5be720c9df14bbdc0f2bbc0c3dcb, type: 2}
+    _raw2: {fileID: 11400000, guid: 57b19f042dd91424887f93d31ff0f107, type: 2}
+    _output: {fileID: 11400000, guid: c4670f3e67ee7ea49a85fdfe3ac18a50, type: 2}
 --- !u!4 &619876475
 Transform:
   m_ObjectHideFlags: 0

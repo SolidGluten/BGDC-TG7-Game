@@ -76,6 +76,9 @@ public class LevelManager : MonoBehaviour
         currentLevel = LevelList[currentLevelIndex];
         LevelList[index].isAccesible = true;
 
+        //Unlock Tutorial Page
+        TutorialManager.instance.UnlockPage(LevelList[index]?.tutorialKey);
+
         SceneManager.LoadScene(LevelList[index].sceneBuildIndex);
 
         //Save current level
@@ -124,5 +127,6 @@ public class Level
     [Range(1, 5)] public float generalSpeed = 1;
     public int totalOrders;
     public bool isAccesible;
+    public string tutorialKey = "default";
     public AccesibleRoom accesibleRooms;
 }

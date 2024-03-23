@@ -46,7 +46,7 @@ public class Order : MonoBehaviour
             {
                 case DrinkType.None:
                     {
-                        drinkImage.gameObject.SetActive(false);
+                        drinkImage.enabled = false;
                         return;
                     }
                 case DrinkType.Red:
@@ -79,9 +79,11 @@ public class Order : MonoBehaviour
                         drinkImage.sprite = orderDish._purpleDrink;
                         break;
                     }
-                default: break;
+                default:
+                    drinkImage.enabled = false;
+                    return;
             }
-            drinkImage.gameObject.SetActive(true);
+            drinkImage.enabled = true;
         }
     }
     [SerializeField] private SideDish orderSideDish;
@@ -94,7 +96,7 @@ public class Order : MonoBehaviour
             {
                 case SideDish.None:
                     {
-                        sideDishImage.gameObject.SetActive(false);
+                        sideDishImage.enabled = false;
                         return;
                     }
                 case SideDish.CutCarrot:
@@ -117,9 +119,11 @@ public class Order : MonoBehaviour
                         sideDishImage.sprite = orderDish._addCorn;
                         break;
                     }
-                default: break;
+                default:
+                    sideDishImage.enabled = false;
+                    return;
             }
-            sideDishImage.gameObject.SetActive(true);
+            sideDishImage.enabled = true;
         }
     }
 
@@ -132,16 +136,80 @@ public class Order : MonoBehaviour
     public TextMeshProUGUI orderNameTMP;
     public float currentPatience;
 
+    private void Awake()
+    {
+        OrderDrink = DrinkType.None;
+        OrderSideDish = SideDish.None;
+    }
+
     private void Start()
     {
         gameObject.name = "Order_" + orderDish._foodName;
         orderImage.sprite = orderDish._foodSprite;
-        orderNameTMP.text = orderDish._foodName;
+        orderNameTMP.text = GetOrderName();
         currentPatience = LevelManager.instance.MaxPatience;
         orderSlider.maxValue = currentPatience;
         StartCoroutine(PatienceCountdown());
 
         OrderCount++;
+    }
+
+    private string GetOrderName() {
+        string aged = isOrderFermented ? "Aged " : "";
+        string dish = orderDish._foodName;
+        string drink;
+        string sidedish;
+
+        switch (OrderSideDish)
+        {
+            case SideDish.CutPotato:
+                sidedish = "Potato";
+                break;
+            case SideDish.CutMushroom:
+                sidedish = "Shroom";
+                break;
+            case SideDish.CutCarrot:
+                sidedish = "Carrot";
+                break;
+            case SideDish.CutCorn:
+                sidedish = "Corn";
+                break;
+            default:
+                sidedish = "";
+                break;
+        }
+
+        switch (OrderDrink)
+        {
+            case DrinkType.Blue:
+                drink = "Blue";
+                break;
+            case DrinkType.Red:
+                drink = "Red";
+                break;
+            case DrinkType.Green:
+                drink = "Green";
+                break;
+            case DrinkType.Yellow:
+                drink = "Yellow";
+                break;
+            case DrinkType.Purple:
+                drink = "Purple";
+                break;
+            case DrinkType.Orange:
+                drink = "Orange";
+                break;
+            default:
+                drink = "";
+                break;
+        }
+
+        if (string.Compare(sidedish, "") != 0 && string.Compare(drink, "") != 0)
+        {
+            drink = " | " + drink;
+        }
+
+        return aged + dish + "\n" + sidedish + drink;
     }
 
     public void SetRandomDrink()

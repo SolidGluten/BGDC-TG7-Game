@@ -7,7 +7,7 @@ using UnityEngine.UI;
 using TMPro;
 
 public enum DeathCondition {WrongOrder, PatienceGone, Frying, Fishing, Garden, HotPot};
-public enum GameState { MainMenu, Playing, Dead, Paused }
+public enum GameState { MainMenu, Playing, Dead, Paused, PopupOpen }
 
 public class GameManager : MonoBehaviour
 {
@@ -37,7 +37,7 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape) && currentState != GameState.MainMenu)
+        if (Input.GetKeyDown(KeyCode.Escape) && currentState != GameState.MainMenu && currentState != GameState.PopupOpen)
         {
             if (currentState == GameState.Paused)
                 Resume();
