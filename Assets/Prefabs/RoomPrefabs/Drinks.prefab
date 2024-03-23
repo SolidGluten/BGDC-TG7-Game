@@ -923,7 +923,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 281bb850ae7d60948910efe940679f74, type: 2}
   ingredientPrefab: {fileID: 4324814194680753293, guid: d23cf9631c76cfb468455ce0efd19d83, type: 3}
   ingredientHolder: {fileID: 4372188589971011394}
-  currentColor: {r: 1, g: 1, b: 1, a: 1}
+  currentColor: {r: 0, g: 0, b: 0, a: 1}
   currentDrink: 0
   colorAdded: 0
 --- !u!1001 &5630639217205781511
@@ -1045,7 +1045,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2774376390888564481, guid: 9c8e9c64e40c81741af03b95bbceff46, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.5
+      value: 1.452
       objectReference: {fileID: 0}
     - target: {fileID: 2774376390888564481, guid: 9c8e9c64e40c81741af03b95bbceff46, type: 3}
       propertyPath: m_LocalPosition.z

@@ -80,12 +80,14 @@ public class FrySoup : Processor
         isHeatOn = false;
     }
 
-    public void ChangePot()
+    public void ChangeWater()
     {
-        if(currentType == PotType.Water)
-            currentType = PotType.Oil;
-        else
-            currentType = PotType.Water;
+        if (currentType == PotType.Oil) currentType = PotType.Water;
+        ResetHeat();
+    }
+
+    public void ChangeOil() {
+        if (currentType == PotType.Water) currentType = PotType.Oil;
         ResetHeat();
     }
 

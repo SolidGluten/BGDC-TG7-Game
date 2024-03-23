@@ -93,7 +93,7 @@ public class Drink : Generator
     public void ResetColor()
     {
         colorAdded = 0;
-        currentColor = Color.white;
+        currentColor = Color.black;
         currentDrink = DrinkType.None;
     }
 
