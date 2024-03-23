@@ -7,48 +7,49 @@ using UnityEngine;
 
 public class Garden : Generator
 {
-    public List<PlantItem> PlantItems = new List<PlantItem>();
+    public List<Item> PlantItems = new List<Item>();
+    public bool isSlotOpen;
+
+    public Room room;
+    private void Start()
+    {
+        room = GetComponent<Room>();
+    }
 
     public void Awake()
     {
-        int index = 0;
-        foreach (var ingredient in ingredientsList)
-        {
-            PlantItems[index]._ingredient = ingredient;
-            index++;
-        }
         RandomizeAllID();
     }
 
-    public FoodScriptable FindPlant(string id)
-    {
-        return PlantItems.FirstOrDefault(item => string.Compare(item._ID, id) == 0)?._ingredient;
+    public void UnlockPlant(string id) {
+        if (isSlotOpen) return;
+        var item = PlantItems.FirstOrDefault(item => string.Compare(item.currentId, id) == 0);
+        if (item != null) item.UnlockItem();
+        else GameManager.instance.Death(DeathCondition.Garden);
     }
 
-    public void GeneratePlant(string id)
+    public GameObject GeneratePlant(BaseIngredient ingredient, Transform spawnPos)
     {
-        FoodScriptable ingredientToSpawn = FindPlant(id);
+        FoodScriptable ingredientToSpawn = FindIngredients(ingredient);
         if (ingredientToSpawn == null)
         {
             Debug.Log("Plant Not FOUND!");
-            GameManager.instance.Death(DeathCondition.Garden);
-            return;
+            return null;
         }
 
-        //GenerateIngredientInHolder(ingredientToSpawn);
-        RandomizeAllID();
+        return SpawnIngredient(ingredientToSpawn, spawnPos);
     }
 
     public void RandomizeAllID()
     {
-        foreach (PlantItem item in PlantItems)
+        foreach (Item item in PlantItems)
         {
             string randomId;
             do
             {
                 randomId = GetRandomID();
-            } while (PlantItems.FirstOrDefault(item => string.Compare(item._ID, randomId) == 0) != null);
-            item._ID = randomId;
+            } while (PlantItems.FirstOrDefault(item => string.Compare(item.currentId, randomId) == 0) != null);
+            item.UpdateID(randomId);
         }
     }
 
@@ -61,11 +62,4 @@ public class Garden : Generator
 
         return letter + num.ToString();
     }
-}
-
-[Serializable]
-public class PlantItem
-{
-    public FoodScriptable _ingredient;
-    public string _ID;
 }

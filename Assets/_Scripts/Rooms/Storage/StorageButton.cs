@@ -30,5 +30,4 @@ public class StorageButton : MonoBehaviour
             isSpawn = false;
         }
     }
-
 }

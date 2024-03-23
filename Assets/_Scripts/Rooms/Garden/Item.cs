@@ -10,18 +10,17 @@ public class Item : MonoBehaviour
     public BaseIngredient ingredient;
     public SpriteRenderer alpha;
     public SpriteRenderer number;
+    public GameObject glassCover;
     public Garden garden;
+    public string currentId;
+    public bool isUnlock = false;
 
     public Sprite[] AlphaIcons = new Sprite[4];
     public Sprite[] NumberIcons = new Sprite[4];
 
-    private void Update()
-    {
-        var id = garden.PlantItems.FirstOrDefault(item => item._ingredient._baseIngredient == ingredient)?._ID;
-        UpdateID(id);
-    }
+    public void UpdateID(string id){
+        currentId = id;
 
-    private void UpdateID(string id){
         switch (id[0])
         {
             case 'A':
@@ -41,17 +40,29 @@ public class Item : MonoBehaviour
         switch (id[1])
         {
             case '1':
-                alpha.sprite = AlphaIcons[0];
+                number.sprite = NumberIcons[0];
                 break;
             case '2':
-                alpha.sprite = AlphaIcons[1];
+                number.sprite = NumberIcons[1];
                 break;
             case '3':
-                alpha.sprite = AlphaIcons[2];
+                number.sprite = NumberIcons[2];
                 break;
             case '4':
-                alpha.sprite = AlphaIcons[3];
+                number.sprite = NumberIcons[3];
                 break;
         }
+    }
+
+    public void UnlockItem() {
+        isUnlock = true;
+        garden.isSlotOpen = true;
+        glassCover.SetActive(false);
+    }
+
+    public void LockItem() {
+        isUnlock = false;
+        garden.isSlotOpen = false;
+        glassCover.SetActive(true);
     }
 }

@@ -22,7 +22,7 @@ public class InputText : MonoBehaviour
         }
         else if (string.Compare(inputVal, "ENTER") == 0)
         {
-            garden.GeneratePlant(textMesh.text);
+            garden.UnlockPlant(textMesh.text);
             textMesh.text = "";
         }
         else if (textMesh.text.Length >= 2)
