@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour
     public static GameState currentState;
     public TextMeshProUGUI deathReason;
     public float backToMenuDelay;
+    public bool isBooking = false;
 
     public static event Action OnBackToMenu;
 
@@ -65,14 +66,9 @@ public class GameManager : MonoBehaviour
     }
     public void RecipeBooking()
     {
-        if (Time.timeScale == 0f)
-        {
-            Time.timeScale = 1;
-        }
-        else
-        {
-            Time.timeScale = 0f;
-        }
+        isBooking = !isBooking;
+        if (isBooking) Pause();
+        else Resume();
     }
     public void Resume()
     {
