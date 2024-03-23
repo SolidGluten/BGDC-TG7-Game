@@ -2,20 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using Types;
 using UnityEngine;
+using UnityEngine.Rendering.PostProcessing;
 
 [RequireComponent(typeof(BoxCollider2D))]
 [RequireComponent(typeof(Rigidbody2D))]
-[RequireComponent(typeof(SpriteRenderer))]
 public class FoodHolder : MonoBehaviour
 {
     [SerializeField] private FoodScriptable foodScript;
+
     public FoodScriptable FoodScript 
     { 
         get { return foodScript; }
         set { 
             foodScript = value;
             foodName = foodScript._foodName;
-            sprite = foodScript._foodSprite;
             type = foodScript._foodType;
 
             if(type == FoodType.SideDish)
@@ -27,12 +27,12 @@ public class FoodHolder : MonoBehaviour
             semiProcessed = foodScript._semiProcessed;
             dishType = foodScript._dishType;
             this.name = "F_" + foodName;
-            foodRenderer.sprite = sprite;
+            foodRenderer.sprite = foodScript._foodSprite;
         }
     }
 
     [SerializeField] public string foodName;
-    [SerializeField] public Sprite sprite;
+    [SerializeField] public SpriteRenderer foodRenderer;
     [SerializeField] public SpriteRenderer plateRenderer;
     [SerializeField] public SpriteRenderer sideRenderer;
     [SerializeField] public SpriteRenderer drinkRenderer;
@@ -148,17 +148,9 @@ public class FoodHolder : MonoBehaviour
     [SerializeField] public SemiProcessed semiProcessed;
     [SerializeField] public DishType dishType;
 
-    private SpriteRenderer foodRenderer;
-
-    private void Awake()
-    {
-        foodRenderer = GetComponent<SpriteRenderer>();
-    }
-
     private void Start()
     {
         foodName = foodScript._foodName;
-        sprite = foodScript._foodSprite;
         type = foodScript._foodType;
         drink = foodScript._drink;
         SideDish = foodScript._sideDish;
@@ -167,6 +159,6 @@ public class FoodHolder : MonoBehaviour
         dishType = foodScript._dishType;
 
         this.name = "F_" + foodName;
-        foodRenderer.sprite = sprite;
+        foodRenderer.sprite = foodScript._foodSprite;
     }
 }

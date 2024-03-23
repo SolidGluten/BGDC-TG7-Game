@@ -227,7 +227,7 @@ public class RoomManager : MonoBehaviour
         GameObject FoodObj = currentActiveRoom.roomElevator.foodObj;
         FoodObj.transform.parent = roomDestination.gameObject.transform;
             
-        FoodObj.GetComponent<Dragable>().SetLastPosition(roomDestination.roomElevator.gameObject.transform);
+        FoodObj.GetComponent<Dragable>().SetLastPosition(roomDestination.roomElevator.foodPos.transform);
         FoodObj.GetComponent<Dragable>().ResetPosition();
 
         currentActiveRoom.roomElevator.foodObj = null;

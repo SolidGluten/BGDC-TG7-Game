@@ -6,16 +6,21 @@ using Types;
 public class Elevator : MonoBehaviour
 {
     public GameObject foodObj;
+    public Transform foodPos;
+
+    private void Start()
+    {
+        foodPos = GetComponentsInChildren<Transform>()[1];  
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Food"))
         {
-            
             if (foodObj == null)
             {
                 foodObj = collision.gameObject;
-                foodObj.GetComponent<Dragable>().SetLastPosition(transform);
+                foodObj.GetComponent<Dragable>().SetLastPosition(foodPos);
             } else
             {
                 #region Mixing
@@ -31,7 +36,7 @@ public class Elevator : MonoBehaviour
                 }
 
                 foodObj = mixedFood;
-                mixedFood.GetComponent<Dragable>().SetLastPosition(transform);
+                mixedFood.GetComponent<Dragable>().SetLastPosition(foodPos);
                 mixedFood.GetComponent<Dragable>().ResetPosition();
                 #endregion
             }

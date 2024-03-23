@@ -5,16 +5,24 @@ using UnityEngine;
 
 public class Storage : Generator
 {
-    public void GetMeat(BaseIngredient ingredient)
+    public Room room;
+
+    private void Start()
+    {
+        room = GetComponent<Room>();
+    }
+
+    public GameObject GetMeat(BaseIngredient ingredient, Transform pos)
     {
         FoodScriptable ingredientToSpawn = FindIngredients(ingredient);
         
         if (ingredientToSpawn == null)
         {
             Debug.Log("No ingredients found!");
-            return;
+            return null;
         }
 
-        GenerateIngredient(ingredientToSpawn);
+        return SpawnIngredient(ingredientToSpawn, pos);
     }
+
 }

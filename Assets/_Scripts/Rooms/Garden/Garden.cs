@@ -35,7 +35,7 @@ public class Garden : Generator
             return;
         }
 
-        GenerateIngredient(ingredientToSpawn);
+        //GenerateIngredientInHolder(ingredientToSpawn);
         RandomizeAllID();
     }
 

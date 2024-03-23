@@ -10,6 +10,8 @@ public class Fermentator : MonoBehaviour
 
     public List<FoodScriptable> fermentFoodList = new List<FoodScriptable>();
 
+    public Transform outputPos;
+
     private void Start()
     {
         fermentRoom = GetComponentInParent<FermentationRoom>();
@@ -33,7 +35,7 @@ public class Fermentator : MonoBehaviour
                 return;
             }
 
-            raw.GetComponent<Dragable>().SetLastPosition(transform);
+            raw.GetComponent<Dragable>().SetLastPosition(outputPos);
             raw.GetComponent<Dragable>().ResetPosition();
             fermentRoom.room.roomElevator.foodObj = null;
             raw.IsFermented = true;

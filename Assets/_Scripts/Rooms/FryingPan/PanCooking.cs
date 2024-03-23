@@ -7,7 +7,6 @@ public class PanCooking : MonoBehaviour
 {
     //References
     public FryingPan fryingPan;
-    private SpriteRenderer spriteRenderer;
 
     //Booleans
     public bool isEmpty = true, isCooking = false, isBurning = false;
@@ -23,8 +22,21 @@ public class PanCooking : MonoBehaviour
     void Start()
     {
         ResetTimer();
-        spriteRenderer = GetComponent<SpriteRenderer>();
         fryingPan = GetComponentInParent<FryingPan>();
+    }
+
+    private void Update()
+    {
+        if(fryingPan.room.roomElevator.foodObj == foodInPan?.gameObject &&
+           fryingPan.room.roomElevator.foodObj != null)
+        {
+            SoundManager.instance.StopSoundEffect(SFXindex);
+            foodInPan = null;
+            isEmpty = true;
+            isCooking = false;
+            isBurning = false;
+            ResetTimer();
+        }
     }
 
     private void OnTriggerStay2D(Collider2D other)
@@ -45,9 +57,11 @@ public class PanCooking : MonoBehaviour
         }
 
         fryingPan.room.roomElevator.foodObj = null;
-        other.gameObject.SetActive(false);
+        other.GetComponent<Dragable>().SetLastPosition(transform);
+        other.GetComponent<Dragable>().ResetPosition();
+        other.GetComponent<Dragable>().dragEnabled = false;
         isEmpty = false; isCooking = true;
-        ChangeSprite(cookSprite);
+        //ChangeSprite(cookSprite);
         StartCoroutine(Cook());
     }
 
@@ -55,14 +69,7 @@ public class PanCooking : MonoBehaviour
     {
         if (isCooking || isEmpty) return;
 
-        fryingPan.ProcessFood(foodInPan, processedFood);
-        foodInPan.gameObject.SetActive(true);
-        foodInPan.GetComponent<Dragable>().SetLastPosition(transform);
-        foodInPan.GetComponent<Dragable>().ResetPosition();
-
-        SoundManager.instance.StopSoundEffect(SFXindex);
-
-        ChangeSprite(emptySprite);
+        //ChangeSprite(emptySprite);
         isEmpty = true;
         isCooking = false;
         isBurning = false;
@@ -79,9 +86,14 @@ public class PanCooking : MonoBehaviour
             yield return null;
         }
 
-        ChangeSprite(readySprite);
+        //ChangeSprite(readySprite);
         isCooking = false;
         isBurning = true;
+
+        fryingPan.ProcessFood(foodInPan, processedFood);
+        foodInPan.GetComponent<Dragable>().dragEnabled = true;
+        foodInPan.GetComponent<Dragable>().SetLastPosition(transform);
+        foodInPan.GetComponent<Dragable>().ResetPosition();
 
         while (currentBurnTime > 0 && isBurning)
         {
@@ -96,10 +108,10 @@ public class PanCooking : MonoBehaviour
     }
 
     //Combined the 3 CookSprite, ReadySprite, & EmptySprite into 1 function
-    void ChangeSprite(Sprite sprite)
-    {
-        spriteRenderer.sprite = sprite;
-    }
+    //void ChangeSprite(Sprite sprite)
+    //{
+    //    spriteRenderer.sprite = sprite;
+    //}
 
     private void ResetTimer()
     {

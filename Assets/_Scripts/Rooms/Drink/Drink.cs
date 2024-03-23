@@ -105,7 +105,7 @@ public class Drink : Generator
             Debug.Log("Drink Not Found!");
             return;
         }
-        GenerateIngredient(drink);
+        GenerateIngredientInHolder(drink);
         ResetColor();
     }
 }

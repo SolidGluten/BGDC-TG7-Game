@@ -8,10 +8,12 @@ public class Dragable : MonoBehaviour
     private Vector2 mousePos;
     private Camera mainCam;
     public bool isDrag;
+    public bool dragEnabled;
     public Transform lastPos;
 
     private void Start()
     {
+        dragEnabled = true;
         mainCam = Camera.main;
         lastPos = lastPos ? lastPos : transform;
     }
@@ -20,12 +22,12 @@ public class Dragable : MonoBehaviour
     {
         mousePos = mainCam.ScreenToWorldPoint(Input.mousePosition);
 
-        if (isDrag) Drag();
+        if (isDrag && dragEnabled) Drag();
     }
 
     private void OnMouseDown()
     {
-        DragNDrop.DragObject = this.gameObject;
+        SetDrag();
     }
 
     private void OnMouseDrag()
@@ -39,6 +41,11 @@ public class Dragable : MonoBehaviour
         isDrag = false;
         DragNDrop.DragObject = null;
         ResetPosition();
+    }
+
+    public void SetDrag() {
+        isDrag = true;
+        DragNDrop.DragObject = this.gameObject;
     }
 
     private void Drag()
@@ -56,5 +63,6 @@ public class Dragable : MonoBehaviour
     public void SetLastPosition(Transform pos)
     {
         lastPos = pos;
+        ResetPosition();
     }
 }

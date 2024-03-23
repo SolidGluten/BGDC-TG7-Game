@@ -40,10 +40,11 @@ public class Fishing : Generator
             yield return null;
         }
 
-        GenerateIngredient(ingredientToSpawn);
+        GenerateIngredientInHolder(ingredientToSpawn);
         isFishing = false;
 
         while (currentTimeBeforeDeath < maxTimeBeforeDeath)
+
         {
             if(ingredientHolder.ingredient == null)
             {

@@ -21,11 +21,11 @@ public class Generator : MonoBehaviour
         return ingredientsList.FirstOrDefault(ingredient => ingredient._drink == drinkType);
     }
 
-    public void GenerateIngredient(FoodScriptable ingredients)
+    public void GenerateIngredientInHolder(FoodScriptable ingredient)
     {
         GameObject ingredientObj = Instantiate(ingredientPrefab, ingredientHolder.transform.position, Quaternion.identity);
         FoodHolder foodHolder = ingredientObj.GetComponent<FoodHolder>();
-           foodHolder.FoodScript = ingredients;
+        foodHolder.FoodScript = ingredient;
         ingredientObj.GetComponent<Dragable>().SetLastPosition(ingredientHolder.transform);
         ingredientObj.transform.parent = transform;
 
@@ -41,5 +41,15 @@ public class Generator : MonoBehaviour
 
         ingredientHolder.ingredient = ingredientObj;
         return;
+    }
+
+    public GameObject SpawnIngredient(FoodScriptable ingredient, Transform spawnPos)
+    {
+        GameObject ingredientObj = Instantiate(ingredientPrefab, spawnPos.position, Quaternion.identity);
+        FoodHolder foodHolder = ingredientObj.GetComponent<FoodHolder>();
+        foodHolder.FoodScript = ingredient;
+        ingredientObj.GetComponent<Dragable>().SetLastPosition(spawnPos);
+        ingredientObj.transform.parent = transform;
+        return ingredientObj;
     }
 }
