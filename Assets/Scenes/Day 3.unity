@@ -181,6 +181,7 @@ MonoBehaviour:
   activeRoomPos: {x: 0, y: 1.1, z: 0}
   roomDistance: 100
   SFXIndex: 10
+  noAcessSFXIndex: 11
 --- !u!1 &126971352
 GameObject:
   m_ObjectHideFlags: 0
@@ -579,6 +580,10 @@ MonoBehaviour:
     - {fileID: 11400000, guid: be9e430ac20d9b34a8097592fe5b2a7d, type: 2}
     - {fileID: 11400000, guid: fb6987d8b3f90ca4ea38010072402234, type: 2}
     - {fileID: 11400000, guid: 370daacb6f4b5464e878cfd0b66940b3, type: 2}
+    - {fileID: 11400000, guid: a5dae71349f6dc14ba770be9f621ebdc, type: 2}
+    - {fileID: 11400000, guid: 76c479502a41d7f4b9f1cb8bb12dd76c, type: 2}
+    - {fileID: 11400000, guid: e3d0c12066345db47918b311eac0502a, type: 2}
+    - {fileID: 11400000, guid: fc6d8375e1d16154e85eb02753ffdbc3, type: 2}
   advance:
     _spawnChance: 25
     _orderList:
