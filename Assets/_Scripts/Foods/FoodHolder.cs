@@ -23,6 +23,11 @@ public class FoodHolder : MonoBehaviour
                 SideDish = value._sideDish;
             }
 
+            if (type == FoodType.Beverage)
+            {
+                DrinkType = value._drink;
+            }
+
             baseIngredient = foodScript._baseIngredient;
             semiProcessed = foodScript._semiProcessed;
             dishType = foodScript._dishType;
@@ -66,6 +71,7 @@ public class FoodHolder : MonoBehaviour
         get { return drink; }
         set { 
             drink = value;
+            if(type == FoodType.Beverage) return;
             switch (value)
             {
                 case DrinkType.None:
@@ -113,6 +119,7 @@ public class FoodHolder : MonoBehaviour
         set
         {
             sides = value;
+            if (type == FoodType.SideDish) return;    
             switch (value)
             {
                 case SideDish.None:
@@ -148,17 +155,17 @@ public class FoodHolder : MonoBehaviour
     [SerializeField] public SemiProcessed semiProcessed;
     [SerializeField] public DishType dishType;
 
-    private void Start()
-    {
-        foodName = foodScript._foodName;
-        type = foodScript._foodType;
-        drink = foodScript._drink;
-        SideDish = foodScript._sideDish;
-        baseIngredient = foodScript._baseIngredient;
-        semiProcessed = foodScript._semiProcessed;
-        dishType = foodScript._dishType;
+    //private void Start()
+    //{
+    //    foodName = foodScript._foodName;
+    //    type = foodScript._foodType;
+    //    drink = foodScript._drink;
+    //    SideDish = foodScript._sideDish;
+    //    baseIngredient = foodScript._baseIngredient;
+    //    semiProcessed = foodScript._semiProcessed;
+    //    dishType = foodScript._dishType;
 
-        this.name = "F_" + foodName;
-        foodRenderer.sprite = foodScript._foodSprite;
-    }
+    //    this.name = "F_" + foodName;
+    //    foodRenderer.sprite = foodScript._foodSprite;
+    //}
 }

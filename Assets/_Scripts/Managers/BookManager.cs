@@ -20,4 +20,21 @@ public class BookManager : MonoBehaviour
 
         gameObject.SetActive(false);
     }
+
+    private void OnEnable()
+    {
+        GameManager.currentState = GameState.PopupOpen;
+    }
+
+    private void OnDisable()
+    {
+        GameManager.currentState = GameState.Playing;
+    }
+
+        private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape)) {
+            gameObject.SetActive(false);
+        }
+    }
 }

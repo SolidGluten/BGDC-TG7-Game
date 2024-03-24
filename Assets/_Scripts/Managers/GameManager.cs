@@ -80,6 +80,7 @@ public class GameManager : MonoBehaviour
 
     public void Death(DeathCondition cond)
     {
+        Time.timeScale = 0;
         currentState = GameState.Dead;
         switch (cond)
         {

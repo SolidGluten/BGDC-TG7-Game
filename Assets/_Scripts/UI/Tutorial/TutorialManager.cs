@@ -43,13 +43,13 @@ public class TutorialManager : MonoBehaviour
 
     private void Start()
     {
-        currentSavedPage = PlayerPrefs.GetInt("tutorialPage", 7);
+        currentSavedPage = PlayerPrefs.GetInt("tutorialPage", 0);
         UpdatePage(currentPageIndex);
         gameObject.SetActive(false);
-        
+
         for(int i = 0; i < currentSavedPage; i++)
         {
-            pages[i].Unlock();
+            pages[i].isUnlocked = true;
         }
     }
 
@@ -85,6 +85,8 @@ public class TutorialManager : MonoBehaviour
         for(int i = 0; i < pages.Count; i++)
         {
             if (pages[i].Key == key) {
+                if (pages[i].isUnlocked) continue;
+
                 if (i + 1 > currentSavedPage)
                     PlayerPrefs.SetInt("tutorialPage", i + 1);
                 pages[i].Unlock();
