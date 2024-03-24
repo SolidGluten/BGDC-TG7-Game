@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI deathReason;
     public float backToMenuDelay;
     public bool isBooking = false;
+    private int SFXindex = 15;
 
     public static event Action OnBackToMenu;
 
@@ -121,6 +122,7 @@ public class GameManager : MonoBehaviour
                     break;
                 }
         }
+        SoundManager.instance.PlaySoundEffect(SFXindex);
         DeathScreen.instance.SetDeathTrue(true);
     }
     [ContextMenu("Unlock All Levels")]

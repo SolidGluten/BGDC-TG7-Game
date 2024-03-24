@@ -9,6 +9,7 @@ public class SoundManager : MonoBehaviour
     public static SoundManager instance;  // Singleton instance
 
     public AudioClip backgroundMusic;    // Background music
+    public AudioClip RadioMusic;
     public AudioClip[] soundEffects;     // Array of sound effects
     private AudioSource musicSource;     // AudioSource for background music
 
@@ -40,30 +41,29 @@ public class SoundManager : MonoBehaviour
         SFXVolume = PlayerPrefs.GetFloat("SFXVolume", 0.3f);
         SetMusicVolume(MusicVolume);
         SetSFXVolume(SFXVolume);
-
+        musicSource.clip = RadioMusic;
         // Play background music on start
         PlayBackgroundMusic();
     }
 
     public void PlayBackgroundMusic()
     {
-        musicSource.clip = backgroundMusic;
+        ChangeBackgroundMusic();
+        
         musicSource.loop = true;
         musicSource.Play();
         isBGMPlaying = true;
     }
 
-    public void StopBackgroundMusic()
+    public void ChangeBackgroundMusic()
     {
-        if (isBGMPlaying)
+        if (musicSource.clip == RadioMusic)
         {
-            musicSource.Pause();
-            isBGMPlaying = false;
+            musicSource.clip = backgroundMusic;
         }
         else
         {
-            musicSource.UnPause();
-            isBGMPlaying = true;
+            musicSource.clip = RadioMusic;
         }
     }
 
