@@ -926,6 +926,7 @@ MonoBehaviour:
   currentColor: {r: 0, g: 0, b: 0, a: 1}
   currentDrink: 0
   colorAdded: 0
+  SFXIndex: 14
 --- !u!1001 &5630639217205781511
 PrefabInstance:
   m_ObjectHideFlags: 0

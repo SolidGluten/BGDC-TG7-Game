@@ -257,7 +257,7 @@ MonoBehaviour:
     _processedOutput: {fileID: 11400000, guid: 76c479502a41d7f4b9f1cb8bb12dd76c, type: 2}
   currTemperature: 0
   rightTemperature: 5
-  maxTemperature: 20
+  maxTemperature: 15
   isHotEnough: 0
   isHeatOn: 0
 --- !u!1 &1858820722063227461
@@ -523,6 +523,9 @@ MonoBehaviour:
   readyMeter: {fileID: 1080825542723796161}
   readyBackground: {fileID: 380162391582586879}
   frySoup: {fileID: 1088679637308660438}
+  HandleImg: {fileID: 5990860353131922102}
+  DefaultIcon: {fileID: -1127086163, guid: 33b1c168c0dae0543a2e3bd53f78b57a, type: 3}
+  OverIcon: {fileID: -54910091, guid: 9810429336159024bb37201a8720c9b8, type: 3}
 --- !u!1 &2974298509680875824
 GameObject:
   m_ObjectHideFlags: 0
@@ -557,8 +560,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 20}
-  m_SizeDelta: {x: 0, y: 80}
+  m_AnchoredPosition: {x: 0, y: 6}
+  m_SizeDelta: {x: 0, y: 42}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!222 &870650386538916418
 CanvasRenderer:
@@ -588,7 +591,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 2125d9b80ac4a334590b2328095f5d9d, type: 3}
+  m_Sprite: {fileID: -1127086163, guid: 33b1c168c0dae0543a2e3bd53f78b57a, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -829,15 +832,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.20425534, g: 1, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 1128838427, guid: e573552234dcadd4683ded68e9aaf9a4, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -1146,15 +1149,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.50346017, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: -1048813361, guid: 38560cffd683bed46b10f7d3ec113842, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -1379,8 +1382,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   potContent: {fileID: 7452919870354645444}
   frySoup: {fileID: 1088679637308660438}
+  foodInPot: {fileID: 0}
   waterPot: {fileID: 21300000, guid: a9919feb4b744ac4cb231a03809eb107, type: 3}
   oilSprite: {fileID: 21300000, guid: cbd5eb53c36098d478835f04c883fcce, type: 3}
+  SFXIndex: 9
 --- !u!1 &9143833202749967865
 GameObject:
   m_ObjectHideFlags: 0

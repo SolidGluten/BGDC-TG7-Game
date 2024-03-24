@@ -8,6 +8,10 @@ public class FishMeter : MonoBehaviour
     public Fishing fishing;
     public Slider readyMeter;
     public Slider readyBackground;
+    public Image HandleImg;
+    public Sprite DefaultIcon;
+    public Sprite OverIcon;
+
     private float maxSliderValue;
     private float currentSliderValue;
 
@@ -21,5 +25,13 @@ public class FishMeter : MonoBehaviour
     {
         currentSliderValue = fishing.currentFishTime + fishing.currentTimeBeforeDeath;
         readyMeter.value = currentSliderValue/maxSliderValue;
+
+        if (currentSliderValue/maxSliderValue < readyBackground.value)
+        {
+            HandleImg.sprite = DefaultIcon;
+        }
+        else{
+            HandleImg.sprite = OverIcon;
+        }
     }
 }

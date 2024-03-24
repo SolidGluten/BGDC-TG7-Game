@@ -7,9 +7,24 @@ using UnityEngine.Events;
 public class InputButton : MonoBehaviour
 {
     [SerializeField] private UnityEvent onButtonClick;
+    private SpriteRenderer buttonSprite;
+    private float amount = 0.2f;
+    private Color baseColor;
 
-    private void OnMouseDown()
+    private void Start()
+    {
+        buttonSprite = GetComponent<SpriteRenderer>();
+        baseColor = buttonSprite.color;
+    }
+
+    public virtual void OnMouseDown()
     {
         onButtonClick?.Invoke();
+        buttonSprite.color = new Color(baseColor.r - amount, baseColor.g - amount, baseColor.b - amount);
+    }
+
+    private void OnMouseUpAsButton()
+    {
+        buttonSprite.color = new Color(baseColor.r + amount, baseColor.g + amount, baseColor.b + amount);
     }
 }

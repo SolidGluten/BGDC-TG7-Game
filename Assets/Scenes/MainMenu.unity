@@ -372,7 +372,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3584b6c0c8e690d40b48d3b122b34fe3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  backgroundMusic: {fileID: 8300000, guid: 4d56d2032e78ebd4684efef4fdb4bd34, type: 3}
+  backgroundMusic: {fileID: 8300000, guid: 7f1acb9e8f39fdc499328eec3a553632, type: 3}
   soundEffects:
   - {fileID: 8300000, guid: f5254b94e93d9a14ead3ed093453d1ff, type: 3}
   - {fileID: 8300000, guid: be9b6de90b311fc4880942384091c4bc, type: 3}
@@ -383,6 +383,12 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 1c160468c17afe4468786bd6528767b0, type: 3}
   - {fileID: 8300000, guid: ddf31ace579bc8640aae1ae688715f3a, type: 3}
   - {fileID: 8300000, guid: 5dba5e185193fed40b946407d9667593, type: 3}
+  - {fileID: 8300000, guid: 40b12f2159af99741b262db8d61ea453, type: 3}
+  - {fileID: 8300000, guid: 8151d6361d1185640a4a18bf97b282e4, type: 3}
+  - {fileID: 8300000, guid: 56e04d09e098b2a48931addc0baefca6, type: 3}
+  - {fileID: 8300000, guid: 4782d7c863a66b74d93abaf8773749cf, type: 3}
+  - {fileID: 8300000, guid: b94b389415ccf7d44ad6749f3875e26e, type: 3}
+  - {fileID: 8300000, guid: eca9d5b066ab4194a8d38fbe6f2bbf38, type: 3}
   MusicVolume: 0
   SFXVolume: 0
 --- !u!4 &895642724
@@ -526,6 +532,10 @@ PrefabInstance:
     - target: {fileID: 98377378295449651, guid: 08241b73de4322848a40255dc632fe21, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: SetActive
+      objectReference: {fileID: 0}
+    - target: {fileID: 389564048649084340, guid: 08241b73de4322848a40255dc632fe21, type: 3}
+      propertyPath: SFXIndex
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 2824279093680410210, guid: 08241b73de4322848a40255dc632fe21, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
@@ -1579,8 +1589,7 @@ PrefabInstance:
       propertyPath: m_Name
       value: TransitionCanvas
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 6927538427011703021, guid: 654d99cd702eea14392b77ac649959a0, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

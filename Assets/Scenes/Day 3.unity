@@ -180,6 +180,7 @@ MonoBehaviour:
   - {fileID: 8506278934651063342}
   activeRoomPos: {x: 0, y: 1.1, z: 0}
   roomDistance: 100
+  SFXIndex: 10
 --- !u!1 &126971352
 GameObject:
   m_ObjectHideFlags: 0
@@ -707,7 +708,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: be9b6de90b311fc4880942384091c4bc, type: 3}
   - {fileID: 8300000, guid: 906956a29f22f4f45b3a2b517df9811c, type: 3}
   MusicVolume: 0
-  SFXVolume: 0
+  SFXVolume: 10
 --- !u!4 &1244839921
 Transform:
   m_ObjectHideFlags: 0

@@ -3,15 +3,16 @@ using System.Collections.Generic;
 using Types;
 using UnityEngine;
 
-public class GardenButton : MonoBehaviour
+public class GardenButton : InputButton
 {
     public BaseIngredient ingredient;
     public Item gardenItem;
     public GameObject gardenObj;
     public bool isSpawned;
 
-    private void OnMouseDown()
+    public override void OnMouseDown()
     {
+        base.OnMouseDown();
         gardenObj = gardenItem.garden.GeneratePlant(ingredient, transform);
         gardenObj.GetComponent<Dragable>().SetDrag();
         isSpawned = true;

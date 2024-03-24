@@ -15,18 +15,25 @@ public class ElevatorButton : MonoBehaviour
     {
         button = GetComponent<Button>();
         SceneManager.sceneLoaded += GetReference;
-        
-        button.onClick.AddListener(() => SoundManager.instance.PlaySoundEffect(SFXindex));
+
+        button.onClick.AddListener(AddSound);
     }
 
     private void GetReference(Scene scene, LoadSceneMode mode)
     {
-        if(roomManager == null)
+        if (roomManager == null)
             button.onClick.RemoveAllListeners();
-            roomManager = FindAnyObjectByType<RoomManager>();
+        roomManager = FindAnyObjectByType<RoomManager>();
 
-        if(roomManager != null) 
-            button.onClick.AddListener(() => roomManager.SendFood((int)roomTo));
-     
+        if (roomManager != null)
+            button.onClick.AddListener(SendIt);
+
+    }
+    private void AddSound () {
+        SoundManager.instance.PlaySoundEffect(SFXindex);
+    }
+
+    private void SendIt (){
+        roomManager.SendFood((int)roomTo);
     }
 }

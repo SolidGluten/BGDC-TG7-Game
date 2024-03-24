@@ -3,15 +3,16 @@ using System.Collections.Generic;
 using Types;
 using UnityEngine;
 
-public class StorageButton : MonoBehaviour
+public class StorageButton : InputButton
 {
     public BaseIngredient ingredient;
     public Storage storage;
     public GameObject storageObj;
     public bool isSpawn;
 
-    private void OnMouseDown()
+    public override void OnMouseDown()
     {
+        base.OnMouseDown();
         storageObj = storage.GetMeat(ingredient, transform);
         storageObj.GetComponent<Dragable>().SetDrag();
         isSpawn = true;

@@ -9,6 +9,11 @@ public class HeatMeter : MonoBehaviour
     public Slider readyBackground;
     public FrySoup frySoup;
 
+    public Image HandleImg;
+    public Sprite DefaultIcon;
+    public Sprite OverIcon;
+
+
     private void Start()
     {
         readyMeter.value = 0;
@@ -19,5 +24,13 @@ public class HeatMeter : MonoBehaviour
     {
         var sliderVal = frySoup.currTemperature/frySoup.maxTemperature;
         readyMeter.value = sliderVal;
+
+        if (sliderVal < readyBackground.value)
+        {
+            HandleImg.sprite = DefaultIcon;
+        }
+        else {
+            HandleImg.sprite = OverIcon;
+        }
     }
 }

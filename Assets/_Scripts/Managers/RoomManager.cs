@@ -20,6 +20,8 @@ public class RoomManager : MonoBehaviour
 
     public Vector3 activeRoomPos;
     public float roomDistance = 5;
+    public int SFXIndex = 10;
+    public int noAcessSFXIndex = 11;
 
     private void Start()
     {
@@ -157,6 +159,9 @@ public class RoomManager : MonoBehaviour
         if(nextRoom.isAccesible == false)
         {
             Debug.LogWarning("Room is not Accessible!");
+
+            SoundManager.instance.PlaySoundEffect(noAcessSFXIndex);
+
             return;
         }
 
@@ -167,6 +172,8 @@ public class RoomManager : MonoBehaviour
 
         currentActiveRoom = nextRoom;
         activeRoomCode = nextRoom.roomCode;
+
+        SoundManager.instance.PlaySoundEffect(SFXIndex);
 
         int multiplier = 0;
         foreach (Room room in newList)
@@ -213,6 +220,9 @@ public class RoomManager : MonoBehaviour
         if(roomDestination.isAccesible == false)
         {
             Debug.LogWarning("Room is not accesible!");
+
+            SoundManager.instance.PlaySoundEffect(noAcessSFXIndex);
+
             return;
         }
 

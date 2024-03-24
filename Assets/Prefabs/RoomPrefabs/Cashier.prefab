@@ -489,7 +489,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 956720136a6696c4798095d9b85eab44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  onButtonPressed:
+  onButtonClick:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 2872987357294702847}

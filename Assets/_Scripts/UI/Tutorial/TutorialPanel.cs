@@ -17,6 +17,8 @@ public class TutorialPanel : MonoBehaviour
 
     public static TutorialPanel instance;
 
+    public int SFXIndex = 13;
+
     private void Awake()
     {
         if (instance != null && instance != this)
@@ -38,6 +40,8 @@ public class TutorialPanel : MonoBehaviour
     public void ShowAlert(){
         isAlert = true;
         InvokeRepeating("Blink", 0, 0.4f);
+        SoundManager.instance.PlaySoundEffect(SFXIndex);
+        SoundManager.instance.SetSoundEffectLoop(SFXIndex);
     }
 
     [ContextMenu("Stop Alert")]
@@ -45,6 +49,7 @@ public class TutorialPanel : MonoBehaviour
         isAlert = false;
         CancelInvoke("Blink");
         LightImage.sprite = DefaultLight;
+        SoundManager.instance.StopSoundEffect(SFXIndex);
     }
 
     private void Blink() {

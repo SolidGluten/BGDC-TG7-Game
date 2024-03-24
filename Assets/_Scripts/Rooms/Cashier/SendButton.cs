@@ -3,13 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class SendButton : MonoBehaviour
+public class SendButton : InputButton
 {
-    public UnityEvent onButtonPressed;
     private int SFXindex = 0;
-    private void OnMouseDown()
+    public override void OnMouseDown()
     {
-        onButtonPressed.Invoke();
+        base.OnMouseDown();
         SoundManager.instance.PlaySoundEffect(SFXindex);
     }
 }

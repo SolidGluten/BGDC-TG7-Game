@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Reflection;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -35,8 +36,8 @@ public class SoundManager : MonoBehaviour
     {
         // Set up the background music AudioSource
         musicSource = gameObject.AddComponent<AudioSource>();
-        MusicVolume = PlayerPrefs.GetFloat("MusicVolume", 1.0f);
-        SFXVolume = PlayerPrefs.GetFloat("SFXVolume", 1.0f);
+        MusicVolume = PlayerPrefs.GetFloat("MusicVolume", 0.3f);
+        SFXVolume = PlayerPrefs.GetFloat("SFXVolume", 0.3f);
         SetMusicVolume(MusicVolume);
         SetSFXVolume(SFXVolume);
 
@@ -129,6 +130,17 @@ public class SoundManager : MonoBehaviour
             playingSounds[index].Stop();
             Destroy(playingSounds[index]); // Destroy the AudioSource component
             playingSounds.Remove(index);    // Remove from the dictionary
+        }
+        else
+        {
+            Debug.LogWarning("No playing sound effect found for the specified index.");
+        }
+    }
+
+    public void SetSoundEffectLoop(int index) {
+        if (playingSounds.ContainsKey(index) && playingSounds[index] != null)
+        {
+            playingSounds[index].loop = true;
         }
         else
         {

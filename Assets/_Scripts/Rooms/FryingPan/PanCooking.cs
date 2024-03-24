@@ -19,6 +19,9 @@ public class PanCooking : MonoBehaviour
     private FoodScriptable processedFood;
 
     private int SFXindex = 1;
+
+    public Transform outputPos;
+
     void Start()
     {
         ResetTimer();
@@ -30,6 +33,10 @@ public class PanCooking : MonoBehaviour
         if(fryingPan.room.roomElevator.foodObj == foodInPan?.gameObject &&
            fryingPan.room.roomElevator.foodObj != null)
         {
+            foodInPan.plateRenderer.enabled = true;
+            foodInPan.drinkRenderer.enabled = true;
+            foodInPan.sideRenderer.enabled = true;
+
             SoundManager.instance.StopSoundEffect(SFXindex);
             foodInPan = null;
             isEmpty = true;
@@ -79,6 +86,10 @@ public class PanCooking : MonoBehaviour
     private IEnumerator Cook()
     {
         SoundManager.instance.PlaySoundEffect(SFXindex);
+        foodInPan.plateRenderer.enabled = false;
+        foodInPan.drinkRenderer.enabled = false;
+        foodInPan.sideRenderer.enabled = false;
+
         while (currentCookTime > 0)
         {
             currentCookTime -= Time.deltaTime;

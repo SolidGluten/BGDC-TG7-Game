@@ -8,7 +8,7 @@ public class Drink : Generator
     public Color currentColor = Color.black;
     public DrinkType currentDrink = DrinkType.None;
     [SerializeField] private int colorAdded = 0;
-
+    public int SFXIndex;
     public void AddRed()
     {
         if (colorAdded == 2 || currentColor == Color.red) return;
@@ -107,6 +107,7 @@ public class Drink : Generator
         }
         GenerateIngredientInHolder(drink);
         ResetColor();
+        SoundManager.instance.PlaySoundEffect(SFXIndex);
     }
 }
     
