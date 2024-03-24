@@ -12,6 +12,7 @@ public class Fermentator : MonoBehaviour
 
     public Transform outputPos;
 
+    private int SFXIndex = 17;
     private void Start()
     {
         fermentRoom = GetComponentInParent<FermentationRoom>();
@@ -39,6 +40,7 @@ public class Fermentator : MonoBehaviour
             raw.GetComponent<Dragable>().ResetPosition();
             fermentRoom.room.roomElevator.foodObj = null;
             raw.IsFermented = true;
+            SoundManager.instance.PlaySoundEffect(SFXIndex);
         }
     }
 }

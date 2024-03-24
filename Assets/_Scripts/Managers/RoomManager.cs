@@ -22,7 +22,7 @@ public class RoomManager : MonoBehaviour
     public float roomDistance = 5;
     public int SFXIndex = 10;
     public int noAcessSFXIndex = 11;
-
+    private int ElevatorSFX = 16;
     private void Start()
     {
         for(int i = 0; i < roomList.Count; i++)
@@ -241,6 +241,7 @@ public class RoomManager : MonoBehaviour
         FoodObj.GetComponent<Dragable>().ResetPosition();
 
         currentActiveRoom.roomElevator.foodObj = null;
+        SoundManager.instance.PlaySoundEffect(ElevatorSFX);
         Debug.Log("Sent Succesfully! ");
     }
 
