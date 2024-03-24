@@ -24,11 +24,34 @@ public class OrderChute : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Food") && foodHolder == null)
+        if (collision.CompareTag("Food"))
         {
-            foodHolder = collision.gameObject;
-            cashierRoom.roomElevator.foodObj = null;
-            foodHolder.GetComponent<Dragable>()?.SetLastPosition(transform);
+            if (foodHolder == null)
+            {
+                foodHolder = collision.gameObject;
+                cashierRoom.roomElevator.foodObj = null;
+                foodHolder.GetComponent<Dragable>()?.SetLastPosition(transform);
+            }
+            else
+            {
+                #region Mixing
+                if (foodHolder == collision.gameObject) return;
+
+                FoodHolder addedTo = foodHolder.GetComponent<FoodHolder>();
+                FoodHolder adder = collision.GetComponent<FoodHolder>();
+                GameObject mixedFood = Mixer.instance.MixFood(addedTo, adder);
+
+                if (mixedFood == null)
+                {
+                    Debug.Log("No mix recipe found!");
+                    return;
+                }
+
+                foodHolder = mixedFood;
+                mixedFood.GetComponent<Dragable>().SetLastPosition(transform);
+                mixedFood.GetComponent<Dragable>().ResetPosition();
+                #endregion
+            }
         }
     }
 
