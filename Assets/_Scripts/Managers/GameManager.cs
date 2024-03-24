@@ -52,8 +52,11 @@ public class GameManager : MonoBehaviour
         //Resume();
         Time.timeScale = 1f;
         OnBackToMenu?.Invoke();
+        Debug.Log("BackToMenu");
         yield return new WaitForSeconds(backToMenuDelay);
         SceneManager.LoadScene(0);
+        WinCanvasManager.Instance.SetWinScreen(false);
+        SoundManager.instance.StopAllSounds();
         DeathScreen.instance.SetDeathTrue(false);
         currentState = GameState.MainMenu;
     }
@@ -88,37 +91,37 @@ public class GameManager : MonoBehaviour
             case DeathCondition.WrongOrder:
                 {
                     Debug.Log("Player died while serving food.");
-                    deathReason.text = "You served the wrong food, now you will be served as food";
+                    deathReason.text = "Reason : You served the wrong food.";
                     break;
                 }
             case DeathCondition.PatienceGone:
                 {
                     Debug.Log("Player died due to the customer waiting too long.");
-                    deathReason.text = "You took too long to serve food, but they have you as an emergency food";
+                    deathReason.text = "Reason : You ran out of time.";
                     break;
                 }
             case DeathCondition.Frying:
                 {
                     Debug.Log("Player died due to frying something for too long.");
-                    deathReason.text = "You were fried to a perfect golden brown color";
+                    deathReason.text = "Reason : You left the pan cooking for too long.";
                     break;
                 }
             case DeathCondition.Fishing:
                 {
                     Debug.Log("Player died due to taking too long when fishing.");
-                    deathReason.text = "You caught something beyond your comprehension and went mad because of it";
+                    deathReason.text = "Reason : You left the fish on the line for too long.";
                     break;
                 }
             case DeathCondition.Garden:
                 {
                     Debug.Log("Player died due to growing something for too long.");
-                    deathReason.text = "You planted something that grew into some eerie unnatural shapes and you lost your consciousness when you see it";
+                    deathReason.text = "Reason : You typed in the wrong code.";
                     break;
                 }
             case DeathCondition.HotPot:
                 {
                     Debug.Log("Player died due to boiling something for too long.");
-                    deathReason.text = "You boiled the liquid for too long that it evaporated, mixing with the air turning it to a noxious gas";
+                    deathReason.text = "Reason : You left the pot heat up for too long.";
                     break;
                 }
         }

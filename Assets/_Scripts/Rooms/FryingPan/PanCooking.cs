@@ -30,19 +30,22 @@ public class PanCooking : MonoBehaviour
 
     private void Update()
     {
-        if(fryingPan.room.roomElevator.foodObj == foodInPan?.gameObject &&
-           fryingPan.room.roomElevator.foodObj != null)
+        if (foodInPan != null)
         {
-            foodInPan.plateRenderer.enabled = true;
-            foodInPan.drinkRenderer.enabled = true;
-            foodInPan.sideRenderer.enabled = true;
+            if (fryingPan.room.roomElevator.foodObj == foodInPan.gameObject &&
+               fryingPan.room.roomElevator.foodObj != null)
+            {
+                foodInPan.plateRenderer.enabled = true;
+                foodInPan.drinkRenderer.enabled = true;
+                foodInPan.sideRenderer.enabled = true;
 
-            SoundManager.instance.StopSoundEffect(SFXindex);
-            foodInPan = null;
-            isEmpty = true;
-            isCooking = false;
-            isBurning = false;
-            ResetTimer();
+                SoundManager.instance.StopSoundEffect(SFXindex);
+                foodInPan = null;
+                isEmpty = true;
+                isCooking = false;
+                isBurning = false;
+                ResetTimer();
+            }
         }
     }
 
