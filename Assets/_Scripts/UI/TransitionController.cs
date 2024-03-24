@@ -14,6 +14,7 @@ public class TransitionController : MonoBehaviour
         DontDestroyOnLoad(gameObject);
         rayCaster = GetComponent<GraphicRaycaster>();
         rayCaster.enabled = false;
+
         SceneManager.sceneLoaded += OnSceneLoaded;
         LevelManager.OnLevelChanging += StartTransAnim;
         GameManager.OnBackToMenu += StartTransAnim;

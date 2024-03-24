@@ -23,7 +23,7 @@ public class InputButton : MonoBehaviour
         buttonSprite.color = new Color(baseColor.r - amount, baseColor.g - amount, baseColor.b - amount);
     }
 
-    private void OnMouseUpAsButton()
+    private void OnMouseUp()
     {
         buttonSprite.color = new Color(baseColor.r + amount, baseColor.g + amount, baseColor.b + amount);
     }

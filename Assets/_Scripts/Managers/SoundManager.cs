@@ -148,6 +148,12 @@ public class SoundManager : MonoBehaviour
         }
     }
 
+    public void StopAllSFX() {
+        foreach (KeyValuePair<int, AudioSource> sound in playingSounds) {
+            sound.Value.Stop();
+        }
+    }
+
     public void StopAllSounds()
     {
         // Stop the background music

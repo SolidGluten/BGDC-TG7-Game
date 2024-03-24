@@ -181,6 +181,7 @@ MonoBehaviour:
   activeRoomPos: {x: 0, y: 1.1, z: 0}
   roomDistance: 100
   SFXIndex: 10
+  noAcessSFXIndex: 11
 --- !u!1 &126971352
 GameObject:
   m_ObjectHideFlags: 0
@@ -656,9 +657,9 @@ MonoBehaviour:
   orderList: {fileID: 2017795363}
   arrivalTimer: 0
   arrivalTimeIfNone: 3
-  isDrinkAdded: 1
-  isSideDishAdded: 1
-  isFermentedAdded: 1
+  isDrinkAdded: 0
+  isSideDishAdded: 0
+  isFermentedAdded: 0
   simple:
     _spawnChance: 45
     _orderList:

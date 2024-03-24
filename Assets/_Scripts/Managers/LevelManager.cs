@@ -47,20 +47,34 @@ public class LevelManager : MonoBehaviour
     {
         GameManager.currentState = GameState.Playing;
 
+        if (currentLevelIndex == LevelList.Count - 2) { //On day 6
+            WinCanvasManager.Instance.SetWinScreen(true);
+            WinCanvasManager.Instance.SetWinMessage("Day 6 has ended");
+            yield break;
+        }
+
+        if (index >= LevelList.Count) { //After 
+            WinCanvasManager.Instance.SetWinScreen(true);
+            WinCanvasManager.Instance.SetWinMessage("Overtime has ended.");
+            yield break;
+        }
+
         if (OnLevelChanging != null) OnLevelChanging();
 
         yield return new WaitForSeconds(delayBeforeNextLevel);
 
-        if (index == LevelList.Count)
+
+        currentLevelIndex = index;
+        if (currentLevelIndex > CurrentLevelIndexUnlocked)
         {
-            GameManager.instance.BackToMenu();
+            LevelList[index].isAccesible = true;
+            CurrentLevelIndexUnlocked = currentLevelIndex;
+            PlayerPrefs.SetInt("UnlockedLevel", CurrentLevelIndexUnlocked);
         }
-        else
-        {
-            LoadLevel(index);
-        }
+
+        LoadLevel(index);
     }
-        
+
     public void RetryLevel()
     {
         SoundManager.instance.StopAllSounds();
@@ -72,22 +86,15 @@ public class LevelManager : MonoBehaviour
     public void LoadLevel(int index)
     {
         //Load level
-        currentLevelIndex = index;
-        currentLevel = LevelList[currentLevelIndex];
-        LevelList[index].isAccesible = true;
-
+        currentLevel = LevelList[index];
+       
         //Unlock Tutorial Page
         TutorialManager.instance.UnlockPage(LevelList[index]?.tutorialKey);
 
         SceneManager.LoadScene(LevelList[index].sceneBuildIndex);
 
         //Save current level
-        if (currentLevelIndex > CurrentLevelIndexUnlocked)
-        {
-            CurrentLevelIndexUnlocked = currentLevelIndex;
-            PlayerPrefs.SetInt("UnlockedLevel", CurrentLevelIndexUnlocked);
-        }
-
+        
         //Reset game settings
         GeneralSpeed = LevelList[index].generalSpeed;
         MaxOrder = LevelList[index].totalOrders;
