@@ -26,6 +26,7 @@ public class Garden : Generator
         var item = PlantItems.FirstOrDefault(item => string.Compare(item.currentId, id) == 0);
         if (item != null) item.UnlockItem();
         else GameManager.instance.Death(DeathCondition.Garden);
+
     }
 
     public GameObject GeneratePlant(BaseIngredient ingredient, Transform spawnPos)

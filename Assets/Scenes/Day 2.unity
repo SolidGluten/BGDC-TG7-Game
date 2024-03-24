@@ -181,6 +181,7 @@ MonoBehaviour:
   activeRoomPos: {x: 0, y: 1.1, z: 0}
   roomDistance: 100
   SFXIndex: 10
+  noAcessSFXIndex: 11
 --- !u!1 &126971352
 GameObject:
   m_ObjectHideFlags: 0
@@ -430,7 +431,7 @@ MonoBehaviour:
   m_UpscaleRT: 0
   m_PixelSnapping: 1
   m_CropFrameX: 0
-  m_CropFrameY: 0
+  m_CropFrameY: 1
   m_StretchFill: 0
 --- !u!1 &619876473
 GameObject:
@@ -691,6 +692,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   backgroundMusic: {fileID: 8300000, guid: 128d440f349d2624a8d59f349903839d, type: 3}
+  RadioMusic: {fileID: 0}
   soundEffects:
   - {fileID: 8300000, guid: f5254b94e93d9a14ead3ed093453d1ff, type: 3}
   - {fileID: 8300000, guid: be9b6de90b311fc4880942384091c4bc, type: 3}

@@ -63,7 +63,7 @@ public class Item : MonoBehaviour
     public void LockItem() {
         isUnlock = false;
         garden.isSlotOpen = false;
-        garden.RandomizeAllID();
         glassCover.SetActive(true);
+        garden.RandomizeAllID();
     }
 }

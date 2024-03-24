@@ -43,26 +43,22 @@ public class LevelManager : MonoBehaviour
         }
     }
 
+    public void ShowWinScreen()
+    {
+        WinCanvasManager.Instance.SetWinMessage(currentLevel.levelName + " has ended.");
+
+        if (currentLevelIndex != LevelList.Count - 1)
+            WinCanvasManager.Instance.SetWinScreen(true);
+        else
+            WinCanvasManager.Instance.ShowLastWinScreen();
+    
+    }
+
     public IEnumerator ChangeLevel(int index)
     {
-        GameManager.currentState = GameState.Playing;
-
-        if (currentLevelIndex == LevelList.Count - 2) { //On day 6
-            WinCanvasManager.Instance.SetWinScreen(true);
-            WinCanvasManager.Instance.SetWinMessage("Day 6 has ended");
-            yield break;
-        }
-
-        if (index >= LevelList.Count) { //After 
-            WinCanvasManager.Instance.SetWinScreen(true);
-            WinCanvasManager.Instance.SetWinMessage("Overtime has ended.");
-            yield break;
-        }
-
         if (OnLevelChanging != null) OnLevelChanging();
 
         yield return new WaitForSeconds(delayBeforeNextLevel);
-
 
         currentLevelIndex = index;
         if (currentLevelIndex > CurrentLevelIndexUnlocked)
@@ -73,6 +69,7 @@ public class LevelManager : MonoBehaviour
         }
 
         LoadLevel(index);
+        WinCanvasManager.Instance.SetWinScreen(false);
     }
 
     public void RetryLevel()
@@ -109,7 +106,7 @@ public class LevelManager : MonoBehaviour
         CurrentOrderServed++;
         if (CurrentOrderServed >= MaxOrder)
         {
-            StartCoroutine(ChangeLevel(currentLevelIndex + 1));
+            ShowWinScreen();
         }
     }
 }
@@ -129,7 +126,7 @@ public class LevelManager : MonoBehaviour
 [Serializable]
 public class Level
 {
-    [SerializeField] private string levelName;
+    public string levelName;
     public int sceneBuildIndex;
     [Range(1, 5)] public float generalSpeed = 1;
     public int totalOrders;

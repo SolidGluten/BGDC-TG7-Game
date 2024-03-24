@@ -15,6 +15,13 @@ public class OrderChute : MonoBehaviour
         cashierRoom = GetComponentInParent<Room>();
     }
 
+    private void Update()
+    {
+        if (foodHolder == cashierRoom.roomElevator.foodObj && foodHolder != null) {
+            foodHolder = null;
+        }    
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Food") && foodHolder == null)

@@ -33,7 +33,11 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
         if (SceneManager.GetActiveScene().buildIndex != 0)
             SceneManager.LoadScene(0); //starts from the main menu
-        currentState  = GameState.MainMenu;
+    }
+
+    private void Start()
+    {
+        currentState = GameState.MainMenu;
     }
 
     private void Update()
@@ -49,12 +53,14 @@ public class GameManager : MonoBehaviour
 
     public IEnumerator BackToMenu()
     {
-        //Resume();
         Time.timeScale = 1f;
+        currentState = GameState.MainMenu;
         OnBackToMenu?.Invoke();
         Debug.Log("BackToMenu");
+
         yield return new WaitForSeconds(backToMenuDelay);
         SceneManager.LoadScene(0);
+
         WinCanvasManager.Instance.SetWinScreen(false);
         SoundManager.instance.StopAllSounds();
         DeathScreen.instance.SetDeathTrue(false);

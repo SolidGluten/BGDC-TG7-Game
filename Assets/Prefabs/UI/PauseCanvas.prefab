@@ -554,6 +554,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   selectorIcon: {fileID: 3416388640418584647}
   isHovered: 0
+  isHoverable: 0
 --- !u!1001 &4120590105125893174
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -694,6 +695,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   selectorIcon: {fileID: 1020418118866144926}
   isHovered: 0
+  isHoverable: 0
 --- !u!1001 &4484379754967697107
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -830,6 +832,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   selectorIcon: {fileID: 665883628133858427}
   isHovered: 0
+  isHoverable: 0
 --- !u!1001 &6911857303659113616
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -958,6 +961,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   selectorIcon: {fileID: 7560945201316714040}
   isHovered: 0
+  isHoverable: 0
   OnSelectEvent:
     m_PersistentCalls:
       m_Calls:
