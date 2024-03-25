@@ -131,6 +131,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 50262300606202439, guid: 5909ac2cda47d864991f592e49d65f6a, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 1955735878, guid: 7674d7ccae1bcdb4c954f9a622272f29, type: 3}
     - target: {fileID: 296256363804936246, guid: 5909ac2cda47d864991f592e49d65f6a, type: 3}
       propertyPath: m_Name
       value: BookCanvas
@@ -215,6 +219,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1952449742600306355, guid: 5909ac2cda47d864991f592e49d65f6a, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 1955735878, guid: 7674d7ccae1bcdb4c954f9a622272f29, type: 3}
+    - target: {fileID: 6083890877862116272, guid: 5909ac2cda47d864991f592e49d65f6a, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 1955735878, guid: 7674d7ccae1bcdb4c954f9a622272f29, type: 3}
+    - target: {fileID: 6199860655067619176, guid: 5909ac2cda47d864991f592e49d65f6a, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 1955735878, guid: 7674d7ccae1bcdb4c954f9a622272f29, type: 3}
+    - target: {fileID: 7493765872582775719, guid: 5909ac2cda47d864991f592e49d65f6a, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 6992df515144abd4d8fcbec10671c8be, type: 3}
+    - target: {fileID: 9004248913895370077, guid: 5909ac2cda47d864991f592e49d65f6a, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 1955735878, guid: 7674d7ccae1bcdb4c954f9a622272f29, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
