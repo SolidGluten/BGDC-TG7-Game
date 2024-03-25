@@ -2101,6 +2101,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textMesh: {fileID: 327961798094277852}
   garden: {fileID: 1457339980926831060}
+  SFXIndex: 12
 --- !u!1 &8129795564568944240
 GameObject:
   m_ObjectHideFlags: 0

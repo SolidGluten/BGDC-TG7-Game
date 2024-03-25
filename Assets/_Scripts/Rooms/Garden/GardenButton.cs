@@ -9,23 +9,20 @@ public class GardenButton : MonoBehaviour
     public Item gardenItem;
     public GameObject gardenObj;
     public bool isSpawned;
-    public static int amount = 0;
 
     public void OnMouseDown()
     {
-        if (amount > 0) return;
+        if (!gardenItem.isUnlock) return;
+
         gardenObj = gardenItem.garden.GeneratePlant(ingredient, transform);
         gardenObj.GetComponent<Dragable>().SetDrag();
         isSpawned = true;
-        amount++;
     }
 
     private void Update()
     {
         if (Input.GetMouseButtonUp(0))
         {
-            if (gardenObj == null) return;
-
             if (gardenObj == gardenItem.garden.room.roomElevator.foodObj) {
                 gardenObj = null;
                 gardenItem.LockItem();
@@ -34,7 +31,6 @@ public class GardenButton : MonoBehaviour
                 Destroy(gardenObj);
                 gardenItem.LockItem();
             }
-            amount--;
 
             isSpawned = false;
         }
