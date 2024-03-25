@@ -1142,13 +1142,63 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6867948332992307036, guid: c0acc39c4d01217499b661adec2181cd, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7999036543023973350}
   m_SourcePrefab: {fileID: 100100000, guid: c0acc39c4d01217499b661adec2181cd, type: 3}
 --- !u!224 &1921352195043221947 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8252991674434857300, guid: c0acc39c4d01217499b661adec2181cd, type: 3}
   m_PrefabInstance: {fileID: 7503709015537731823}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &3993950738097887155 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6867948332992307036, guid: c0acc39c4d01217499b661adec2181cd, type: 3}
+  m_PrefabInstance: {fileID: 7503709015537731823}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &7999036543023973350
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3993950738097887155}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2690770d68d6bda46beb16246f8ecf53, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  selectorIcon: {fileID: 0}
+  isHovered: 0
+  isHoverable: 0
+  OnClickEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4194933203911973326}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 4140922915186854066}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &4140922915186854066 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5860595868615901277, guid: c0acc39c4d01217499b661adec2181cd, type: 3}
