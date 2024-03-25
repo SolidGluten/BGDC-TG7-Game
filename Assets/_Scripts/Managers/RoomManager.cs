@@ -168,7 +168,9 @@ public class RoomManager : MonoBehaviour
         if (newList[0].roomCode != code)
             SwapRoom(newList, nextRoomIndex, 0); //swaps the next room being activated with the 2nd roomn in the list
 
-        DragNDrop.DragObject?.GetComponent<Dragable>().ResetPosition();
+        if (DragNDrop.DragObject != null) {
+            DragNDrop.DragObject.GetComponent<Dragable>().ResetPosition();
+        }
 
         currentActiveRoom = nextRoom;
         activeRoomCode = nextRoom.roomCode;
