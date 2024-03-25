@@ -15,7 +15,7 @@ public class SoundManager : MonoBehaviour
 
     public float MusicVolume;
     public float SFXVolume;
-    private bool isBGMPlaying = false;
+    private bool isBGMset = false;
     // Dictionary to store the playing AudioSource for each sound effect index
     private Dictionary<int, AudioSource> playingSounds = new Dictionary<int, AudioSource>();
 
@@ -41,18 +41,21 @@ public class SoundManager : MonoBehaviour
         SFXVolume = PlayerPrefs.GetFloat("SFXVolume", 0.3f);
         SetMusicVolume(MusicVolume);
         SetSFXVolume(SFXVolume);
-        musicSource.clip = RadioMusic;
         // Play background music on start
-        PlayBackgroundMusic();
+        if(isBGMset == true)
+        {
+            PlayBackgroundMusic();
+        }
+        else
+        {
+            SetFirstBGM();
+        }
     }
 
     public void PlayBackgroundMusic()
-    {
-        ChangeBackgroundMusic();
-        
+    {   
         musicSource.loop = true;
         musicSource.Play();
-        isBGMPlaying = true;
     }
 
     public void ChangeBackgroundMusic()
@@ -65,8 +68,12 @@ public class SoundManager : MonoBehaviour
         {
             musicSource.clip = RadioMusic;
         }
+        PlayBackgroundMusic();
     }
-
+    public void SetFirstBGM()
+    {
+        musicSource.clip = backgroundMusic;
+    }
     public void PlaySoundEffect(int index)
     {
         // Check if the index is valid
