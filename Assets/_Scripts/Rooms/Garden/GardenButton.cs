@@ -21,7 +21,7 @@ public class GardenButton : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetMouseButtonUp(0))
+        if (Input.GetMouseButtonUp(0) && gardenItem.isUnlock)
         {
             if (gardenObj == gardenItem.garden.room.roomElevator.foodObj) {
                 gardenObj = null;
