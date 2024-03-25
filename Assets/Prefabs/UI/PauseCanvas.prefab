@@ -1169,7 +1169,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2690770d68d6bda46beb16246f8ecf53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectorIcon: {fileID: 0}
+  selectorIcon: {fileID: 7110089731842907297}
   isHovered: 0
   isHoverable: 0
   OnClickEvent:
@@ -1202,5 +1202,10 @@ MonoBehaviour:
 --- !u!1 &4140922915186854066 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5860595868615901277, guid: c0acc39c4d01217499b661adec2181cd, type: 3}
+  m_PrefabInstance: {fileID: 7503709015537731823}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &7110089731842907297 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 760716255142597710, guid: c0acc39c4d01217499b661adec2181cd, type: 3}
   m_PrefabInstance: {fileID: 7503709015537731823}
   m_PrefabAsset: {fileID: 0}

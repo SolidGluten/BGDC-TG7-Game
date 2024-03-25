@@ -19,8 +19,8 @@ public class OrderList : MonoBehaviour
         if (addDrink) order.SetRandomDrink();
         if (addFermented) {
             float rand = Random.Range(0f, 1f);
-            if(rand < .333f) order.IsOrderFermented = false;
-            else order.IsOrderFermented = true;
+            if(rand < .4f) order.IsOrderFermented = true;
+            else order.IsOrderFermented = false;
         }
         order.orderList = this;
         activeOrders.Add(order);

@@ -230,7 +230,7 @@ GameObject:
   - component: {fileID: 7406601160946445662}
   - component: {fileID: 1979525327172008555}
   - component: {fileID: 2872987357294702847}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Order Chute
   m_TagString: Untagged
   m_Icon: {fileID: 0}

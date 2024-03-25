@@ -227,7 +227,7 @@ GameObject:
   - component: {fileID: 3741929995149388551}
   - component: {fileID: 2130918158225866122}
   - component: {fileID: 1862974351244433250}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Left Pan
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -379,6 +379,9 @@ MonoBehaviour:
   isEmpty: 1
   isCooking: 0
   isBurning: 0
+  readySprite: {fileID: 0}
+  cookSprite: {fileID: 0}
+  emptySprite: {fileID: 0}
   CookTime: 2
   BurnTime: 8
   outputPos: {fileID: 9083900115120784823}

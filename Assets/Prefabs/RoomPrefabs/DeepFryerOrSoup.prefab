@@ -801,7 +801,7 @@ RectTransform:
   m_GameObject: {fileID: 3424179213356265596}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 0.9, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3188012146471927802}
@@ -1125,8 +1125,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.25, y: 0}
   m_AnchorMax: {x: 0.75, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 4.5}
+  m_SizeDelta: {x: 0, y: -7}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3169440962848671609
 CanvasRenderer:
@@ -1156,7 +1156,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -1048813361, guid: 38560cffd683bed46b10f7d3ec113842, type: 3}
+  m_Sprite: {fileID: 1162521314, guid: decf5bd5ca2b3ee4facb7f2257a623f3, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1248,7 +1248,7 @@ GameObject:
   - component: {fileID: 4500773555450335391}
   - component: {fileID: 4677667315910250836}
   - component: {fileID: 7458165782174702596}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Pot
   m_TagString: Untagged
   m_Icon: {fileID: 0}

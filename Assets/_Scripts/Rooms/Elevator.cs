@@ -42,4 +42,9 @@ public class Elevator : MonoBehaviour
             }
         }
     }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        foodObj = null;
+    }
 }

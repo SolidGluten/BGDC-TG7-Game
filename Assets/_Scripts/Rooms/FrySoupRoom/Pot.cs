@@ -15,13 +15,9 @@ public class Pot : MonoBehaviour
     private void Update()
     {
         if (frySoup.currentType == PotType.Water)
-        {
             potContent.sprite = waterPot;
-        }
         else
-        {
             potContent.sprite = oilSprite;
-        }
 
         if (frySoup.room.roomElevator.foodObj == foodInPot?.gameObject &&
            frySoup.room.roomElevator.foodObj != null)

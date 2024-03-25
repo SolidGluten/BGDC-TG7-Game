@@ -51,23 +51,20 @@ public class LevelManager : MonoBehaviour
             WinCanvasManager.Instance.SetWinScreen(true);
         else
             WinCanvasManager.Instance.ShowLastWinScreen();
-    
+
+        LevelList[currentLevelIndex + 1].isAccesible = true;
+        CurrentLevelIndexUnlocked = currentLevelIndex + 1;
+        PlayerPrefs.SetInt("UnlockedLevel", CurrentLevelIndexUnlocked);
     }
 
     public IEnumerator ChangeLevel(int index)
     {
         if (OnLevelChanging != null) OnLevelChanging();
+        GameManager.currentState = GameState.Loading;
 
         yield return new WaitForSeconds(delayBeforeNextLevel);
 
         currentLevelIndex = index;
-        if (currentLevelIndex > CurrentLevelIndexUnlocked)
-        {
-            LevelList[index].isAccesible = true;
-            CurrentLevelIndexUnlocked = currentLevelIndex;
-            PlayerPrefs.SetInt("UnlockedLevel", CurrentLevelIndexUnlocked);
-        }
-
         LoadLevel(index);
         WinCanvasManager.Instance.SetWinScreen(false);
     }
@@ -76,7 +73,7 @@ public class LevelManager : MonoBehaviour
     {
         SoundManager.instance.StopAllSounds();
         StartCoroutine(ChangeLevel(currentLevelIndex));
-        GameManager.instance.Resume();
+        Time.timeScale = 1.0f;
         SoundManager.instance.PlayBackgroundMusic();
     }
 

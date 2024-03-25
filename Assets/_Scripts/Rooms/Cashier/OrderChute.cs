@@ -15,13 +15,6 @@ public class OrderChute : MonoBehaviour
         cashierRoom = GetComponentInParent<Room>();
     }
 
-    private void Update()
-    {
-        if (foodHolder == cashierRoom.roomElevator.foodObj && foodHolder != null) {
-            foodHolder = null;
-        }    
-    }
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Food"))
@@ -30,7 +23,7 @@ public class OrderChute : MonoBehaviour
             {
                 foodHolder = collision.gameObject;
                 cashierRoom.roomElevator.foodObj = null;
-                foodHolder.GetComponent<Dragable>()?.SetLastPosition(transform);
+                foodHolder.GetComponent<Dragable>().SetLastPosition(transform);
             }
             else
             {
@@ -53,6 +46,11 @@ public class OrderChute : MonoBehaviour
                 #endregion
             }
         }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        foodHolder = null;
     }
 
     public void SendOrder()

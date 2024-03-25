@@ -1579,7 +1579,8 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7789034786547515916, guid: 55047f4a381975e4581b3e75102f5aed, type: 3}
     m_RemovedGameObjects:
     - {fileID: 2192278883675233955, guid: 55047f4a381975e4581b3e75102f5aed, type: 3}
     m_AddedGameObjects: []
@@ -1755,13 +1756,13 @@ PrefabInstance:
 
         Enter the
         code of the corresponding vegetable into the panel. Drag them out of the
-        case and into the eleveator.
+        case and into the elevator.
 
 
         WARNING:
 
-        Do not enter an
-        invalid code.'
+        Do not enter an invalid
+        code.'
       objectReference: {fileID: 0}
     - target: {fileID: 2553454950382106418, guid: caf2e1224ca132b45ab01b73ae352b19, type: 3}
       propertyPath: pages.Array.data[6].Description
@@ -1789,20 +1790,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2553454950382106418, guid: caf2e1224ca132b45ab01b73ae352b19, type: 3}
       propertyPath: pages.Array.data[8].Description
-      value: 'This is where you will either Fry your ingridients or make Soups with
-        your ingridients.
+      value: 'This is where you will either Fry your ingredients or make Soups with
+        your ingredients.
 
 
         To choose between Frying or Soup, click the Oil
         or Water button respectively.
 
-        [TBC]
+        You then need to press the power button
+        to start heating it up. You will be able to fry/make soup with your ingredients
+        after it has passed the threshold by moving them into the pot where then
+        you can put them into the elevator.
 
 
         WARNING:
 
-        Do
-        not let the pot become too hot.'
+        Do not let
+        the pot become too hot.'
       objectReference: {fileID: 0}
     - target: {fileID: 2553454950382106418, guid: caf2e1224ca132b45ab01b73ae352b19, type: 3}
       propertyPath: pages.Array.data[9].Description
@@ -1810,7 +1814,7 @@ PrefabInstance:
 
 
         Drag your meat
-        into the top fo the machine. The aged meat will appear on the output where
+        into the top of the machine. The aged meat will appear on the output where
         then you can put them into the elevator.'
       objectReference: {fileID: 0}
     - target: {fileID: 2553454950382106418, guid: caf2e1224ca132b45ab01b73ae352b19, type: 3}
@@ -1828,6 +1832,7 @@ PrefabInstance:
         = Yellow + Blue
 
         Purple = Blue + Red
+
 
         After you have gotten
         the color you want, click the button on the drink chute, where then you can
