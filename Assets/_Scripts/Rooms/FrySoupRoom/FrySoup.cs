@@ -32,7 +32,7 @@ public class FrySoup : Processor
         if(currTemperature >= maxTemperature)
         {
             GameManager.instance.Death(DeathCondition.HotPot);
-            TurnOffHeat();
+            ResetHeat();
         }
     }
 
