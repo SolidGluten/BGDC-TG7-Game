@@ -23,15 +23,22 @@ public class BookManager : MonoBehaviour
 
     private void OnEnable()
     {
+        if (GameManager.currentState == GameState.PopupOpen)
+        {
+            this.gameObject.SetActive(false);
+            return;
+        }
         GameManager.currentState = GameState.PopupOpen;
+        Time.timeScale = 0f;
     }
 
     private void OnDisable()
     {
         GameManager.currentState = GameState.Playing;
+        Time.timeScale = 1f;
     }
 
-        private void Update()
+    private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape)) {
             gameObject.SetActive(false);

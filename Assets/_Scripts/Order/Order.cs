@@ -163,16 +163,16 @@ public class Order : MonoBehaviour
         switch (OrderSideDish)
         {
             case SideDish.CutPotato:
-                sidedish = "Potato";
+                sidedish = "CutPotato";
                 break;
             case SideDish.CutMushroom:
-                sidedish = "Shroom";
+                sidedish = "CutShroom";
                 break;
             case SideDish.CutCarrot:
-                sidedish = "Carrot";
+                sidedish = "CutCarrot";
                 break;
             case SideDish.CutCorn:
-                sidedish = "Corn";
+                sidedish = "CutCorn";
                 break;
             default:
                 sidedish = "";

@@ -555,7 +555,7 @@ MonoBehaviour:
   isSideDishAdded: 1
   isFermentedAdded: 1
   simple:
-    _spawnChance: 40
+    _spawnChance: 35
     _orderList:
     - {fileID: 11400000, guid: 312cf49d68b3705429bb3b1c410594c6, type: 2}
     - {fileID: 11400000, guid: 9cfc5be720c9df14bbdc0f2bbc0c3dcb, type: 2}
@@ -566,7 +566,7 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 40dd5da95b4ecf7419c6927ebf6bc9d4, type: 2}
     - {fileID: 11400000, guid: 40dd5da95b4ecf7419c6927ebf6bc9d4, type: 2}
   mediocre:
-    _spawnChance: 35
+    _spawnChance: 30
     _orderList:
     - {fileID: 11400000, guid: 0f6131dfde60ec445a7add1f62421c59, type: 2}
     - {fileID: 11400000, guid: 1b1f7ecfc39b113478c2713e48978efb, type: 2}
@@ -585,7 +585,7 @@ MonoBehaviour:
     - {fileID: 11400000, guid: e3d0c12066345db47918b311eac0502a, type: 2}
     - {fileID: 11400000, guid: fc6d8375e1d16154e85eb02753ffdbc3, type: 2}
   advance:
-    _spawnChance: 25
+    _spawnChance: 35
     _orderList:
     - {fileID: 11400000, guid: 1c80e65e87b20d049b9f6713669ffd11, type: 2}
     - {fileID: 11400000, guid: 57b19f042dd91424887f93d31ff0f107, type: 2}

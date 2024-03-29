@@ -46,7 +46,7 @@ public class OrderManager : MonoBehaviour
     }
 
     private float GetRandomArrival() => LevelManager.instance.MaxPatience + UnityEngine.Random.Range(-10, 0);
-
+    
     private FoodScriptable GetRandomDish()
     {
         //Pick random tier

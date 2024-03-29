@@ -30,6 +30,11 @@ public class TutorialManager : MonoBehaviour
 
     private void OnEnable()
     {
+        if(GameManager.currentState == GameState.PopupOpen)
+        {
+            this.gameObject.SetActive(false);
+            return;
+        }
         GameManager.currentState = GameState.PopupOpen;
         Time.timeScale = 0f;
     }
@@ -37,7 +42,6 @@ public class TutorialManager : MonoBehaviour
     private void OnDisable()
     {
         GameManager.currentState = GameState.Playing;
-        Time.timeScale = 1f;
         Time.timeScale = 1f;
     }
 

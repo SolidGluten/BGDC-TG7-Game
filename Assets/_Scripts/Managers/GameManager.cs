@@ -74,12 +74,7 @@ public class GameManager : MonoBehaviour
         currentState = GameState.Paused;
         Time.timeScale = 0f;
     }
-    public void RecipeBooking()
-    {
-        isBooking = !isBooking;
-        if (isBooking) Pause();
-        else Resume();
-    }
+
     public void Resume()
     {
         SoundManager.instance.PauseAllSounds(false);
