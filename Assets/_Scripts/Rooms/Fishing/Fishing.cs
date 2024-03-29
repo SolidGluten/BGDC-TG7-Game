@@ -60,6 +60,8 @@ public class Fishing : Generator
         if (currentTimeBeforeDeath >= maxTimeBeforeDeath && ingredientHolder.ingredient != null)
         {
             GameManager.instance.Death(DeathCondition.Fishing);
+            currentFishTime = 0;
+            currentTimeBeforeDeath = 0;
         }
     }
     

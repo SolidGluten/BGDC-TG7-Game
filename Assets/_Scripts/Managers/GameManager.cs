@@ -85,7 +85,7 @@ public class GameManager : MonoBehaviour
 
     public void Death(DeathCondition cond)
     {
-        if (currentState == GameState.Dead) return;
+        if (currentState == GameState.Dead && currentState == GameState.Loading) return;
 
         Time.timeScale = 0;
         currentState = GameState.Dead;
