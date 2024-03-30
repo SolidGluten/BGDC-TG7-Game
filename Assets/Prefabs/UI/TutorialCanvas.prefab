@@ -478,7 +478,7 @@ MonoBehaviour:
   - tutorialImg: {fileID: 21300000, guid: 12e0d8a6b508cc949834874e87487adb, type: 3}
     isUnlocked: 0
     Key: default
-  - tutorialImg: {fileID: 21300000, guid: 1060a1012a2fc46489a8f4b31cb6df71, type: 3}
+  - tutorialImg: {fileID: 21300000, guid: bb4b9d03a8e67144598dc6bc22c1d254, type: 3}
     isUnlocked: 0
     Key: default
   - tutorialImg: {fileID: 21300000, guid: c056b17f0cef3a74196cb01886084d4f, type: 3}

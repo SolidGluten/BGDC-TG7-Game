@@ -9250,6 +9250,18 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8163102059592086767, guid: 08241b73de4322848a40255dc632fe21, type: 3}
+      propertyPath: m_Colors.m_HighlightedColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8163102059592086767, guid: 08241b73de4322848a40255dc632fe21, type: 3}
+      propertyPath: m_Colors.m_HighlightedColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8163102059592086767, guid: 08241b73de4322848a40255dc632fe21, type: 3}
+      propertyPath: m_Colors.m_HighlightedColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8163102059592086767, guid: 08241b73de4322848a40255dc632fe21, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 2
       objectReference: {fileID: 0}
@@ -11707,6 +11719,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2553454950382106418, guid: caf2e1224ca132b45ab01b73ae352b19, type: 3}
+      propertyPath: pages.Array.data[0].tutorialImg
+      value: 
+      objectReference: {fileID: 21300000, guid: 3418be053fb8c5f41badf7ced1976ec3, type: 3}
     - target: {fileID: 6814908562248990672, guid: caf2e1224ca132b45ab01b73ae352b19, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -11791,6 +11807,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TutorialCanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 7748441023548178255, guid: caf2e1224ca132b45ab01b73ae352b19, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 3418be053fb8c5f41badf7ced1976ec3, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

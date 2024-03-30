@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab949c4117759504a8312a24b3a25fe2, type: 3}
   m_Name: OrangeDrink
   m_EditorClassIdentifier: 
-  _foodName: OrangeDrink
+  _foodName: Orange Drink
   _foodSprite: {fileID: 21300000, guid: fbc2c1249b93cc24b8fcebd3b7f873c1, type: 3}
   _foodType: 4
   _drink: 2
