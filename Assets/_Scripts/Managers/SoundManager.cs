@@ -37,8 +37,8 @@ public class SoundManager : MonoBehaviour
     {
         // Set up the background music AudioSource
         musicSource = gameObject.AddComponent<AudioSource>();
-        MusicVolume = PlayerPrefs.GetFloat("MusicVolume", 0.3f);
-        SFXVolume = PlayerPrefs.GetFloat("SFXVolume", 0.3f);
+        MusicVolume = PlayerPrefs.GetFloat("MusicVolume", 0.7f);
+        SFXVolume = PlayerPrefs.GetFloat("SFXVolume", 0.7f);
         SetMusicVolume(MusicVolume);
         SetSFXVolume(SFXVolume);
         // Play background music on start

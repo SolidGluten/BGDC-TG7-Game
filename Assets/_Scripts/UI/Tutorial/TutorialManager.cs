@@ -4,11 +4,11 @@ using System.Collections.Generic;
 using System.Linq;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class TutorialManager : MonoBehaviour
 {
-    public TextMeshProUGUI titleUI;
-    public TextMeshProUGUI contentUI;
+    public Image tutorialPage;
 
     public List<TutorialPageDetails> pages = new List<TutorialPageDetails>();
     public int currentPageIndex = 0;
@@ -35,7 +35,7 @@ public class TutorialManager : MonoBehaviour
             this.gameObject.SetActive(false);
             return;
         }
-
+        
         if (GameManager.currentState != GameState.Paused)
         {
             GameManager.currentState = GameState.PopupOpen;
@@ -88,8 +88,7 @@ public class TutorialManager : MonoBehaviour
     }
 
     public void UpdatePage(int pageIdx){
-        titleUI.text = pages[pageIdx].Title;
-        contentUI.text = pages[pageIdx].Description;
+        tutorialPage.sprite = pages[pageIdx].tutorialImg;
     }
 
     public void UnlockPage(string key) {
@@ -108,9 +107,7 @@ public class TutorialManager : MonoBehaviour
 
 [Serializable]
 public class TutorialPageDetails {
-    public string Title;
-    [TextAreaAttribute(5, 15)]
-    public string Description;
+    public Sprite tutorialImg;
     public bool isUnlocked = false;
     public string Key = "default";
     public void Unlock() {
