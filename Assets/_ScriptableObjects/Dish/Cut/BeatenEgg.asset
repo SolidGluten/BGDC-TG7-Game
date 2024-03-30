@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab949c4117759504a8312a24b3a25fe2, type: 3}
   m_Name: BeatenEgg
   m_EditorClassIdentifier: 
-  _foodName: BeatenEgg
+  _foodName: Beaten Egg
   _foodSprite: {fileID: 21300000, guid: 80eee212f5365c547bb772ddd13118d9, type: 3}
   _foodType: 1
   _drink: 0

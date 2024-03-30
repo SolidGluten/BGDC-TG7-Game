@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab949c4117759504a8312a24b3a25fe2, type: 3}
   m_Name: FriedCarrot
   m_EditorClassIdentifier: 
-  _foodName: FriedCarrot
+  _foodName: Fried Carrot
   _foodSprite: {fileID: 21300000, guid: bfe223f98ca0a9742bdd178bb4042caf, type: 3}
   _foodType: 2
   _drink: 0

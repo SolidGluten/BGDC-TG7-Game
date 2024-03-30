@@ -13,7 +13,7 @@ public class Elevator : MonoBehaviour
         foodPos = GetComponentsInChildren<Transform>()[1];  
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.CompareTag("Food"))
         {
@@ -45,6 +45,9 @@ public class Elevator : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        foodObj = null;
+        if(collision.gameObject == foodObj)
+        {
+            foodObj = null;
+        }
     }
 }

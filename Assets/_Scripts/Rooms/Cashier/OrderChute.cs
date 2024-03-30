@@ -50,7 +50,10 @@ public class OrderChute : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        foodHolder = null;
+        if(collision.gameObject == foodHolder)
+        {
+            foodHolder = null;
+        }
     }
 
     public void SendOrder()

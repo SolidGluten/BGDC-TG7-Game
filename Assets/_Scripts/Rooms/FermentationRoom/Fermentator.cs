@@ -9,7 +9,6 @@ public class Fermentator : MonoBehaviour
     FermentationRoom fermentRoom;
 
     public List<FoodScriptable> fermentFoodList = new List<FoodScriptable>();
-
     public Transform outputPos;
 
     private int SFXIndex = 17;

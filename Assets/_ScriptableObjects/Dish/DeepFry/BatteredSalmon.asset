@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab949c4117759504a8312a24b3a25fe2, type: 3}
   m_Name: BatteredSalmon
   m_EditorClassIdentifier: 
-  _foodName: FriedSalmon
+  _foodName: Fried Salmon
   _foodSprite: {fileID: 21300000, guid: 86c68f847221cb94d8a8b0704e11a09b, type: 3}
   _foodType: 2
   _drink: 0

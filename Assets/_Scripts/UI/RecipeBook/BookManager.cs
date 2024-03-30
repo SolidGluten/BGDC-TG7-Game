@@ -28,14 +28,22 @@ public class BookManager : MonoBehaviour
             this.gameObject.SetActive(false);
             return;
         }
-        GameManager.currentState = GameState.PopupOpen;
-        Time.timeScale = 0f;
+
+        if (GameManager.currentState != GameState.Paused)
+        {
+            GameManager.currentState = GameState.PopupOpen;
+            Time.timeScale = 0f;
+        }
     }
 
     private void OnDisable()
     {
-        GameManager.currentState = GameState.Playing;
-        Time.timeScale = 1f;
+        
+        if(GameManager.currentState != GameState.Paused)
+        {
+            GameManager.currentState = GameState.Playing;
+            Time.timeScale = 1f;
+        } 
     }
 
     private void Update()

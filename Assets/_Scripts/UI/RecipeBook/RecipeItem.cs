@@ -15,7 +15,7 @@ public class RecipeItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     private void Awake()
     {
         recipeImg.sprite = food._foodSprite;
-        textMesh.text = food.name;
+        textMesh.text = food._foodName;
     }
 
     private void Start()

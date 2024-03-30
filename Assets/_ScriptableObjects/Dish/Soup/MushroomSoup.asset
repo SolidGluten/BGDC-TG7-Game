@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab949c4117759504a8312a24b3a25fe2, type: 3}
   m_Name: MushroomSoup
   m_EditorClassIdentifier: 
-  _foodName: MushroomSoup
+  _foodName: Mushroom Soup
   _foodSprite: {fileID: 21300000, guid: 16f795a8b1983a5499860d6b8e4319b5, type: 3}
   _foodType: 2
   _drink: 0

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab949c4117759504a8312a24b3a25fe2, type: 3}
   m_Name: MincedPorkchop
   m_EditorClassIdentifier: 
-  _foodName: MincedPorkchop
+  _foodName: Minced Porkchop
   _foodSprite: {fileID: 21300000, guid: f8b6949c0db13a747954891ccf583b03, type: 3}
   _foodType: 0
   _drink: 0

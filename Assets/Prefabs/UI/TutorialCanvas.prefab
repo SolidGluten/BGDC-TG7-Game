@@ -452,7 +452,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: b854a82f15861834e95e0423fcc25fc2, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ec23431e131756348888de60710442c9, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -764,47 +764,47 @@ MonoBehaviour:
       red button is special, in that it will not send your food to a room, rather
       it will delete it instead, be careful!
 
-      
 
-      New entries will be
-      added as you unlocked each room.'
+
+      New entries will be added as
+      you unlocked each room.'
     isUnlocked: 0
     Key: default
   - Title: CASHIER ROOM
     Description: 'This is where you will see upcoming orders and where you''ll send
       food to complete those orders.
 
-      
 
-      Put the food onto the tray
-      and then click the bell.
 
-      
+      Put the food onto the tray and then
+      click the bell.
+
+
 
       An order comes in 3 parts:
 
-      The
-      Main Dish, which can either be normal or aged.
+      The Main Dish, which
+      can either be normal or aged.
 
-      The Side, which can
-      be one of the 4 cut vegetables.
+      The Side, which can be one of the 4 cut
+      vegetables.
 
-      The Drink, which can be one of the
-      6 colors.
+      The Drink, which can be one of the 6 colors.
 
-      
 
-      Move a Side/Drink onto a Main Dish to combine them
-      together. Not all orders have Sides or Drinks.
 
-      
+      Move
+      a Side/Drink onto a Main Dish to combine them together. Not all orders have
+      Sides or Drinks.
+
+
 
       WARNING:
 
-      Don''t
-      send the wrong food.
+      Don''t send the wrong food.
 
-      Don''t run out of time.'
+      Don''t
+      run out of time.'
     isUnlocked: 0
     Key: default
   - Title: STORAGE ROOM
@@ -812,7 +812,7 @@ MonoBehaviour:
 
       This is where you will get your raw meats.
 
-      
+
 
       Just
       drag the thing you want from the boxes and then put them into the elevator.'
@@ -821,13 +821,13 @@ MonoBehaviour:
   - Title: FISHING ROOM
     Description: 'This is where you will get your raw seafoods.
 
-      
 
-      Click
-      the button with the corresponding seafood. The seafood you chose will be caught
+
+      Click the
+      button with the corresponding seafood. The seafood you chose will be caught
       after a small delay, which then you can put them into the elevator.
 
-      
+
 
       WARNING:
 
@@ -838,30 +838,30 @@ MonoBehaviour:
   - Title: GARDEN ROOM
     Description: 'This is where you will get your raw vegetables.
 
-      
+
 
       Enter
       the code of the corresponding vegetable into the panel. Drag them out of the
       case and into the eleveator.
 
-      
+
 
       WARNING:
 
-      Do not enter
-      an invalid code.'
+      Do not enter an invalid
+      code.'
     isUnlocked: 0
     Key: default
   - Title: PAN ROOM
     Description: 'This is where you will cook your ingredients in a pan.
 
-      
+
 
       Drag
       your ingredient into the pan. Your cooked ingredient will be ready after a
       small delay, which then you can put them into the elevator.
 
-      
+
 
       WARNING:
 
@@ -872,25 +872,25 @@ MonoBehaviour:
   - Title: CUTTING ROOM
     Description: 'This is where you will cut your ingredients.
 
-      
 
-      Drag
-      your ingredient into the cutting board. Drag the knife over the ingredient
-      to cut it and then you can put them into the elevator.'
+
+      Drag your
+      ingredient into the cutting board. Drag the knife over the ingredient to cut
+      it and then you can put them into the elevator.'
     isUnlocked: 0
     Key: day2
   - Title: POT ROOM
     Description: 'This is where you will either Fry your ingridients or make Soups
       with your ingridients.
 
-      
 
-      To choose between Frying or Soup, click
-      the Oil or Water button respectively.
+
+      To choose between Frying or Soup, click the
+      Oil or Water button respectively.
 
       [TBC]
 
-      
+
 
       WARNING:
 
@@ -901,21 +901,21 @@ MonoBehaviour:
   - Title: FERMENTING ROOM
     Description: 'This is where you will age your raw meats.
 
-      
 
-      Drag
-      your meat into the top fo the machine. The aged meat will appear on the output
-      where then you can put them into the elevator.'
+
+      Drag your meat
+      into the top fo the machine. The aged meat will appear on the output where
+      then you can put them into the elevator.'
     isUnlocked: 0
     Key: day4
   - Title: DRINK ROOM
     Description: 'This is where you will make your drinks.
 
-      
 
-      Click
-      the button of the color you want. If it isn''t here, it is probably a combination
-      drink. The recipes of the combinations are:
+
+      Click the button
+      of the color you want. If it isn''t here, it is probably a combination drink.
+      The recipes of the combinations are:
 
       Orange = Red + Yellow
 
@@ -1071,7 +1071,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: a4bbc59a9ce0eeb4da1fb2e9e903909a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9add455cf38f10d43b3ecb7c8b57320b, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
